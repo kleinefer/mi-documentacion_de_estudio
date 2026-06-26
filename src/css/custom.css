@@ -1,0 +1,143 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+/**
+ * Tema cálido y cómodo para lectura prolongada
+ */
+
+:root {
+  /* Colores principales */
+  --ifm-color-primary: #8b5e3c;
+  --ifm-color-primary-dark: #7a5235;
+  --ifm-color-primary-darker: #704c31;
+  --ifm-color-primary-darkest: #5c3f29;
+  --ifm-color-primary-light: #9a6b47;
+  --ifm-color-primary-lighter: #a77753;
+  --ifm-color-primary-lightest: #bb9172;
+
+  /* Fondo claro */
+  --ifm-background-color: #FDFBF7;
+  --ifm-background-surface-color: #ad9f7d;
+
+  /* Texto */
+  --ifm-font-color-base: #e6e4e3;
+  --ifm-heading-color: #2B1E17;
+
+  --ifm-code-font-size: 95%;
+}
+
+/* Fondo general */
+html,
+body {
+  background-color: #FDFBF7;
+  color: #2B1E17;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #FDFBF7;
+  box-shadow: 0 1px 8px rgba(43, 30, 23, 0.08);
+}
+
+/* Links del navbar */
+.navbar__link,
+.navbar__title {
+  color: #2B1E17 !important;
+}
+
+/* Banner principal */
+.hero--primary {
+  background: #dbd7cd !important;
+  color: #2B1E17 !important;
+}
+
+/* Título principal */
+.hero__title {
+  color: #2B1E17 !important;
+}
+
+/* Subtítulo */
+.hero__subtitle {
+  color: #4A3428 !important;
+}
+
+/* Botón Documentación */
+.button--secondary {
+  background-color: #8b5e3c !important;
+  border-color: #8b5e3c !important;
+  color: #ffffff !important;
+}
+
+.button--secondary:hover {
+  background-color: #704c31 !important;
+  border-color: #704c31 !important;
+}
+
+/* Footer */
+.footer {
+  background-color: #3d3930;
+  color: #2B1E17;
+}
+
+/* ===== MODO OSCURO ===== */
+
+[data-theme='dark'] {
+  --ifm-color-primary: #D4A373;
+
+  /* Fondo negro real */
+  --ifm-background-color: #000000;
+  --ifm-background-surface-color: #111111;
+
+  /* Texto claro */
+  --ifm-font-color-base: #FFFFFF;
+  --ifm-heading-color: #FFFFFF;
+}
+
+/* Fondo negro */
+[data-theme='dark'] body,
+[data-theme='dark'] html {
+  background-color: #000000;
+}
+
+/* Navbar negro */
+[data-theme='dark'] .navbar {
+  background-color: #000000;
+}
+
+/* Banner negro */
+[data-theme='dark'] .hero--primary {
+  background-color: #111111 !important;
+  color: #FFFFFF !important;
+}
+
+/* Footer negro */
+[data-theme='dark'] .footer {
+  background-color: #000000;
+}
+
+/* Tarjetas */
+[data-theme='dark'] .card {
+  background-color: #111111;
+  border: 1px solid #222222;
+}
+
+/* Botón en modo oscuro */
+[data-theme='dark'] .button--secondary {
+  background-color: #D4A373 !important;
+  color: #000000 !important;
+}
+
+[data-theme='dark'] {
+  --ifm-font-color-base: #e6e6e6;
+  --ifm-heading-color: #ffffff;
+
+  --ifm-color-content: #e6e6e6;
+  --ifm-link-color: #D4A373;
+  --ifm-link-hover-color: #bb8a5a;
+}
+
+
