@@ -1,0 +1,297 @@
+---
+sidebar_position: 3
+title: Caracteres
+---
+
+## Caracteres básicos de Markdown
+
+- Los `#` definen los tamaños de los títulos.  
+  Entre más uses, más pequeño será el texto.
+
+  **Ejemplo:**
+
+  - `# Título grande`
+  - `## Título mediano`
+  - `### Título pequeño`
+
+---
+
+- El guion `-` crea viñetas.
+
+  **Ejemplo:**
+
+  - Ejemplo de viñeta
+    - Si agregas dos espacios antes del guion, obtienes una subviñeta.
+
+---
+
+- Los asteriscos `**` sirven para poner texto en **negrilla**.
+
+  **Ejemplo:**
+
+  `**Texto en negrilla**`
+
+  Resultado:
+
+  **Texto en negrilla**
+
+---
+
+- Las comillas invertidas `` ` `` se usan para mostrar texto en un recuadro de código.
+
+  **Ejemplo:**
+
+  `` `texto en recuadro` ``
+
+  Resultado:
+
+  `texto en recuadro`
+
+---
+
+- Para bloques de código más grandes, usa tres comillas invertidas.
+
+**Ejemplo:**
+
+```javascript
+function saludo() {
+  console.log("¡Hola, mundo!");
+}
+
+saludo();
+```
+
+---
+
+- Los corchetes y paréntesis `[ ]( )` sirven para crear enlaces.
+
+**Ejemplo:**
+
+```md
+[Google](https://www.google.com)
+```
+
+Resultado:
+
+[Google](https://www.google.com)
+
+---
+
+- La combinación `![ ]( )` se usa para insertar imágenes.
+
+**Ejemplo:**
+
+```md
+![Texto alternativo](/img/imagen.png)
+```
+
+---
+
+- Los números seguidos de un punto crean listas ordenadas.
+
+**Ejemplo:**
+
+1. Primer punto
+2. Segundo punto
+3. Tercer punto
+
+---
+
+- Los guiones bajos dobles `__` o los asteriscos dobles `**` también sirven para poner texto en **negrilla**.
+
+**Ejemplo:**
+
+```md
+__texto__
+```
+
+Resultado:
+
+**texto**
+
+---
+
+- Los guiones bajos simples `_` o los asteriscos `*` ponen texto en *cursiva*.
+
+**Ejemplo:**
+
+```md
+_texto_
+```
+
+Resultado:
+
+*texto*
+
+---
+
+- El símbolo `>` crea citas.
+
+**Ejemplo:**
+
+```md
+> Esto es una cita
+```
+
+Resultado:
+
+> Esto es una cita
+
+---
+
+- Las tablas se crean usando `|` y `-`.
+
+**Ejemplo:**
+
+```md
+| Columna 1 | Columna 2 |
+|-----------|-----------|
+| Dato A    | Dato B    |
+| Dato C    | Dato D    |
+```
+
+Resultado:
+
+| Columna 1 | Columna 2 |
+|-----------|-----------|
+| Dato A    | Dato B    |
+| Dato C    | Dato D    |
+
+---
+## Otros caracteres útiles
+
+- Las URL entre `< >` se convierten automáticamente en enlaces en Markdown tradicional.
+
+**Ejemplo:**
+
+```md
+<https://www.google.com>
+```
+
+> **Nota:** En Docusaurus (MDX) es preferible crear enlaces usando la sintaxis:
+>
+> ```md
+> [Google](https://www.google.com)
+> ```
+
+---
+
+- También puedes crear encabezados usando `===` o `---`.
+
+### Título nivel 1
+
+**Sintaxis:**
+
+```md
+Título principal
+================
+```
+
+**Resultado:**
+
+# Título principal
+
+---
+
+### Título nivel 2
+
+**Sintaxis:**
+
+```md
+Título secundario
+-----------------
+```
+
+**Resultado:**
+
+## Título secundario
+
+
+### Cómo colocar notas especiales o de advertencia
+
+Docusaurus permite crear **bloques informativos** para destacar contenido importante, consejos, advertencias o 
+información adicional. Estos bloques se conocen como **Admonitions** y ayudan a que la documentación sea más clara y visual.
+
+Se crean utilizando tres dos puntos (`:::`), seguidos del tipo de bloque que deseas mostrar.
+
+#### Nota (`note`)
+
+Se utiliza para mostrar información adicional o recomendaciones que complementan el contenido.
+
+**Sintaxis:**
+
+```md
+:::
+Esto es una nota especial.
+:::
+```
+
+**Resultado:**
+
+:::note
+Esto es una nota especial.
+:::
+
+---
+
+#### Advertencia (`warning`)
+
+Se utiliza para alertar al lector sobre algo que podría causar problemas si no se tiene en cuenta.
+
+**Sintaxis:**
+
+```md
+:::
+Esto es una advertencia.
+:::
+```
+
+**Resultado:**
+
+:::warning
+Esto es una advertencia.
+:::
+
+---
+
+#### Otros tipos disponibles
+
+Docusaurus incluye otros bloques además de `note` y `warning`:
+
+| Tipo | Uso |
+|------|-----|
+| `note` | Información adicional o recomendaciones. |
+| `tip` | Consejos o buenas prácticas. |
+| `info` | Información general. |
+| `warning` | Advertencias importantes. |
+| `danger` | Riesgos, errores críticos o acciones peligrosas. |
+
+**Ejemplo:**
+
+```md
+:::
+Este es un consejo útil.
+:::
+
+:::
+Esta es información importante.
+:::
+
+:::
+Ten cuidado, esta acción es irreversible.
+:::
+```
+
+**Resultado:**
+
+:::tip
+Este es un consejo útil.
+:::
+
+:::info
+Esta es información importante.
+:::
+
+:::danger
+Ten cuidado, esta acción es irreversible.
+:::

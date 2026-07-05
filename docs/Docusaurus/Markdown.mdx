@@ -1,0 +1,91 @@
+---
+sidebar_position: 2
+title: ¿Qué es Markdown?
+---
+
+## Introducción
+
+**Markdown** es un lenguaje de marcado ligero que permite escribir texto plano fácil de leer y convertirlo en HTML u otros formatos.  
+Fue creado en 2004 por **John Gruber** con la colaboración de **Aaron Swartz**, y su objetivo es que el texto sea **legible en su forma original** y al mismo tiempo fácil de transformar en páginas web o documentos.
+
+
+
+## Características principales
+
+-  Sintaxis mínima y fácil de aprender.  
+-  Legible incluso sin renderizar.  
+-  Compatible con múltiples plataformas (GitHub, GitLab, Reddit, Slack, etc.).  
+-  Se convierte fácilmente en **HTML, PDF, Word, etc.**  
+-  Limitación: no existe un estándar único (existen variantes como *CommonMark* o *GitHub Flavored Markdown*).
+
+
+
+
+##  Cómo crear archivos
+
+1. **Ubicación de los archivos**  
+   Los documentos se guardan en la carpeta `docs/` dentro de tu proyecto Docusaurus.  
+   Ejemplo:
+
+    ```  
+    documentacion/
+    └── docs/
+    └── Docusaurus/
+    └── Caracteres.mdx
+    ```
+2. **Crear un nuevo archivo**  
+ - Crea un archivo con extensión `.mdx`.  
+ - Ejemplo: `Introduccion.mdx`
+
+3. **Encabezado (Frontmatter)**  
+    Cada archivo debe empezar con un bloque de metadatos entre `---`.  
+    ```markdown
+
+    ---
+    sidebar_position: 1
+    title: Introducción
+    ---
+
+
+ - **sidebar_position:** orden en el menú lateral.
+
+ - **title:** título que aparecerá en la documentación.
+
+4. **Contenido en Markdown/MDX**
+
+Después del encabezado, escribe tu contenido usando sintaxis Markdown.
+
+    `` ## Bienvenida ``
+
+    Este es un ejemplo de documentación en Docusaurus.
+
+## ¿por qué usar .mdx?
+ 
+ - ``.md : `` Archivos Markdown tradicionales.
+   
+    Este se usa en los siguientes casos:
+
+        - Usar para contenido simple y estático.
+        - Archivos como README.md en repositorios.
+        - Documentación que no requiere componentes React ni bloques especiales.
+
+  
+        
+
+ - ``.mdx : `` Markdown  + JSX.
+        - permite usar componentes de React dentro de tu documentación.
+        - Combina texto en Markdown con componentes interactivos.
+        - Reconocido automáticamente por Docusaurus.
+        - Ideal para documentación avanzada (notas, advertencias, tabs, bloques interactivos).
+        
+Ejemplo:
+
+
+    
+    :::note
+    Esto es una nota especial.
+    :::
+
+    :::warning
+    Esto es una advertencia.
+    :::
