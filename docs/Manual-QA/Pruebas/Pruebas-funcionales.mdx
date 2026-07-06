@@ -1,0 +1,254 @@
+---
+sidebar_position: 2
+title: Pruebas funcionales
+---
+
+# Pruebas funcionales
+
+Las pruebas funcionales son un tipo de prueba de software que valida el sistema de software con respecto a los requisitos/especificaciones funcionales. El objetivo de las pruebas funcionales es probar cada función de la aplicación de software proporcionando la entrada adecuada y verificando la salida con respecto a los requisitos funcionales.
+
+## Tipos de pruebas funcionales.
+
+### 1. UAT
+
+Las pruebas de aceptación del usuario (UAT, por sus siglas en inglés) son un tipo de prueba que 
+realiza el usuario final o el cliente para verificar y aceptar el sistema de software antes de 
+implementar la aplicación en el entorno de producción. Las UAT se llevan a cabo en la fase final de 
+las pruebas, una vez realizadas las pruebas funcionales, de integración y del sistema.
+
+Ejemplo:
+
+
+        **Sistema de gestión de vacaciones**
+
+        - `Funcionalidad:` Solicitud de vacaciones
+
+        - `Objetivo de la prueba:` Verificar que un empleado pueda solicitar vacaciones y que el
+        jefe inmediato pueda aprobarlas correctamente.
+
+
+
+
+    | Campo              | Descripción                                                            |
+| ------------------ | ---------------------------------------------------------------------- |
+| Caso de prueba     | UAT-001                                                                |
+| Usuario            | Empleado                                                               |
+| Acción             | Registrar una solicitud de vacaciones de 5 días                        |
+| Resultado esperado | La solicitud se registra y queda en estado **Pendiente de aprobación** |
+| Resultado obtenido | La solicitud se registró correctamente                                 |
+| Estado             | Aprobado                                                             |
+
+### 2. Pruebas exploratorias
+
+Las pruebas exploratorias consisten en evaluar un producto aprendiendo sobre él a través de la exploración
+y la experimentación, incluyendo en cierta medida: preguntas, estudio, modelado, observación, inferencia, etc.
+
+#### Caracteristicas:
+
+ - Sin guión no requiere casos de pruebas.
+ - Requiere creatividad y analisis critico.
+ - Adactación (nos indica que se puede ajustar)
+ - Documentación posterior (documentar los pasos)
+
+Ejemplo:
+
+**Sistema de gestión de vacaciones**
+
+        - `Funcionalidad:` Solicitud de vacaciones (Enfoque de estrés / Monkey Testing)
+
+        - `Objetivo de la prueba:` Explorar la resistencia del formulario de solicitudes interactuando 
+        de forma inusual, rápida o con datos inválidos para forzar errores del sistema.
+
+    | Campo              | Descripción                                                            |
+| ------------------ | ---------------------------------------------------------------------- |
+| Sesión             | EXP-001                                                                |
+| Usuario            | Empleado con perfil restrictivo                                                               |
+| Acción             | Intentar pedir vacaciones haciendo clics repetidos en "Enviar" con pestañas duplicadas del navegador      abiertas a la vez                    |
+| Resultado esperado | El sistema debe procesar solo una solicitud y rechazar o bloquear las peticiones duplicadas|
+| Resultado obtenido | Se generaron 3 solicitudes idénticas en la base de datos restando días de más                                |
+| Estado             | Fallido (Bug Crítico Detectado)                                                           |
+
+### 3. Prueba de cordura (Sanity Testing)
+
+Las pruebas de cordura son un tipo de prueba de software que se realiza después de recibir una 
+versión del software, con cambios menores en el código o la funcionalidad, para verificar que se 
+hayan corregido los errores y que no se introduzcan nuevos problemas debido a estos cambios. El objetivo 
+es determinar que la funcionalidad propuesta funcione aproximadamente como se espera. Si las pruebas de 
+cordura fallan, la versión se rechaza para ahorrar el tiempo y los costos que implicaría una prueba más rigurosa.
+
+#### Caracteristicas
+    - El proposito principal de las pruebas de cordura es asegurarse de que las nuevas funciones o correcuones no han afectado negativamente
+    a las funcionalidades existentes. Este es un enfoque rápido y superficial que se focaliza en las áreas más críticas.
+    - Se lleva a cabo cuando se realizan cambios menores en una aplicación, como la correción de un bug. No se profundiza en el sistema completo,
+    sino que se evalúa si las Caracteristicas esenciales siguen funcionando.
+    - A menudo, se diferencia de las pruebas exhaustivas, como el "smoke testing", que verifica si la construcción básica de una aplicación
+    es estable antes de realizar pruebas mas exhaustivas.
+    - Las pruebas de cordura son usualmente ejecutadas manualmente pir un tester, ya que requieren un enfoque ágil para comprobar
+    rápidamente las funcionalidades afectadas.
+    - Si la prueba de cordura es exitosa, se permite continuar con pruebas más profundas y detalladas. Si falla, es una señal de que
+    se debe investigar los problemas antes de avanzar.
+
+Ejemplo: 
+ **Sistema de gestión de vacaciones**
+
+        - `Funcionalidad:` Corrección en el cálculo de fines de semana (Bug anterior: El sistema contaba Sábados y Domingos como días hábiles de vacaciones).
+
+        - `Objetivo de la prueba:` Verificar rápidamente que el parche de software solucionó el error de cálculo y que la funcionalidad básica de solicitud no se rompió con el cambio.
+
+| Campo              | Descripción                                                            |
+| ------------------ | ---------------------------------------------------------------------- |
+| Caso de prueba     | SAN-001                                                                |
+| Usuario            | Empleado                                                               |
+| Acción             | Solicitar vacaciones desde el viernes 10 hasta el lunes 13 de julio (un fin de semana intermedio)                       |
+| Resultado esperado | El sistema debe calcular exactamente 2 días laborales descontados (viernes y lunes) |
+| Resultado obtenido | El sistema calculó correctamente 2 días hábiles solicitados                                |
+| Estado             | Aprobado                                                             |
+
+### 4. Pruebas de regresión
+
+Las pruebas de regresión son un tipo de prueba de software que confirma que un cambio reciente en el programa o el código 
+no ha afectado negativamente las funcionalidades existentes. Se trata de una técnica de prueba de caja negra. Los casos de 
+prueba se vuelven a ejecutar para comprobar que la funcionalidad anterior de la aplicación funciona correctamente y que los 
+nuevos cambios no han generado errores.
+
+#### Caracteristicas
+    - Su objetivo es verificar que los cambios recientes en el código, como correcciones de errores, actualizaciones o nuevas funcionalidades
+    no hayan afectado negativamente las partes ya existentes del sistema.
+    - Deben incluir pruebas de funcionalidad que pueden haberse visto afectdas por los cambios. Es fundamental alcanzar una buena cobertura
+    para asegurar que todo funcione como se espera.
+    - En lugar de crear un nuevo caso de prueba, se utilizan casos de pruebas existentes para verificar que las funcionalidades anteriores
+    sigan operativas. Esto ahorra tiempo y asegura que no se pase por alto ningún aspecto crítico.
+    - Las pruebas de regresión son realizadas con frecuencia y son adecuadas para ser automatizadas, lo que permite un ciclo 
+    de desarrollo más ágil y efectivo. Esto es especialmente importante en entornos donde el software es actualizado continuamente.
+    - Se busca identificar problemas que pudieron ser introducidos por cambios recientes, incluso si no parecen estar directamente 
+    relacionados con la funcionalidad que se está probando.
+
+
+Ejemplo:
+
+    **Sistema de gestión de vacaciones**
+
+        - `Funcionalidad:` Corrección en el cálculo de fines de semana (Bug anterior: El sistema contaba Sábados y Domingos como días hábiles de vacaciones).
+
+        - `Objetivo de la prueba:` Verificar rápidamente que el parche de software solucionó el error de cálculo y que la funcionalidad básica de solicitud no se rompió con el cambio.
+
+| Campo              | Descripción                                                            |
+| ------------------ | ---------------------------------------------------------------------- |
+| Caso de prueba     | REG-001                                                                |
+| Usuario            | Empleado                                                               |
+| Acción             | Consultar el saldo total de vacaciones después de que el sistema se actualizó con el nuevo módulo de bonos         |
+| Resultado esperado | El saldo base del empleado debe mantenerse intacto (ej. 15 días reglamentarios) sin alteraciones |
+| Resultado obtenido | El saldo base se alteró a 0 días tras la migración de la base de datos                               |
+| Estado             | Fallido (Regresión Detectada)                                                            |
+
+### 5. Pruebas de Humo
+
+Las pruebas de humo son un proceso de prueba de software que determina si la versión implementada es
+ estable. Estas pruebas confirman al equipo de control de calidad la necesidad de continuar con las pruebas de
+  software. Consisten en un conjunto mínimo de pruebas que se ejecutan en cada versión para verificar las funcionalidades del software.
+
+#### Caracteristicas
+    - Verificar si las funciones críticas operan correctamente antes de proceder con pruebas más exhaustivas. 
+    Si las funcionalidades básicas no funcionan, no tiene sentido realizar otras pruebas.
+    - Este tipo de pruebas se enfocan en casos de prueba que son rápidos de ejecutar. Por ejemplo, verificar que 
+    una página web se carga correctamente y que se pueden realizar búsquedas.
+    - Las pruebas de humo pueden ser realizadas manualmente o mediante automatización. La rapidez en su ejecución 
+    es esencial para permitir que el equipo avance a pruebas más detalladas.
+    -  Las pruebas de humo a menudo se llevan a cabo antes de las pruebas de regresión. Si las funcionalidades básicas 
+    tienen éxito en las pruebas de humo, se puede proceder a las pruebas de regresión para verificar que las funciones 
+    existentes no se vean afectadas por las nuevas implementaciones.
+    
+Ejemplo:
+ 
+ Al hacer pruebas de humo en una aplicación de búsqueda, podrías comprobar:
+
+    1. Si la página principal se carga correctamente.
+    2. Si se pueden realizar búsquedas (por texto o imágenes).   
+
+:::note
+Las pruebas de humo son una verificación inicial que ayuda a identificar problemas grandes antes de invertir tiempo en pruebas
+ más complejas.
+:::
+
+### 6. Pruebas unitarias
+
+Las pruebas unitarias consisten en probar unidades individuales (módulos, funciones/métodos, rutinas, etc.) del software 
+para garantizar su correcto funcionamiento. Estas pruebas de bajo nivel aseguran que los componentes más pequeños sean 
+funcionalmente sólidos, aliviando la carga de las pruebas de nivel superior. Generalmente, un desarrollador escribe estas 
+pruebas durante el proceso de desarrollo y se ejecutan de forma automatizada.
+
+#### Caracteristicas
+
+    - El principal objetivo de las pruebas unitarias es asegurarse de que cada unidad de código funcione como se espera. 
+    Esto ayuda a detectar errores en etapas tempranas de desarrollo, lo que a su vez reduce el costo y tiempo de corrección 
+    de fallos en fases posteriores.
+    - Estas pruebas se enfocan en verificar el comportamiento de las funciones específicas de una aplicación, asegurando que 
+    cada parte cumpla con su propósito antes de integrarse con otras partes.
+    - Idealmente, el desarrollador que escribió el código también realiza las pruebas unitarias. Esto se debe a que tiene un 
+    conocimiento más profundo de cómo debería funcionar cada unidad y puede formular pruebas más efectivas.
+    - Existen diversas herramientas y frameworks para implementar pruebas unitarias, como JUnit para Java, NUnit para .NET, 
+    y Mocha para JavaScript, que facilitan el proceso de creación y ejecución de estas pruebas.
+
+#### Ventajas
+    - Detectan errores en etapas tempranas del desarrollo.
+    - Facilitan el mantenimiento y la refactorización.
+    - Documentan el comportamiento esperado de las funciones.
+
+Ejemplo: 
+1. Simular una consulta en google
+
+       ![prueba unitaria](\img\Prueba_Unitaria.png)
+
+2. tets para verificar la busqueda
+        ![prueba unitaria](\img\pruebas_unitarias_2.png)
+
+3. resultado: 
+        ![prueba unitaria](\img\resultado_Prueba_unitaria.png)
+   
+
+            ----
+
+            :::tip
+            para las pruebas unitarias es asegurarte de que estás utilizando una metodología adecuada para escribir tus casos de prueba. Aquí tienes algunos consejos prácticos:
+
+            **1. Escritura clara de casos de prueba** Cada caso de prueba debe tener un ID único y una descripción breve pero precisa de lo que está validando. Esto facilita la identificación y la ejecución de las pruebas.
+
+            **Precondiciones:** Antes de ejecutar una prueba, asegúrate de que todo esté en su estado correcto. Por ejemplo, si estás probando una función que requiere datos específicos, verifica que esos datos estén disponibles.
+
+            **Pasos bien definidos:** Los pasos deben ser claros y numerados, describiendo exactamente qué hacer para replicar la prueba.
+
+            **Resultados esperados:** Siempre define lo que esperas que ocurra cuando ejecutes el test. Esto te ayudará a identificar rápidamente si hubo un fallo.
+
+            **Automatización donde sea posible:** Siempre que lo puedas, automatiza tus pruebas unitarias. Esto no solo ahorrará tiempo, sino que también ayudará a asegurar que se ejecuten de manera consistente.
+
+            **Mantén tus pruebas actualizadas:** A medida que el código cambia, asegúrate de actualizar las pruebas unitarias para que reflejen el estado actual del sistema.
+            :::
+
+### 7. pruebas de integración
+
+Las pruebas de integración son un tipo de prueba en la que los módulos de software se integran lógicamente y se prueban en 
+conjunto. Un proyecto de software típico consta de varios módulos de software programados por diferentes programadores. Este 
+nivel de prueba tiene como objetivo detectar defectos en la interacción entre estos módulos de software una vez integrados. 
+Las pruebas de integración se centran en verificar la comunicación de datos entre estos módulos.
+
+su objetivo es detectar defectos en la comunicación y en la interacción entre los distintos componentes del sistema, incluso 
+si cada componente por separado ha pasado sus pruebas unitarias.
+
+`proceso:` En estas pruebas, se combinan múltiples módulos y se evalúan sus interacciones. Esto permite identificar 
+problemas que pueden surgir cuando los componentes trabajan juntos.
+
+`Enfoques de integración:` 
+ - **Integración Ascendente:** Se prueban los componentes de menor nivel primero, y luego se van integrando hacia componentes de mayor nivel.
+ - **Integración Descendente:** Se inician con los componentes de mayor nivel y se integran los de menor nivel.
+ - **Integración Mixta:** Combina ambos enfoques para obtener un mejor resultado en la verificación.
+
+Ejemplo:
+
+ Si tienes una aplicación que utiliza una API para gestionar solicitudes, deberías probar que las solicitudes HTTP entre el
+ frontend y el backend se realicen correctamente. Esto podría incluir verificar el flujo de datos desde el usuario, pasando 
+ por la API, hasta la base de datos.
+
+:::info
+Realizar pruebas de integración ayuda a asegurar que los distintos módulos de la aplicación funcionan correctamente juntos, 
+lo que es crucial para el rendimiento y la estabilidad de la aplicación en su conjunto.
+:::

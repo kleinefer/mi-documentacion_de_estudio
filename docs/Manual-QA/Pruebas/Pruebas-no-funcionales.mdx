@@ -1,0 +1,51 @@
+---
+sidebar_position: 3
+title: Pruebas no funcionales
+---
+
+Las pruebas no funcionales son un tipo de prueba de software que evalúa parámetros no funcionales como la fiabilidad, 
+la carga, el rendimiento y la responsabilidad del software. Su objetivo principal es comprobar la velocidad de lectura del 
+sistema de software según dichos parámetros. Estos parámetros nunca se prueban antes de las pruebas funcionales.
+
+## Tipos de pruebas no funcionales
+
+### 1. Pruebas de carga
+
+Las pruebas de carga, o "load testing", son un tipo de prueba de rendimiento que determina el desempeño de un sistema, producto de software 
+o aplicación bajo condiciones de carga reales. Estas pruebas determinan el comportamiento de la aplicación cuando varios u
+suarios la utilizan simultáneamente. Se trata de la respuesta del sistema medida bajo diferentes condiciones de carga.
+
+El propósito principal de las pruebas de carga es identificar el límite de carga que puede soportar el sistema antes de que 
+su rendimiento se degrade significativamente o falle. Esto asegura que la aplicación pueda manejar la cantidad esperada de 
+tráfico normal.
+
+`Condiciones típicas:`  En estas pruebas, se simula un número razonable de usuarios o transacciones, manteniendo el sistema 
+en condiciones que se considerarían normales durante la operación diaria. Esto ayuda a asegurar que el sistema funcione 
+de manera rápida y estable en su uso cotidiano.
+
+`Detección de problemas:` Al realizar pruebas de carga, se pueden identificar cuellos de botella y problemas de rendimiento 
+que podrían no ser evidentes en pruebas menos intensivas. Esto incluye verificar el uso de recursos como la CPU y la memoria 
+del servidor.
+
+#### ¿Por qué es importante el Load testing?
+
+- `Impacto en la Experiencia del Usuario:` Una aplicación que no puede manejar el tráfico esperado puede volverse lenta o fallar durante picos de uso. Si los usuarios experimentan tiempos de carga largos o interrupciones, es probable que se frustren y busquen alternativas, lo que puede llevar a la pérdida de clientes.
+
+- `Manejo de Recursos: `Las pruebas de carga permiten identificar cuellos de botella y niveles críticos de utilización de recursos (como CPU y memoria). Esto te ayuda a entender hasta qué punto puede escalar tu aplicación sin comprometer su rendimiento. Por ejemplo, si un servidor puede soportar hasta 10,000 usuarios concurrentes antes de que el rendimiento se degrade, podrás hacer ajustes para mejorar esa capacidad.
+
+- `Prevención de Fallos Críticos:` Sin realizar pruebas de carga, tu sistema podría fallar en momentos críticos, afectando no solo la reputación de tu empresa, sino también los costos operativos. Un sistema que tiene problemas en condiciones de carga puede resultar en gastos adicionales para solucionar problemas o incluso pérdidas de ingresos.
+
+- `Mejora de la Escalabilidad:` Con datos de las pruebas de carga, puedes planificar mejoras en la infraestructura, como aumentar la capacidad del servidor o modificar la arquitectura del sistema para soportar más usuarios.
+
+- `Ahorro en Costos Operativos:` Identificar y resolver problemas de rendimiento antes de que se conviertan en fallos críticos, puede ayudarte a reducir costos a largo plazo, ya que evitarás inversiones inesperadas en mejoras urgentes ante un mal desempeño del sistema.
+
+#### como realizar load testing
+
+1. Identificar los escenarios.
+2. Define la carga esperada.
+
+
+:::warning
+Realizar pruebas de carga es crucial para asegurar una experiencia de usuario óptima y para prever cómo se comportará la 
+aplicación ante un incremento en la cantidad de usuarios, permitiendo realizar ajustes en la infraestructura si es necesario.
+:::
