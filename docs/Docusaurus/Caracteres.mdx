@@ -3,7 +3,9 @@ sidebar_position: 3
 title: Caracteres
 ---
 
-## Caracteres básicos de Markdown
+## 1. Caracteres básicos de Markdown
+
+### 1. Encabezados
 
 - Los `#` definen los tamaños de los títulos.  
   Entre más uses, más pequeño será el texto.
@@ -14,8 +16,9 @@ title: Caracteres
   - `## Título mediano`
   - `### Título pequeño`
 
----
 
+---
+### 2. Listas  
 - El guion `-` crea viñetas.
 
   **Ejemplo:**
@@ -23,7 +26,17 @@ title: Caracteres
   - Ejemplo de viñeta
     - Si agregas dos espacios antes del guion, obtienes una subviñeta.
 
+- Los números seguidos de un punto crean listas ordenadas.
+
+  **Ejemplo:**
+
+  1. Primer punto
+  2. Segundo punto
+  3. Tercer punto
+
 ---
+
+### 3. Negrilla
 
 - Los asteriscos `**` sirven para poner texto en **negrilla**.
 
@@ -35,109 +48,45 @@ title: Caracteres
 
   **Texto en negrilla**
 
----
-
-- Las comillas invertidas `` ` `` se usan para mostrar texto en un recuadro de código.
+- Los guiones bajos dobles `__` también sirven para poner texto en **negrilla**.
 
   **Ejemplo:**
 
-  `` `texto en recuadro` ``
+    
+  `__texto__` 
 
   Resultado:
 
-  `texto en recuadro`
+    __texto__
+
 
 ---
-
-- Para bloques de código más grandes, usa tres comillas invertidas.
+### 4. Cursiva
+  - Los guiones bajos simples `_` o los asteriscos `*` ponen texto en *cursiva*.
 
 **Ejemplo:**
 
-```javascript
-function saludo() {
-  console.log("¡Hola, mundo!");
-}
-
-saludo();
-```
-
----
-
-- Los corchetes y paréntesis `[ ]( )` sirven para crear enlaces.
-
-**Ejemplo:**
-
-```md
-[Google](https://www.google.com)
-```
-
-Resultado:
-
-[Google](https://www.google.com)
-
----
-
-- La combinación `![ ]( )` se usa para insertar imágenes.
-
-**Ejemplo:**
-
-```md
-![Texto alternativo](/img/imagen.png)
-```
-
----
-
-- Los números seguidos de un punto crean listas ordenadas.
-
-**Ejemplo:**
-
-1. Primer punto
-2. Segundo punto
-3. Tercer punto
-
----
-
-- Los guiones bajos dobles `__` o los asteriscos dobles `**` también sirven para poner texto en **negrilla**.
-
-**Ejemplo:**
-
-```md
-__texto__
-```
-
-Resultado:
-
-**texto**
-
----
-
-- Los guiones bajos simples `_` o los asteriscos `*` ponen texto en *cursiva*.
-
-**Ejemplo:**
-
-```md
-_texto_
-```
+`_texto_`
 
 Resultado:
 
 *texto*
 
 ---
+### 5. Citas
 
 - El símbolo `>` crea citas.
 
 **Ejemplo:**
 
-```md
-> Esto es una cita
-```
+`> Esto es una cita`
 
 Resultado:
 
 > Esto es una cita
 
----
+--- 
+### 6. Tablas 
 
 - Las tablas se crean usando `|` y `-`.
 
@@ -157,9 +106,78 @@ Resultado:
 | Dato A    | Dato B    |
 | Dato C    | Dato D    |
 
----
-## Otros caracteres útiles
+## 2. Código y enlaces
 
+### 1. Inline code
+
+- Las comillas invertidas `` ` `` se usan para mostrar texto en un recuadro de código.
+
+  **Ejemplo:**
+
+  `` `texto en recuadro` ``
+
+  Resultado:
+
+  `texto en recuadro`
+
+---
+### 2. Bloques de código
+- Para bloques de código más grandes, usa tres comillas invertidas.
+
+**Ejemplo:**
+
+```md
+
+``` javascript
+function saludo() {
+  console.log("¡Hola, mundo!");
+}
+
+saludo(); ```
+
+```
+ Resultado: 
+
+``` javascript
+function saludo() {
+  console.log("¡Hola, mundo!");
+}
+
+saludo();
+
+```
+
+---
+### 3. Enlaces   
+
+- Los corchetes y paréntesis `[ ]( )` sirven para crear enlaces.
+
+**Ejemplo:**
+
+`[Google](https://www.google.com)`
+
+Resultado:
+
+[Google](https://www.google.com)
+
+---
+### 4. Imagenes
+- La combinación `![ ]( )` se usa para insertar imágenes.
+
+**Ejemplo:**
+
+```md
+![Texto alternativo](/img/imagen.png)
+```
+  resultado: 
+
+![Logo](/img/logo.png)
+ 
+
+---
+## 3. Otros caracteres útiles
+
+### 1. URL's
 - Las URL entre `< >` se convierten automáticamente en enlaces en Markdown tradicional.
 
 **Ejemplo:**
@@ -167,6 +185,8 @@ Resultado:
 ```md
 <https://www.google.com>
 ```
+---
+
 
 > **Nota:** En Docusaurus (MDX) es preferible crear enlaces usando la sintaxis:
 >
@@ -175,8 +195,11 @@ Resultado:
 > ```
 
 ---
+### 2. Encabezados alternativos
 
 - También puedes crear encabezados usando `===` o `---`.
+
+**Ejemplo:**
 
 ### Título nivel 1
 
@@ -204,59 +227,16 @@ Título secundario
 
 **Resultado:**
 
-## Título secundario
+     ## Título secundario
 
+--- 
 
-### Cómo colocar notas especiales o de advertencia
+### 3. Bloques especiales
 
 Docusaurus permite crear **bloques informativos** para destacar contenido importante, consejos, advertencias o 
 información adicional. Estos bloques se conocen como **Admonitions** y ayudan a que la documentación sea más clara y visual.
 
 Se crean utilizando tres dos puntos (`:::`), seguidos del tipo de bloque que deseas mostrar.
-
-#### Nota (`note`)
-
-Se utiliza para mostrar información adicional o recomendaciones que complementan el contenido.
-
-**Sintaxis:**
-
-```md
-:::
-Esto es una nota especial.
-:::
-```
-
-**Resultado:**
-
-:::note
-Esto es una nota especial.
-:::
-
----
-
-#### Advertencia (`warning`)
-
-Se utiliza para alertar al lector sobre algo que podría causar problemas si no se tiene en cuenta.
-
-**Sintaxis:**
-
-```md
-:::
-Esto es una advertencia.
-:::
-```
-
-**Resultado:**
-
-:::warning
-Esto es una advertencia.
-:::
-
----
-
-#### Otros tipos disponibles
-
-Docusaurus incluye otros bloques además de `note` y `warning`:
 
 | Tipo | Uso |
 |------|-----|
@@ -266,23 +246,14 @@ Docusaurus incluye otros bloques además de `note` y `warning`:
 | `warning` | Advertencias importantes. |
 | `danger` | Riesgos, errores críticos o acciones peligrosas. |
 
+
+
 **Ejemplo:**
 
 ```md
+:::note 
+Esto es una nota especial.
 :::
-Este es un consejo útil.
-:::
-
-:::
-Esta es información importante.
-:::
-
-:::
-Ten cuidado, esta acción es irreversible.
-:::
-```
-
-**Resultado:**
 
 :::tip
 Este es un consejo útil.
@@ -290,6 +261,32 @@ Este es un consejo útil.
 
 :::info
 Esta es información importante.
+:::
+
+:::warning
+Esto es una advertencia.
+:::
+
+:::danger
+Ten cuidado, esta acción es irreversible.
+:::
+```
+
+**Resultado:**
+:::note
+Esto es una nota especial.
+:::
+
+:::tip
+Este es un consejo útil.
+:::
+
+:::info
+Esta es información importante.
+:::
+
+:::warning
+Esto es una advertencia.
 :::
 
 :::danger
