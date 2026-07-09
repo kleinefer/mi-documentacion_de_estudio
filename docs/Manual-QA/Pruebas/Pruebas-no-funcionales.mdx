@@ -9,7 +9,34 @@ sistema de software según dichos parámetros. Estos parámetros nunca se prueba
 
 ## Tipos de pruebas no funcionales
 
-### 1. Pruebas de carga
+### 1. pruebas de rendimiento
+
+Las pruebas de rendimiento son una rama de la ingeniería de rendimiento. Consisten en evaluar el comportamiento de un sistema 
+bajo diversas condiciones extremas. El objetivo principal de las pruebas de rendimiento es monitorizar y mejorar indicadores 
+clave como el tiempo de respuesta, el rendimiento, la memoria, la utilización de la CPU, entre otros.
+
+Hay tres objetivos (tres S) de las pruebas de rendimiento para observar y evaluar: **Speed, Scalability, y Stability.**
+
+Tipos de pruebas de rendimiento
+A continuación se enumeran los tipos de pruebas de rendimiento más utilizados, aunque la lista no se limita a ellos:
+
+- ``Pruebas de carga (Load testing):`` valúa cómo se comporta un sistema bajo condiciones de carga esperada. Se centra en la estabilidad 
+    y el rendimiento bajo el uso normal. Su objetivo es asegurarse de que la aplicación funcione de manera óptima con un 
+    número esperado de usuarios.
+- ``Pruebas de estrés (stress testing):`` Lleva al sistema más allá de su límite para identificar su capacidad máxima y cómo se comporta 
+    cuando se sobrepasa ese límite. Se busca descubrir el punto de falla y cómo se comporta el sistema bajo condiciones extremas.
+- ``Pruebas de adición:`` También conocida como Soak, Evalúa la estabilidad del sistema bajo una carga constante durante un período
+     prolongado. Se utiliza para identificar problemas que pueden surgir con el tiempo, como fugas de memoria.
+- ``Pruebas de resistencia (Endurance Testing):`` Similar a las pruebas de adición, pero se enfatiza más en mantener el rendimiento 
+    bajo carga durante a largo plazo, asegurando que no haya degradación en el rendimiento.
+- ``Pruebas de volumen:`` Se centra en cómo maneja el sistema una cantidad significativa de datos. Es útil para probar la base de datos 
+    y asegurar que puede manejar grandes volúmenes de información sin fallar.
+- ``Pruebas de escalabilidad:`` Evalúa si la aplicación se puede escalar para manejar un aumento en la carga, distribuyendo adecuadamente 
+    los recursos del sistema.
+- ``Pruebas de capacidad:`` Mide la capacidad de un sistema para manejar una carga específica y cuántos recursos se necesitan 
+    para soportar esa carga. Permite determinar si el sistema está preparado para el número esperado de usuarios.
+
+### 2. Pruebas de carga
 
 Las pruebas de carga, o "load testing", son un tipo de prueba de rendimiento que determina el desempeño de un sistema, producto de software 
 o aplicación bajo condiciones de carga reales. Estas pruebas determinan el comportamiento de la aplicación cuando varios u
@@ -42,10 +69,183 @@ del servidor.
 #### como realizar load testing
 
 1. Identificar los escenarios.
-2. Define la carga esperada.
+2. Define la carga esperada. 
+
+Para realizar pruebas de carga (Load Testing) de manera efectiva, puedes seguir estos pasos:
+
+ 1. `Definición de Objetivos:` Identifica qué es lo que deseas probar con las pruebas de carga. Por ejemplo, determina el número máximo de usuarios simultáneos que tu aplicación puede soportar.
+
+ 2. `Selección de Herramientas:` Elige herramientas adecuadas para realizar las pruebas. Algunas de las más populares son Apache JMeter, LoadRunner, y Gatling. Estas herramientas te permiten simular múltiples usuarios que interactúan con tu aplicación.
+
+ 3. `Planificación del Escenario:` Diseña escenarios de prueba que imiten el uso real de la aplicación. Por ejemplo, si tienes una aplicación de transmisión de video en vivo, simula miles de usuarios que intentan acceder al video al mismo tiempo. Esto te ayudará a evaluar cómo se comporta tu sistema bajo carga.
+
+ 4. `Configuración de Pruebas:` Configura la herramienta para que lance las peticiones necesarias. Esto puede incluir la distribución del tráfico, los tiempos de espera entre las solicitudes, etc.
+
+ 5. `Ejecución de Pruebas:` Ejecuta las pruebas y monitorea la aplicación en tiempo real. Recopila datos cruciales como tiempos de respuesta, tasas de error y uso de recursos del sistema (CPU, memoria, etc.).
+
+ 6. `Análisis de Resultados:` Después de realizar las pruebas, analiza los resultados. Esto te ayudará a identificar la capacidad máxima de soportar carga y si hay cuellos de botella o fallos en el sistema.
+
+ 7. `Optimización y Repetición:` Con base en los resultados obtenidos, realiza ajustes en la infraestructura o la aplicación para mejorar el rendimiento. Luego, repite las pruebas para ver si se ha logrado la mejora deseada.
 
 
 :::warning
 Realizar pruebas de carga es crucial para asegurar una experiencia de usuario óptima y para prever cómo se comportará la 
 aplicación ante un incremento en la cantidad de usuarios, permitiendo realizar ajustes en la infraestructura si es necesario.
 :::
+
+### 3.Pruebas de estrés (stress testing)
+
+Las pruebas de estrés (Stress Testing) son un tipo de prueba de rendimiento cuyo objetivo es determinar los límites de una aplicación al
+ someterla a una carga extrema o condiciones inusuales. 
+
+Por ejemplo, inyectar un alto volumen de solicitudes por segundo a una API podría causar la interrupción de su servicio, o generar un error 
+HTTP 503 (Servicio no disponible) o provocar otras consecuencias.
+
+El propósito principal es identificar el punto de quiebre del sistema, evaluando cómo responde a condiciones de sobrecarga o carga que excede los niveles normales. 
+Esto es esencial para entender hasta dónde puede llegar el sistema antes de fallar.
+
+- **Simulación de Cargas:** Las pruebas de estrés simulan escenarios en los que la carga de trabajo supera lo esperado. Por ejemplo, si una aplicación está diseñada 
+para manejar 5000 usuarios concurrentes, se puede probar qué sucede cuando 10,000 usuarios acceden simultáneamente. Esto permite identificar los límites y cómo la 
+aplicación se comporta bajo estrés.
+
+- **Comportamiento Bajo Estrés:** Durante estas pruebas, se observa no solo si el sistema se colapsa, sino también cómo se comporta antes de llegar a ese punto crítico. 
+Esto incluye analizar si empieza a ralentizarse, muestra errores o se vuelve inestable.
+
+- **Preparación para Situaciones Adversas:** Al realizar pruebas de estrés, las organizaciones pueden planificar mejoras y ajustes necesarios, ayudando a garantizar 
+que el sistema no solo opere correctamente en condiciones normales, sino también en situaciones extremas. Esto no solo mejora la robustez del sistema, sino que también 
+ayuda a proteger la reputación de la empresa.
+
+
+#### Como realizar pruebas de estres
+
+Para realizar pruebas de estrés de manera efectiva, puedes seguir estos pasos:
+
+ 1.  `Definir Objetivos:` Establece qué buscas lograr con las pruebas de estrés. Esto incluye identificar los límites del sistema y cómo se comporta bajo condiciones 
+    de sobrecarga.
+
+ 2.  `Seleccionar Herramientas:` Escoge herramientas adecuadas para realizar pruebas de estrés, tales como Apache JMeter, LoadRunner, Gatling o K6. Estas 
+    herramientas te permitirán simular cargas extremas de usuarios.
+
+ 3.  `Diseñar Escenarios de Prueba:` Crea escenarios que simulen una carga superior a la capacidad esperada del sistema. Por ejemplo, si un sistema maneja 
+    normalmente 5,000 usuarios, prueba con 10,000 o más. Esto te ayudara a identificar el punto de ruptura del sistema.
+
+ 4.  `Ejecutar Pruebas:` Ejecuta los escenarios diseñados usando la herramienta seleccionada. Esto involucrará la simulación de usuarios concurrentes que 
+    interactúan con la aplicación.
+
+ 5.  `Monitorear y Analizar los Resultados:` Observa cómo se comporta el sistema bajo estrés. Analiza métricas clave como el tiempo de respuesta, tasas de error 
+    y la estabilidad del sistema durante la prueba.
+
+ 6.  `Informe de Resultados:` Una vez completadas las pruebas, documenta los hallazgos. Informa sobre cualquier falla o deterioro en el 
+    rendimiento del sistema y proporciona recomendaciones para mejoras.
+
+ 7. `Planificación de Mejoras:` Usa los resultados para planificar mejoras en la arquitectura del sistema y en su capacidad de manejo de cargas futuras.
+
+:::note
+Estas pruebas, por lo general, son rápidas en comparación con otras como las pruebas de resistencia, que pueden durar días. Es importante realizar pruebas de 
+estrés como parte del ciclo de vida de desarrollo de software para asegurar que la aplicación puede manejar situaciones límite sin comprometer el servicio. 
+:::
+
+### 4. Security Testing (pruebas de seguridad)
+
+Las pruebas de seguridad (Security Testing), son un tipo de prueba de software que detecta vulnerabilidades, amenazas o riesgos en una aplicación y previene ataques maliciosos de intrusos. 
+El objetivo de las pruebas de seguridad es identificar todas las posibles fallas y debilidades del sistema de software que podrían resultar en la pérdida de información, 
+ingresos o reputación por parte de los empleados o personas ajenas a la organización.
+
+#### Tipos de Security Testing
+
+En el ámbito de las pruebas de seguridad, existen varios tipos que se pueden realizar para identificar vulnerabilidades y garantizar la protección de sistemas y
+datos. Aquí te presento algunos de los más importantes:
+
+**Vulnerability Scanning:** Este tipo de prueba consiste en escanear el sistema en busca de vulnerabilidades conocidas utilizando herramientas automatizadas. 
+Es un primer paso importante para detectar debilidades.
+
+**Penetration Testing (Pruebas de Penetración):** Consiste en simular un ataque real para identificar posibles puntos de entrada y evaluar la respuesta del sistema 
+ante estos ataques. Es fundamental para entender cómo un atacante podría vulnerar la seguridad.
+
+**Ethical Hacking:** Esto implica pruebas manuales, realizadas ya sea por el propio equipo de seguridad o por expertos en ciberseguridad, para detectar 
+vulnerabilidades más profundas que podrían no ser evidentes con las herramientas automatizadas.
+
+**Risk Assessment (Evaluación de Riesgos):** Evaluar los riesgos asociados con las vulnerabilidades encontradas y priorizar en función de su potencial 
+impacto en la seguridad del sistema. Esto permite enfocar los esfuerzos en las amenazas más críticas.
+
+**Security Auditing:** Este tipo de prueba implica la revisión y evaluación del sistema y sus configuraciones. Se centra en garantizar que todas las políticas 
+de seguridad se sigan adecuadamente y que los procesos y configuraciones estén alineados con las normativas y estándares relevantes. Se busca identificar 
+desviaciones en la implementación de la seguridad y proponer ajustes.
+
+Compliance Testing (Pruebas de Cumplimiento): Consiste en verificar que el sistema cumpla con las normativas y requisitos de seguridad establecidos, 
+como GDPR, PCI-DSS, HIPAA, entre otros. Se asegura que las medidas de seguridad implementadas estén al nivel requerido por la legislación vigente o por estándares de la industria.
+
+Estos tipos de pruebas son esenciales para garantizar que la información y la infraestructura de un sistema estén protegidas contra accesos no autorizados y 
+otros ataques maliciosos. 
+
+#### Cómo realizar pruebas de seguridad
+
+1. `Identificar el objetivo:` Define qué parte de la aplicación o sistema será objeto de pruebas. Por ejemplo, deberías enfocarte en áreas críticas como el inicio 
+    de sesión o el acceso a datos sensibles, en lugar de secciones públicas.
+
+2. `Analizar amenazas potenciales:` Evalúa qué tipos de amenazas puede enfrentar la parte del sistema que estás probando, como ataques de denegación de servicio o
+     inyecciones SQL.
+
+3. `Configurar herramientas:` Prepara las herramientas necesarias para realizar las pruebas. Algunas herramientas comunes incluyen:
+        - **Vulnerability Scanners:** Para identificar vulnerabilidades conocidas.
+        - **Metasploit:** Para simular ataques y evaluar la seguridad del sistema.
+        - **Nikto:** Para escanear servidores web en busca de configuraciones inseguras.
+
+4. `Realizar Pruebas Manuales:` Lleva a cabo pruebas manuales para detectar vulnerabilidades más profundas. Esto puede incluir intentos de acceso no autorizado 
+    o pruebas de inyección de datos.
+
+5. `Evaluar y Mitigar Riesgos:` Una vez completadas las pruebas, documenta los hallazgos y desarrolla un plan para mitigar las vulnerabilidades encontradas. Esto 
+    ayudará a reforzar la seguridad del sistema.
+
+6. `Informe de Resultados:` Finalmente, elabora un informe detallado con los resultados de las pruebas y recomendaciones para mejorar la seguridad.
+
+:::note
+Este proceso no solo identifica los puntos débiles, sino que también permite proteger los datos sensibles y garantizar la continuidad del servicio, 
+cumpliendo con regulaciones de seguridad como GDPR o HIPAA.
+:::
+
+### 5. Pruebas de accesibilidad
+
+Las pruebas de accesibilidad (Accessibility Testing) son fundamentales para garantizar que una aplicación, sitio web o sistema sea usable para la mayor cantidad 
+de personas posible, incluidas aquellas con diferentes discapacidades. 
+
+Las pruebas de accesibilidad se definen como un tipo de prueba de software que se realiza para garantizar que la aplicación que se está probando sea utilizable 
+por personas con discapacidades como problemas de audición, daltonismo, personas mayores, personas con baja visión y otros grupos desfavorecidos.
+
+**Objetivo:** Asegurar que personas con discapacidades físicas, visuales, auditivas, cognitivas y motoras puedan interactuar con el sistema sin barreras.
+**Normativas:** Evaluar el cumplimiento de pautas de accesibilidad internacionales como las Web Content Accessibility Guidelines (WCAG) y normativas 
+locales como la ADA (Americans with Disabilities Act).
+**Compatibilidad con Tecnologías Asistivas:** Verificar que la aplicación funcione correctamente con herramientas como lectores de pantalla y dispositivos 
+de entrada alternativos.
+**Navegación y Usabilidad:** Asegurar que la navegación se pueda realizar mediante teclado y que los enlaces o botones sean claros. También se evalúa la 
+estructura de la información para facilitar la localización.
+**Contraste y Legibilidad:** Comprobar que los colores, tamaños de fuente y el contraste faciliten la lectura para usuarios con problemas de visión.
+**Etiquetado y Semántica:** Asegurar que todos los elementos interactivos estén correctamente etiquetados para que las tecnologías asistidas interpretan y 
+comuniquen la información de manera efectiva.
+
+:::note
+Estas pruebas no solo promueven la inclusión, sino que también mejoran la experiencia de usuario para todos, no solo para aquellas personas con discapacidades. 
+Aseguran que las organizaciones cumplan con las leyes y regulaciones, evitando posibles sanciones y mejorando la reputación de la empresa. 
+:::
+
+#### Cómo hacer pruebas 
+
+Para realizar pruebas de accesibilidad, puedes seguir estos pasos:
+
+1. **Definir el Objetivo:** Asegúrate de que tu aplicación o sitio web sea accesible para todos los usuarios, incluidas aquellas personas con diversas 
+    discapacidades (visuales, auditivas, motoras y cognitivas).
+
+2. **Compatibilidad con Tecnologías Asistivas:** Verifica que la aplicación funcione bien con herramientas como lectores de pantalla, magnificadores 
+    y teclados especiales. Asegúrate de que estos usuarios puedan acceder a toda la información y utilizar las funciones de manera efectiva.
+
+3. **Navegación y Usabilidad:** Evalúa si la navegación puede realizarse mediante teclado sin depender del ratón. Los enlaces y botones deben ser claros 
+    y fáciles de identificar, y la estructura de la información debe facilitar la búsqueda y el uso de la aplicación.
+
+4. **Contraste y Legibilidad:** Comprueba que los colores, tamaños de fuente y el contraste sean adecuados para fomentar que los usuarios con problemas 
+    de visión puedan leer y comprender el contenido.
+
+5. **Etiquetado y Semántica:** Asegúrate de que todos los elementos interactivos (como botones, formularios e imágenes) estén correctamente etiquetados y 
+    que se utilicen de manera semántica. Esto ayuda a las tecnologías asistidas a interpretar la información correctamente.
+
+6. **Cumplimiento de Normativas:** Evalúa si tu aplicación cumple con pautas internacionales, como las WCAG (Web Content Accessibility Guidelines) y normativas 
+        locales, como la ADA (Americans with Disabilities Act).
