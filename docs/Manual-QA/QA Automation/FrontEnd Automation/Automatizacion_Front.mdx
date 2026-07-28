@@ -1,0 +1,649 @@
+---
+sidebar_position: 1
+title: Automatizacion de frontend
+---
+
+La automatización front-end se refiere a la automatización que optimiza las tareas relacionadas con la interactividad, 
+los sitios web y los procesos asistidos. La automatización robótica de procesos (RPA) se considera automatización front-end, 
+es decir, a nivel de interfaz de usuario (UI). Entre las ventajas de la automatización front-end se incluyen la creación rápida de 
+tareas sin necesidad de conocimientos de programación, la ausencia de modificaciones en programas o aplicaciones existentes, y la 
+facilidad con la que las personas que conocen las teclas pueden crear la tarea de automatización.
+
+- `Definición de Front End Automation:` Este tipo de automatización busca simplificar tareas como pulsar botones, ingresar datos 
+y navegar por sitios web. Se puede aplicar tanto a páginas web como a aplicaciones.
+
+- `Interacción y Procesos:` La automatización se enfoca en replicar acciones que normalmente realizarías tú, permitiendo que los 
+procesos se ejecuten rápidamente y sin intervención manual constante.
+
+- `Robotic Process Automation:` Utiliza software robots que imitan las acciones de un usuario en la interfaz, como abrir programas 
+y realizar clics.
+
+- `Facilidad de Creación:` Muchas herramientas de automatización permiten configurar tareas con un nivel mínimo de conocimiento 
+en programación.
+
+- `Modificaciones a Programas Existentes:` Dado que la automatización opera sobre la capa visual, no es necesario modificar el código 
+base, facilitando su integración en sistemas ya existentes.
+
+**Ejemplo Práctico:** Imagina que diariamente necesitas ingresar a un sitio web para copiar información. Con la automatización de 
+front end, podrías configurar un robot que realice esta tarea por ti, ahorrándote tiempo y evitando errores.
+
+---
+## Introducción Básica
+
+### Herramientas para desarrolladores del navegador (Browser Dev Tools)
+
+Los Browser DevTools son herramientas integradas en navegadores web modernos (como Google Chrome, Firefox, y Microsoft Edge) que 
+permiten a desarrolladores y testers inspeccionar, depurar y optimizar páginas web en tiempo real. 
+
+- `Inspección de Elementos:` Puedes ver y modificar el código HTML y CSS de una página. Esto es útil para realizar cambios instantáneos 
+sin necesidad de recargar la página.
+
+- `Depuración de JavaScript:` Puedes acceder a la consola para ejecutar comandos de JavaScript y depurar el código, lo que ayuda a 
+identificar errores.
+
+- `Análisis de Rendimiento:`  Las DevTools permiten analizar el desempeño de la página, identificando áreas que pueden requerir optimización.
+
+- `Revisar Solicitudes de Red: ` Puedes verificar las solicitudes de red, lo que es crucial para ver cómo se cargan los recursos y 
+detectar problemas en la carga de datos (por ejemplo, JSON en aplicaciones web).
+
+- `Herramientas de Accesibilidad:` Estas herramientas también ofrecen funcionalidades para asegurar que tu aplicación cumpla 
+con estándares de accesibilidad.
+
+- `Demos y Tutoriales:` Si deseas aprender más a fondo sobre cómo utilizar DevTools, hay cursos disponibles, como el curso sobre 
+DevTools en Udemy, que ofrecen lecciones específicas sobre el uso de estas herramientas.
+
+:::note
+Con el uso de DevTools, puedes facilitar el proceso de automatización, ya que te permite experimentar y comprender cómo interactúan 
+los diferentes elementos de la interfaz de usuario en tus pruebas. 
+:::
+
+---
+
+## HTML, CSS, JavaScript
+
+HTML, CSS y JavaScript son las tres tecnologías web fundamentales que los ingenieros de automatización de pruebas frontend deben 
+comprender. HTML define la estructura de las páginas web, CSS controla el estilo y el diseño, y JavaScript permite la interactividad. 
+Este conocimiento permite a los evaluadores localizar elementos de forma fiable, comprender el comportamiento de la renderización y 
+escribir scripts de automatización eficaces.
+
+### HTML (HyperText Markup Language)
+
+Es el lenguaje de marcado utilizado para estructurar el contenido de una página web. Con HTML se definen elementos como títulos, 
+párrafos, listas, enlaces, imágenes, tablas y formularios. En otras palabras, proporciona la estructura básica sobre la que se 
+construye cualquier sitio web.
+
+### CSS (Cascading Style Sheets)
+
+Es el lenguaje encargado de definir la apariencia visual de una página web. Mediante CSS es posible aplicar estilos como colores, 
+tipografías, tamaños, márgenes, espaciados, alineaciones y diseños responsivos. Su principal ventaja es que separa la estructura 
+del contenido (HTML) de su presentación, facilitando el mantenimiento y la personalización de la interfaz.
+
+### JavaScript
+
+Es un lenguaje de programación que se ejecuta principalmente en el navegador y permite agregar interactividad a las páginas web. 
+Con JavaScript es posible responder a eventos del usuario (como hacer clic en un botón), validar formularios, realizar peticiones 
+a servidores, actualizar contenido sin recargar la página y manipular el DOM (Document Object Model) en tiempo real. Estas capacidades 
+lo convierten en un componente esencial para el desarrollo de aplicaciones web modernas y para la automatización de pruebas.
+
+### ¿Por qué son importantes para un ingeniero QA?
+
+Comprender los fundamentos de HTML, CSS y JavaScript es esencial para cualquier profesional de Quality Assurance (QA) que trabaje con 
+aplicaciones web. Estos conocimientos permiten:
+
+- Identificar y localizar elementos de la interfaz durante las pruebas.
+- Comprender la estructura y el comportamiento de una aplicación web.
+- Analizar errores relacionados con la interfaz de usuario (UI).
+- Crear y mantener pruebas automatizadas de manera más eficiente.
+
+En particular, JavaScript es una habilidad clave al trabajar con herramientas de automatización como Cypress, Playwright o Selenium 
+WebDriver, ya que permite interactuar con elementos del DOM, escribir scripts de prueba y automatizar flujos de usuario con mayor precisión.
+
+:::note
+Aunque Selenium admite varios lenguajes de programación como Java, C#, Python y JavaScript, herramientas como Cypress y Playwright 
+utilizan JavaScript o TypeScript como lenguaje principal, por lo que dominar sus fundamentos resulta especialmente valioso 
+para quienes desean especializarse en la automatización de pruebas web.
+:::
+
+### Ejemplo
+
+**HTML:** Imagina que estamos creando un sencillo formulario de contacto. 
+
+```
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Bienvenido a Nuestra Página</h1>
+    <p>Este es un ejemplo de una página web que combina HTML, CSS y Java </p>
+
+    <h2>Formulario de Contacto</h2>
+
+    <form id="contact-form">
+
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" placeholder="Ingrese su nombre" required>
+
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" placeholder="ejemplo@correo.com" required>
+
+        <button type="submit">Enviar</button>
+
+    </form>
+
+    <p id="result"></p>
+</body>
+</html>
+```
+
+**CSS:** Ahora, agreguemos estilos usando CSS para mejorar la apariencia
+
+```
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #333;
+}
+
+form {
+    margin: 20px 0;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+```
+**JavaScript:** Finalmente, vamos a agregar interactividad con JavaScript. Este script se encargará de manejar el evento de envío del 
+formulario
+
+```
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Previene el envío normal del formulario
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    
+    // Mostramos un mensaje de éxito
+    document.getElementById('result').innerText = `Gracias, ${name}. Tu correo ${email} ha sido enviado.`;
+});
+```
+
+![Ejemplo de HTML](/img/EJEMPLOHTML.png)
+
+---
+## AJAX
+
+AJAX significa JavaScript asíncrono y XML. En resumen, consiste en el uso del objeto XMLHttpRequest para comunicarse con servidores.
+Puede enviar y recibir información en diversos formatos, como JSON, XML, HTML y archivos de texto.
+
+### Conceptos Clave de AJAX:
+
+- `Asincronía:` Permite que el navegador realice otras tareas mientras espera la respuesta del servidor. Esto es diferente de las 
+solicitudes sincrónicas, donde cada solicitud debe completarse antes de que se envíe la siguiente. Con AJAX, puedes enviar 
+múltiples solicitudes a la vez y recibir respuestas sin tener que esperar.
+
+- `Comunicación en Segundo Plano:` AJAX permite intercambiar datos (como JSON, XML o HTML) sin interrumpir la interacción del usuario. 
+Por ejemplo, puedes solicitar datos mientras el usuario sigue navegando por la página.
+
+- `Actualización Parcial:` Solo se actualiza una parte específica de la página, en lugar de tener que recargar todo el contenido. 
+Esto es muy útil para interfaces dinámicas donde solo una sección necesita cambiar.
+
+Ejemplo Práctico:
+
+Aquí tienes un pequeño ejemplo de cómo usar AJAX en una página web para cargar datos de un servidor cuando se hace clic en un botón:
+
+```
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo AJAX</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:linear-gradient(135deg,#4f46e5,#06b6d4);
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .container{
+            background:#fff;
+            width:450px;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 10px 30px rgba(0,0,0,.25);
+            text-align:center;
+        }
+
+        h1{
+            color:#333;
+            margin-bottom:20px;
+        }
+
+        p{
+            color:#666;
+            margin-bottom:25px;
+        }
+
+        button{
+            background:#4f46e5;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            font-size:16px;
+            border-radius:8px;
+            cursor:pointer;
+            transition:.3s;
+        }
+
+        button:hover{
+            background:#3730a3;
+            transform:translateY(-2px);
+        }
+
+        #data{
+            margin-top:25px;
+            text-align:left;
+        }
+
+        .card{
+            background:#f8fafc;
+            border-left:5px solid #4f46e5;
+            padding:18px;
+            border-radius:8px;
+            animation:fadeIn .5s ease;
+        }
+
+        .card h2{
+            color:#4f46e5;
+            margin-bottom:10px;
+            text-transform:capitalize;
+        }
+
+        .card p{
+            color:#444;
+            line-height:1.6;
+            margin:0;
+        }
+
+        .loading{
+            color:#4f46e5;
+            font-weight:bold;
+        }
+
+        @keyframes fadeIn{
+            from{
+                opacity:0;
+                transform:translateY(15px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1> Ejemplo de AJAX</h1>
+    <p>Haz clic en el botón para obtener información desde una API sin recargar la página.</p>
+
+    <button id="load-data">Cargar Datos</button>
+
+    <div id="data"></div>
+</div>
+
+<script>
+
+document.getElementById("load-data").addEventListener("click", function(){
+
+    const data = document.getElementById("data");
+
+    data.innerHTML = '<p class="loading"> Cargando información...</p>';
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.open("GET","https://jsonplaceholder.typicode.com/posts/1",true);
+
+    xhr.onload = function(){
+
+        if(this.status === 200){
+
+            const response = JSON.parse(this.responseText);
+
+            data.innerHTML = `
+                <div class="card">
+                    <h2>${response.title}</h2>
+                    <p>${response.body}</p>
+                </div>
+            `;
+        }
+    };
+
+    xhr.onerror = function(){
+        data.innerHTML = "<p style='color:red'> Ocurrió un error al obtener los datos.</p>";
+    };
+
+    xhr.send();
+
+});
+
+</script>
+
+</body>
+</html>
+
+```
+- Cuando el usuario hace clic en el botón "Cargar Datos", se realiza una solicitud AJAX al endpoint especificado.
+- Si la solicitud se completa con éxito, los datos se muestran en una sección de la página sin recargar todo el contenido.
+
+<div
+  style={{
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gap: '20px',
+    alignItems: 'start'
+  }}
+>
+  <img src="/img/Ajax1.png" alt="Ejemplo de Ajax 1" style={{ width: '100%' }} />
+  <img src="/img/Ajax2.png" alt="Ejemplo de Ajax 2" style={{ width: '100%' }} />
+</div>
+
+---
+
+## Almacenamiento en caché
+
+El almacenamiento en caché (caching) es una técnica importante en el desarrollo web que permite optimizar la carga de 
+recursos al guardar temporalmente archivos como HTML, CSS, JavaScript e imágenes en el navegador o en servidores intermedios. 
+
+### Funcionamiento del Almacenamiento en Caché:
+
+- `Primera Visita:` La primera vez que un usuario visita una página, el navegador descarga todos los recursos necesarios del servidor.
+
+- `Cabeceras HTTP:` Al responder, el servidor puede enviar encabezados HTTP que indican al navegador cuánto tiempo los recursos son 
+válidos para ser almacenados en caché. Por ejemplo, una cabecera con Cache-Control: max-age=3600 indica que el recurso puede almacenarse 
+durante una hora.
+
+- `Visitas Subsiguientes:` En visitas posteriores, si el recurso aún está válido en caché, el navegador lo carga desde su almacenamiento 
+local en lugar de solicitarlo de nuevo al servidor. Esto acelera la carga de la página y mejora la velocidad de navegación.
+
+- `Actualización del Caché:` Una vez que el tiempo de expirar de las cabeceras ha pasado, el navegador vuelve a solicitar el recurso al
+ servidor, asegurándose de utilizar la versión más actualizada.
+
+
+### Beneficios del Almacenamiento en Caché
+
+- `Velocidad:` Reduce el tiempo de carga de la página después de la primera visita.
+- `Menos Carga en el Servidor:` Disminuye el número de solicitudes que el servidor tiene que manejar.
+- `Mejora la Experiencia del Usuario:` Los usuarios experimentan tiempos de carga más rápidos, lo que puede aumentar la satisfacción 
+y retención.
+
+### Importancia en QA:
+
+Como ingeniero de control de calidad, es crucial comprender cómo funciona el almacenamiento en caché para realizar pruebas efectivas 
+y garantizar que las aplicaciones web funcionen correctamente después de implementar cambios en los recursos. Si los recursos no se 
+actualizan correctamente, esto puede llevar a que los usuarios vean contenido obsoleto.
+
+---
+## SWA, PWA, JAMStack
+
+Las aplicaciones web de una sola capa (SWA), las aplicaciones web progresivas (PWA) y JAMStack son arquitecturas modernas de 
+aplicaciones web con comportamientos de renderizado y almacenamiento en caché distintos. Las PWA ofrecen soporte sin conexión e 
+instalación, mientras que JAMStack pre-renderiza el contenido durante la compilación para una entrega rápida. Para probar estas 
+arquitecturas, es necesario comprender las interacciones de los service workers, el comportamiento sin conexión y la regeneración 
+estática incremental
+
+### SWA (Static Web Apps):
+
+Las aplicaciones web estáticas (SWA) se componen de contenido que se entrega tal cual al navegador, sin procesamiento del lado 
+del servidor. Esta simplicidad permite una carga rápida, pero no ofrece interactividad avanzada. Las SWA son ideales para sitios 
+que no requieren mucha lógica y pueden ser prácticamente solo páginas HTML.
+
+**Características principales:**
+
+- Entrega rápida de contenido mediante CDN.
+- Alta disponibilidad y escalabilidad.
+- Menor costo de infraestructura.
+- Fácil integración con APIs y servicios externos.
+- Mayor seguridad al reducir la lógica ejecutada en el servidor.
+
+---
+
+### PWA (Progressive Web Apps):
+
+Las Progressive Web Apps son aplicaciones web que utilizan tecnologías avanzadas para proporcionar una experiencia similar a las 
+aplicaciones nativas. Algunas características clave incluyen:
+
+- `Instalabilidad:` Los usuarios pueden agregar la PWA a la pantalla de inicio de su dispositivo.
+- `Capacidades Offline:` Gracias a los Service Workers, las PWA pueden funcionar sin conexión o con conexiones inestables.
+- `Responsive y Rápida:` Se adaptan a diferentes dispositivos y ofrecen tiempos de carga rápidos.
+
+Las PWA buscan combinar lo mejor de las aplicaciones web y móviles, ofreciendo una experiencia fluida y accesible.
+
+--- 
+
+### JAMstack:
+
+JAMstack es un enfoque arquitectónico que desacopla la capa de presentación del backend. JAM representa:
+
+- **JavaScript:** Para la funcionalidad dinámica.
+- **APIs:** Interfaces para obtener datos (como REST o GraphQL).
+- **Markup:** HTML estático que se puede servir rápidamente desde una CDN.
+
+Este enfoque mejora el rendimiento, la seguridad y la escalabilidad, pues los archivos estáticos se pueden distribuir 
+fácilmente a través de redes de entrega de contenido (CDN).
+
+**Ventajas principales:**
+
+- Carga de páginas mucho más rápida.
+- Mayor seguridad al reducir la superficie de ataque.
+- Escalabilidad gracias a la distribución mediante CDN.
+- Menor dependencia de servidores tradicionales.
+- Excelente integración con servicios y APIs externas.
+
+###  ¿Por qué son importantes para un ingeniero QA?
+
+Conocer estas arquitecturas permite diseñar estrategias de prueba más efectivas y comprender mejor el comportamiento de las aplicaciones modernas.
+
+Entre los aspectos que un ingeniero QA debe validar se encuentran:
+
+- Funcionamiento de la aplicación con y sin conexión a Internet.
+- Correcto comportamiento del almacenamiento en caché.
+- Actualización de recursos cuando existe una nueva versión.
+- Consumo correcto de APIs.
+- Rendimiento y tiempos de carga.
+- Compatibilidad entre navegadores y dispositivos.
+- Instalación y funcionamiento de las Progressive Web Apps.
+- Manejo de errores cuando las APIs no están disponibles.
+
+:::tip
+Las aplicaciones modernas utilizan con frecuencia **Service Workers**, almacenamiento en caché y APIs para mejorar el rendimiento. Durante las pruebas es recomendable verificar tanto el comportamiento **online** como **offline**, limpiar la caché cuando sea necesario y validar que los datos mostrados correspondan a la versión más reciente de la aplicación.
+:::
+
+---
+
+## CSR y SSR
+
+La Responsabilidad Social Corporativa (RSC) y la Responsabilidad Social Social (RSS) son conceptos relacionados pero diferentes:
+
+### Responsabilidad Social Corporativa (RSC):
+
+Se refiere a las prácticas que adopta una empresa para tener un impacto positivo en la sociedad y el medio ambiente. Esto incluye 
+aspectos como la ética empresarial, la sostenibilidad y las relaciones con las comunidades.
+
+## Objetivos de la RSC
+
+Entre los principales objetivos de la Responsabilidad Social Corporativa se encuentran:
+
+- Contribuir al bienestar de la sociedad.
+- Proteger y conservar el medio ambiente.
+- Promover prácticas empresariales éticas y transparentes.
+- Fomentar la diversidad, la inclusión y el respeto por los derechos humanos.
+- Generar valor sostenible para todos los grupos de interés (*stakeholders*).
+
+### Ejemplos de iniciativas de RSC
+
+Las organizaciones pueden implementar diferentes acciones para fortalecer su responsabilidad social, entre ellas:
+
+- Programas para reducir la huella de carbono.
+- Uso eficiente de los recursos naturales y energías renovables.
+- Campañas de reciclaje y gestión responsable de residuos.
+- Programas de voluntariado corporativo.
+- Proyectos de educación, salud o desarrollo comunitario.
+- Políticas de inclusión, igualdad de oportunidades y bienestar laboral.
+
+:::tip
+La Responsabilidad Social Corporativa no consiste únicamente en realizar donaciones o actividades benéficas. 
+También implica integrar criterios sociales, ambientales y éticos en la estrategia y en la toma de decisiones de la organización, 
+generando un impacto positivo y sostenible.
+:::
+
+## Responsabilidad Social (RSS)
+
+La **Responsabilidad Social (RSS)** hace referencia al compromiso ético que tienen las personas de contribuir al bienestar 
+de la sociedad y del entorno en el que viven. A diferencia de la **Responsabilidad Social Corporativa (RSC)**, que se enfoca en las 
+acciones realizadas por las empresas, la Responsabilidad Social se centra en el comportamiento y la participación activa de 
+los individuos.
+
+### Objetivos
+
+La Responsabilidad Social busca fomentar acciones que generen un impacto positivo en la comunidad, promoviendo valores como la 
+solidaridad, el respeto, la inclusión y el cuidado del medio ambiente.
+
+Entre sus principales objetivos se encuentran:
+
+- Contribuir al bienestar de la comunidad.
+- Promover el voluntariado y la participación ciudadana.
+- Fomentar el cuidado del medio ambiente.
+- Apoyar causas sociales y humanitarias.
+- Incentivar una cultura de responsabilidad y compromiso con la sociedad.
+
+### Ejemplos
+
+Algunas acciones de responsabilidad social son:
+
+- Participar en jornadas de limpieza de parques, playas o espacios públicos.
+- Donar tiempo, conocimientos o recursos a organizaciones sin ánimo de lucro.
+- Colaborar en campañas de concienciación sobre temas sociales o ambientales.
+- Apoyar iniciativas de reciclaje y conservación del medio ambiente.
+- Participar en programas comunitarios de educación, salud o ayuda social.
+
+:::note
+Mientras que la **Responsabilidad Social Corporativa (RSC)** es asumida por las organizaciones como parte de su estrategia 
+empresarial, la **Responsabilidad Social (RSS)** corresponde al compromiso que cada persona adquiere con su comunidad y 
+con la sociedad en general.
+:::
+
+---
+
+## Responsive vs Adaptive
+
+El **diseño responsivo (Responsive Design)** y el **diseño adaptativo (Adaptive Design)** son dos enfoques utilizados para crear 
+aplicaciones web compatibles con diferentes tamaños de pantalla y dispositivos. Aunque ambos buscan mejorar la experiencia del usuario,
+difieren en la forma en que ajustan la interfaz.
+
+Para un ingeniero de **Quality Assurance (QA)** es importante conocer estas diferencias, ya que las estrategias de prueba varían según 
+el tipo de diseño implementado.
+
+### Diseño Responsivo (Responsive Design)
+
+El **diseño responsivo** utiliza una única estructura de la página que se adapta automáticamente a cualquier tamaño de pantalla 
+mediante el uso de CSS.
+
+Este enfoque emplea elementos flexibles, cuadrículas fluidas (*Fluid Grid*), imágenes adaptables y **Media Queries** para reorganizar 
+el contenido de forma dinámica.
+
+**Características principales:**
+
+- Una única versión de la página para todos los dispositivos.
+- Uso de porcentajes y unidades relativas en lugar de tamaños fijos.
+- Adaptación continua al cambiar el tamaño de la ventana.
+- Transiciones suaves sin necesidad de recargar la página.
+- Menor esfuerzo de mantenimiento al existir un solo diseño.
+
+**Ejemplo:**
+
+Una tienda en línea muestra cuatro productos por fila en un computador, dos en una tableta y uno en un teléfono móvil, utilizando 
+la misma estructura HTML.
+
+
+
+### Diseño Adaptativo (Adaptive Design)
+
+El **diseño adaptativo** utiliza varias versiones de la interfaz, cada una diseñada para un rango específico de resoluciones o dispositivos.
+
+Cuando un usuario accede a la aplicación, el sistema detecta el tamaño de la pantalla y carga el diseño más apropiado.
+
+**Características principales:**
+
+- Varias versiones de la interfaz para diferentes dispositivos.
+- Uso de puntos de quiebre (*Breakpoints*) predefinidos.
+- Es posible modificar tanto el diseño como la estructura del contenido.
+- Permite optimizar la experiencia para dispositivos específicos.
+- Requiere mayor esfuerzo de desarrollo y mantenimiento.
+
+**Ejemplo:**
+
+Una aplicación dispone de un diseño específico para teléfonos móviles (320 px), otro para tabletas (768 px) y otro para computadores (1024 px o superior).
+
+
+
+### Comparación
+
+| Diseño Responsivo | Diseño Adaptativo |
+|-------------------|-------------------|
+| Una sola versión de la página. | Varias versiones de la interfaz. |
+| Se adapta continuamente al tamaño de la pantalla. | Cambia entre diseños predefinidos. |
+| Utiliza Media Queries y diseños fluidos. | Utiliza breakpoints específicos. |
+| Mantiene la misma estructura HTML. | Puede cambiar la estructura y el contenido. |
+| Más sencillo de mantener. | Requiere mayor mantenimiento. |
+
+
+### ¿Por qué es importante para un ingeniero QA?
+
+Conocer el tipo de diseño implementado permite definir una estrategia de pruebas adecuada.
+
+En aplicaciones con **diseño responsivo**, es recomendable validar:
+
+- La correcta visualización en diferentes resoluciones.
+- El comportamiento de los elementos al cambiar el tamaño de la ventana.
+- La adaptación de imágenes, menús y formularios.
+- La compatibilidad entre navegadores y dispositivos.
+
+En aplicaciones con **diseño adaptativo**, además de lo anterior, es importante comprobar:
+
+- Que se cargue la versión correcta según el dispositivo.
+- Que cada diseño funcione correctamente de forma independiente.
+- Que no existan diferencias funcionales entre las distintas versiones.
+- Que la navegación y la experiencia de usuario sean consistentes.
+
+:::tip
+Las herramientas de automatización como **Cypress**, **Playwright** y **Selenium** permiten simular diferentes resoluciones de 
+pantalla. Es una buena práctica ejecutar pruebas en tamaños representativos de escritorio, tableta y móvil para verificar el 
+comportamiento de la interfaz en cada escenario.
+:::
