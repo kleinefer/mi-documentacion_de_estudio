@@ -1,0 +1,667 @@
+---
+sidebar_position: 1
+title: Fundamentos
+---
+
+# Manual Testing
+
+El Manual Testing o pruebas manuales es un proceso en el que un analista de calidad (QA) verifica el funcionamiento de una aplicación 
+ejecutando casos de prueba sin utilizar herramientas de automatización. Durante este proceso, el tester interactúa con el sistema como 
+lo haría un usuario final para comprobar que cada funcionalidad cumple con los requisitos definidos.
+
+El propósito principal del testing manual es detectar defectos antes de que el software sea entregado al cliente, garantizando una experiencia 
+de usuario adecuada y un producto de calidad.
+
+:::note
+Las pruebas manuales son indispensables en las primeras etapas de un proyecto, en pruebas exploratorias, de usabilidad y cuando una 
+funcionalidad cambia con frecuencia.
+:::
+
+## Objetivos 
+
+
+Las pruebas manuales tienen como finalidad:
+
+- Detectar errores antes de que el software llegue al usuario final.
+- Verificar que los requisitos funcionales y no funcionales se cumplan.
+- Validar que la aplicación funcione correctamente desde la perspectiva del usuario.
+- Evaluar la usabilidad, accesibilidad y experiencia de navegación.
+- Asegurar la calidad general del producto.
+
+## ¿Cuándo utilizar pruebas manuales?
+
+Las pruebas manuales son recomendables cuando:
+
+- La funcionalidad aún está en desarrollo.
+- Se realizan pruebas exploratorias.
+- Es necesario evaluar la experiencia del usuario.
+- Los casos de prueba cambian constantemente.
+- Automatizar una prueba representa un costo mayor que ejecutarla manualmente.
+
+## Características
+
+- Son ejecutadas por una persona.
+- No requieren herramientas de automatización.
+- Permiten detectar errores visuales y de usabilidad.
+- Son flexibles frente a cambios en la aplicación.
+- Requieren documentación de los resultados obtenidos.
+
+
+## Ventajas
+- Permiten evaluar la experiencia del usuario.
+- Son ideales para pruebas exploratorias.
+- No requieren conocimientos de programación.
+- El costo inicial es bajo.
+- Se adaptan fácilmente a cambios en los requisitos.
+
+## Desventajas
+- Consumen más tiempo que las pruebas automatizadas.
+- Son propensas a errores humanos.
+- Resulta difícil repetir exactamente la misma prueba muchas veces.
+- No son recomendables para pruebas repetitivas o de regresión extensas.
+
+## Tipos de pruebas
+
+Estas pruebas deben tener su informe.
+
+- Pruebas Funcionales 
+- Pruebas de usabilidad
+- Prueba de exploración 
+- Pruebas de regresión 
+- Pruebas de compatibilidad 
+- Prueba de valiadción de datos
+
+## Ejemplo
+
+Supongamos que se desarrolla una tienda virtual.
+
+El analista QA debe comprobar que un usuario pueda:
+
+ 1. Iniciar sesión.
+ 2. Buscar un producto.
+ 3. Agregarlo al carrito.
+ 4. Finalizar la compra.
+ 5. Recibir la confirmación del pedido.
+
+Durante esta prueba también verificará aspectos como:
+
+ 1. Los mensajes mostrados al usuario.
+ 2. El diseño de la interfaz.
+ 3. Los tiempos de respuesta.
+ 4. El comportamiento ante datos inválidos.
+
+## Buenas prácticas
+
+- Leer completamente los requisitos antes de iniciar las pruebas.
+- Escribir casos de prueba claros y reutilizables.
+- Registrar siempre la evidencia encontrada.
+- Reportar los defectos con suficiente información.
+- Repetir las pruebas después de corregir un error (retesting).
+
+## Errores comunes
+
+- No validar los mensajes de error.
+- Omitir las precondiciones del caso de prueba.
+- Ejecutar pruebas sin datos adecuados.
+- No documentar los resultados obtenidos.
+- No verificar el comportamiento en diferentes navegadores o dispositivos.
+
+## Proceso de las pruebas manuales
+
+El proceso de las pruebas manuales consiste en una serie de actividades que permiten verificar que una aplicación cumpla con los requisitos definidos y funcione correctamente antes de ser entregada al usuario final.
+
+### 1. Analizar los requisitos
+
+El primer paso consiste en comprender la documentación del proyecto, las historias de usuario, los criterios de aceptación y las especificaciones funcionales. Esto permite conocer el comportamiento esperado de la aplicación e identificar qué funcionalidades deben validarse.
+
+**Objetivo:** entender qué se debe probar y cuáles son los resultados esperados.
+
+---
+
+### 2. Diseñar los casos de prueba
+
+Con base en los requisitos, el analista QA crea los casos de prueba, definiendo los pasos que se deben ejecutar, los datos de prueba, las precondiciones y los resultados esperados.
+
+**Objetivo:** documentar de forma clara y organizada cómo se verificará cada funcionalidad.
+
+---
+
+### 3. Preparar el entorno de pruebas
+
+Antes de ejecutar las pruebas, es necesario verificar que el ambiente esté correctamente configurado y que se cuente con los datos necesarios para realizar las validaciones.
+
+Algunas actividades son:
+
+- Configurar el ambiente de pruebas.
+- Crear usuarios de prueba.
+- Preparar bases de datos o información de ejemplo.
+- Verificar que la versión correcta de la aplicación esté disponible.
+
+---
+
+### 4. Ejecutar los casos de prueba
+
+El analista ejecuta cada caso de prueba siguiendo los pasos definidos y registra si el resultado obtenido coincide con el esperado.
+
+Durante esta etapa también se identifican errores de funcionamiento, problemas de interfaz o comportamientos inesperados.
+
+---
+
+### 5. Reportar los defectos
+
+Cuando se detecta un error, este debe documentarse utilizando una herramienta de gestión de incidencias como Jira o Azure DevOps.
+
+Un reporte de defecto normalmente incluye:
+
+- Descripción del problema.
+- Pasos para reproducirlo.
+- Resultado esperado.
+- Resultado obtenido.
+- Evidencias (capturas de pantalla o videos).
+- Prioridad y severidad.
+
+---
+
+### 6. Reejecutar las pruebas (Retesting)
+
+Una vez que el equipo de desarrollo corrige el defecto, el QA vuelve a ejecutar el caso de prueba para confirmar que el problema fue solucionado.
+
+---
+
+### 7. Ejecutar pruebas de regresión
+
+Después de corregir uno o varios defectos, se realizan pruebas de regresión para comprobar que los cambios implementados no hayan afectado otras funcionalidades del sistema.
+
+---
+
+### Resumen del proceso
+
+```mermaid
+flowchart LR
+A[Analizar requisitos] --> B[Diseñar casos de prueba]
+B --> C[Preparar entorno]
+C --> D[Ejecutar pruebas]
+D --> E[Reportar defectos]
+E --> F[Retesting]
+F --> G[Pruebas de regresión]
+```
+
+## Herramientas utilizadas en QA
+
+Durante el proceso de aseguramiento de la calidad, los analistas QA utilizan diferentes herramientas para 
+gestionar pruebas, registrar defectos y validar el comportamiento de las aplicaciones.
+
+### Jira
+
+Es una herramienta de gestión de proyectos y seguimiento de incidencias desarrollada por Atlassian.
+
+Se utiliza para:
+
+- Registrar defectos (bugs).
+- Asignar tareas al equipo.
+- Hacer seguimiento del estado de las incidencias.
+- Gestionar proyectos con metodologías ágiles como Scrum o Kanban.
+
+### Trello
+
+Trello es una herramienta de organización basada en tableros que permite administrar tareas de manera sencilla.
+
+Se utiliza para:
+
+- Organizar actividades del equipo.
+- Dar seguimiento al avance de las pruebas.
+- Gestionar tareas mediante listas y tarjetas.
+
+### TestRail
+
+TestRail es una plataforma especializada en la gestión de pruebas.
+
+Permite:
+
+- Crear casos de prueba.
+- Organizar suites de pruebas.
+- Ejecutar ciclos de testing.
+- Registrar resultados.
+- Generar reportes de cobertura y ejecución.
+
+### Postman
+
+Postman es una herramienta utilizada para probar y documentar APIs.
+
+Con ella es posible:
+
+- Enviar solicitudes HTTP.
+- Validar respuestas de una API.
+- Automatizar pruebas de servicios REST.
+- Administrar colecciones de solicitudes.
+
+
+
+### BrowserStack
+
+BrowserStack permite ejecutar pruebas en diferentes navegadores, sistemas operativos y dispositivos reales sin necesidad de 
+tenerlos instalados localmente.
+
+Es muy útil para realizar:
+
+- Pruebas de compatibilidad.
+- Pruebas responsive.
+- Validación en dispositivos móviles.
+- Verificación en múltiples versiones de navegadores.
+
+:::tip
+No es necesario dominar todas estas herramientas al iniciar como QA. Lo importante es comprender para qué sirve cada una y en qué momento del proceso de pruebas se utiliza.
+:::
+
+## Test Driven Development (TDD)
+
+El **Test Driven Development (TDD)** o **Desarrollo Guiado por Pruebas** es una metodología de desarrollo de software en la que las pruebas se escriben antes de implementar el código.
+
+El objetivo es garantizar que cada funcionalidad esté respaldada por pruebas desde el inicio del desarrollo.
+
+El ciclo de trabajo de TDD sigue tres pasos principales:
+
+1. **Red:** escribir una prueba que falle porque la funcionalidad aún no existe.
+2. **Green:** implementar el código mínimo necesario para que la prueba sea exitosa.
+3. **Refactor:** mejorar el código sin modificar su comportamiento, manteniendo todas las pruebas exitosas.
+
+```mermaid
+flowchart LR
+A[Escribir prueba] --> B[Ejecutar prueba - Falla]
+B --> C[Desarrollar funcionalidad]
+C --> D[Ejecutar prueba - Pasa]
+D --> E[Refactorizar]
+E --> A
+```
+
+### Beneficios
+
+- Mejora la calidad del código.
+- Reduce la aparición de errores.
+- Facilita el mantenimiento.
+- Favorece un diseño más limpio.
+- Proporciona una mayor cobertura de pruebas.
+
+:::note
+Aunque el TDD está orientado principalmente a los desarrolladores, los profesionales de QA deben conocer esta metodología porque influye en la estrategia de pruebas y en la calidad del software entregado.
+:::
+
+## Casos y escenarios de prueba
+
+Durante el proceso de pruebas es importante diferenciar entre un **escenario de prueba (Test Scenario)** y un **caso de prueba (Test Case)**. 
+Aunque ambos conceptos están relacionados, cumplen funciones distintas dentro del proceso de aseguramiento de la calidad.
+
+- Un **escenario de prueba** define **qué se va a probar**.
+- Un **caso de prueba** describe **cómo se va a probar**.
+
+Comprender esta diferencia permite organizar mejor las pruebas y garantizar una mayor cobertura de los requisitos del sistema.
+
+--- 
+
+###  Escenario de prueba (Test Scenario)
+
+Un **escenario de prueba** es una descripción general de una funcionalidad o proceso que debe ser validado. Su propósito es 
+identificar los flujos principales de la aplicación que serán sometidos a pruebas.
+
+### Características
+
+- Describe una funcionalidad de alto nivel.
+- Puede abarcar varios casos de prueba.
+- Se utiliza durante la planificación de las pruebas.
+- Ayuda a identificar qué funcionalidades deben validarse.
+- Responde a la pregunta: **¿Qué debemos probar?**
+
+### Ejemplos de escenarios
+
+- Inicio de sesión de usuarios.
+- Registro de nuevos clientes.
+- Recuperación de contraseña.
+- Compra de productos.
+- Actualización del perfil del usuario.
+
+:::tip
+Un escenario de prueba puede generar varios casos de prueba, dependiendo de las diferentes condiciones que se deseen validar.
+:::
+
+---
+
+### Caso de prueba (Test Case)
+
+Un **caso de prueba** es un documento que describe de forma detallada los pasos necesarios para comprobar el correcto funcionamiento 
+de una funcionalidad específica.
+
+Además de indicar las acciones que debe realizar el usuario, también define las precondiciones, los datos de prueba y el resultado esperado.
+
+### Características
+
+- Es específico y detallado.
+- Contiene pasos claros y ordenados.
+- Define los datos de prueba necesarios.
+- Incluye el resultado esperado.
+- Puede ejecutarse varias veces para validar una funcionalidad.
+- Responde a la pregunta: **¿Cómo debemos probarlo?**
+
+### Elementos de un caso de prueba
+
+Un caso de prueba generalmente contiene la siguiente información:
+
+- Identificador (ID).
+- Título.
+- Objetivo.
+- Precondiciones.
+- Datos de prueba.
+- Pasos de ejecución.
+- Resultado esperado.
+- Resultado obtenido.
+
+### Ejemplo
+
+| Campo | Valor |
+|-------|-------|
+| **ID** | TC-001 |
+| **Título** | Validar que un usuario registrado pueda agregar un producto al carrito y completar la compra. |
+| **Precondición** | El usuario debe estar autenticado en el sistema. |
+| **Datos de prueba** | Producto: **Laptop**.<br />Método de pago: **Tarjeta de crédito**. |
+| **Pasos** | 1. Ingresar a **supermarket.com**.<br />2. Seleccionar un producto.<br />3. Agregar el producto al carrito.<br />4. Acceder al carrito de compras.<br />5. Iniciar el proceso de compra.<br />6. Ingresar la información de pago.<br />7. Confirmar el pedido. |
+| **Resultado esperado** | El sistema procesa la compra correctamente, muestra un mensaje de confirmación y permite descargar la factura. |
+
+---
+
+## Diferencias entre un escenario y un caso de prueba
+
+| Escenario de prueba | Caso de prueba |
+|---------------------|----------------|
+| Describe **qué** se va a probar. | Describe **cómo** se va a probar. |
+| Tiene un enfoque general. | Tiene un enfoque específico. |
+| Puede incluir varios casos de prueba. | Corresponde a una única validación. |
+| Se utiliza para planificar las pruebas. | Se utiliza para ejecutar las pruebas. |
+| No contiene pasos detallados. | Incluye pasos, datos de prueba y resultados esperados. |
+
+### Ejemplo práctico
+
+**Escenario de prueba**
+
+> Validar el proceso de inicio de sesión.
+
+**Casos de prueba asociados**
+
+- Iniciar sesión con credenciales válidas.
+- Iniciar sesión con una contraseña incorrecta.
+- Iniciar sesión con un usuario inexistente.
+- Intentar iniciar sesión dejando campos obligatorios vacíos.
+- Verificar el bloqueo de la cuenta después de varios intentos fallidos.
+
+---
+
+## Pruebas de compatibilidad
+
+Las **pruebas de compatibilidad (Compatibility Testing)** son un tipo de prueba no funcional que tiene como objetivo verificar 
+que una aplicación funcione correctamente en diferentes entornos de hardware, software, dispositivos y redes.
+
+Estas pruebas permiten comprobar que todos los usuarios tengan una experiencia consistente, independientemente del navegador, 
+sistema operativo o dispositivo que utilicen.
+
+:::info
+El objetivo principal de las pruebas de compatibilidad es garantizar que el software mantenga su funcionalidad y apariencia en 
+diferentes plataformas y configuraciones.
+:::
+
+### características y objetivos:
+
+- `Verificación de Entornos:` Este tipo de pruebas asegura que el software interactúe y funcione correctamente en diferentes entornos, lo cual incluye una variedad 
+de sistemas operativos, navegadores web, y dispositivos (como móviles, tabletas, y PC).
+
+- `Pruebas de Navegadores:` Es necesario comprobar que la aplicación funcione en todos los navegadores web populares, como Chrome, Firefox, Safari, entre otros. 
+Esto garantiza que todos los usuarios, sin importar su elección de navegador, tengan la misma experiencia.
+
+- `Sistemas Operativos:` Las pruebas de compatibilidad también verifican cómo se comporta el software en diferentes sistemas operativos, como Windows, macOS, y Linux.
+
+- `Dispositivos y Resoluciones:` Además de los navegadores y sistemas operativos, es esencial probar en varios tipos de dispositivos y resoluciones de pantalla 
+para asegurarse de que la interfaz se adapte correctamente.
+
+- `Hardware y Redes:` Por último, es importante probar la aplicación en diferentes configuraciones de hardware (como tipos de procesadores y memoria) y en diversas 
+condiciones de red para evaluar su rendimiento.
+
+### ¿Qué se verifica?
+
+Durante una prueba de compatibilidad se evalúan diferentes aspectos del sistema, entre ellos:
+
+- **Navegadores:** Chrome, Edge, Firefox, Safari, entre otros.
+- **Sistemas operativos:** Windows, macOS, Linux, Android e iOS.
+- **Dispositivos:** Computadores, tabletas y teléfonos móviles.
+- **Resoluciones de pantalla:** Diferentes tamaños y orientaciones.
+- **Hardware:** Procesadores, memoria y componentes del equipo.
+- **Condiciones de red:** Redes Wi-Fi, datos móviles o conexiones lentas.
+
+### Tipos de compatibilidad
+
+#### Forward Compatibility (Compatibilidad hacia adelante)
+
+Verifica que una aplicación continúe funcionando correctamente en versiones futuras del sistema operativo, navegador o plataforma.
+
+**Ejemplo:**
+
+Una aplicación desarrollada para Windows 10 continúa funcionando correctamente en Windows 11.
+
+--- 
+#### Backward Compatibility (Compatibilidad hacia atrás)
+
+Comprueba que una aplicación siga siendo compatible con versiones anteriores del sistema operativo, navegador o software.
+
+**Ejemplo:**
+
+Una aplicación desarrollada para Windows 11 puede ejecutarse correctamente en Windows 10.
+
+### Importancia de las pruebas de compatibilidad
+
+Las pruebas de compatibilidad aportan múltiples beneficios al proceso de desarrollo:
+
+- Mejoran la experiencia del usuario.
+- Garantizan el correcto funcionamiento en diferentes dispositivos.
+- Amplían el alcance del producto al soportar múltiples plataformas.
+- Reducen el riesgo de fallos después del despliegue.
+- Incrementan la satisfacción del cliente.
+
+### Importancia
+
+1. experiencia de usuario. (puede tener cualquier tipo de dispositvo, navegador, red wifi)
+2. Mayor alcanece de mercado (debesoportar multiple usuarios)
+3. Reducción de riesgos 
+
+:::tip
+Una aplicación puede funcionar correctamente en un navegador y presentar errores de diseño o funcionalidad en otro. Por esta razón, 
+las pruebas de compatibilidad son fundamentales antes de publicar una nueva versión.
+:::
+
+--- 
+
+## Verificación y validación
+
+La **verificación** y la **validación** son actividades fundamentales dentro del aseguramiento de la calidad del software. Aunque suelen 
+mencionarse juntas, cada una tiene un propósito diferente.
+
+- **Verificación:** confirma que el software se desarrolla correctamente de acuerdo con los requisitos y especificaciones.
+- **Validación:** confirma que el software satisface las necesidades y expectativas del usuario final.
+
+En otras palabras:
+
+- **Verificación:** *¿Estamos construyendo el producto correctamente?*
+- **Validación:** *¿Estamos construyendo el producto adecuado?*
+
+### Verificación
+
+La verificación consiste en revisar los diferentes artefactos del proyecto para detectar errores antes de ejecutar el software.
+
+#### Características
+
+- Se realiza durante el proceso de desarrollo.
+- No requiere ejecutar la aplicación.
+- Permite detectar errores en etapas tempranas.
+- Incluye revisiones, inspecciones y auditorías.
+
+#### Ejemplos
+
+- Revisión de requisitos.
+- Revisión de diseños.
+- Inspección de código.
+- Revisión de documentación técnica.
+
+---
+
+### Validación
+
+La validación consiste en ejecutar el software para comprobar que cumple con las necesidades del usuario y funciona según lo esperado.
+
+#### Características
+
+- Requiere ejecutar la aplicación.
+- Evalúa el comportamiento del sistema.
+- Comprueba que los requisitos funcionales se cumplen.
+- Se realiza mediante diferentes tipos de pruebas.
+
+#### Ejemplos
+
+- Pruebas funcionales.
+- Pruebas de integración.
+- Pruebas del sistema.
+- Pruebas de aceptación del usuario (UAT).
+
+### Diferencias entre verificación y validación
+
+| Verificación | Validación |
+|--------------|------------|
+| Comprueba el proceso de desarrollo. | Comprueba el producto terminado. |
+| No requiere ejecutar el software. | Requiere ejecutar el software. |
+| Detecta errores tempranos. | Confirma que el producto satisface al usuario. |
+| Se basa en revisiones e inspecciones. | Se basa en la ejecución de pruebas. |
+
+
+---
+
+## Planificación de pruebas (Test Planning)
+
+La **planificación de pruebas** es el proceso mediante el cual se define la estrategia, el alcance, los recursos, el cronograma y los 
+criterios que guiarán la ejecución de las pruebas de software.
+
+El resultado de este proceso es el **Plan de Pruebas (Test Plan)**, documento que sirve como guía para todo el equipo de QA.
+
+### Objetivos
+
+La planificación de pruebas permite:
+
+- Definir qué funcionalidades serán evaluadas.
+- Establecer la estrategia de pruebas.
+- Organizar los recursos disponibles.
+- Identificar posibles riesgos.
+- Establecer criterios de aceptación.
+- Planificar tiempos y responsables.
+
+### características:
+
+- ` Definición del Alcance:`  Establece qué se va a probar y, crucialmente, qué no se va a probar. Esto ayuda a enfocar los esfuerzos de prueba y 
+evita confusiones.
+
+- `Criterios de Aceptación/Rechazo:` Define cuándo el software se considera listo para su lanzamiento. Esto asegura que todos los involucrados 
+tengan claros los estándares que debe cumplir el producto.
+
+- `Recursos:` Detalla el hardware, software y el equipo humano necesarios para llevar a cabo las pruebas. Es importante asignar responsabilidades 
+para cada actividad.
+
+- `Cronograma:` Incluye fechas clave de inicio y fin de las pruebas, lo que ayuda a organizar el tiempo y a cumplir con los plazos del proyecto.
+
+- `Identificación de Riesgos:` Poder enumerar los riesgos potenciales (por ejemplo, retrasos en el desarrollo) y planificar estrategias para 
+mitigarlos es fundamental para evitar sorpresas durante el proceso de prueba.
+
+- `Documentación:` Todo debe estar claramente documentado en un plan de pruebas estructurado, proporcionando una hoja de ruta clara para todas 
+las actividades de prueba.
+
+- `Aprobación:` Es recomendable que el plan de pruebas sea revisado y aprobado por las partes interesadas para asegurar que todos estén de 
+acuerdo con el enfoque propuesto.
+
+### Elementos de un Plan de Pruebas
+
+Un plan de pruebas normalmente incluye:
+
+- Introducción.
+- Objetivos.
+- Alcance.
+- Estrategia de pruebas.
+- Tipos de pruebas.
+- Recursos necesarios.
+- Cronograma.
+- Riesgos.
+- Criterios de entrada y salida.
+- Responsables.
+- Herramientas.
+- Plan de comunicación.
+
+### Importancia
+
+Una correcta planificación permite:
+
+- Optimizar el tiempo de ejecución.
+- Reducir riesgos durante el proyecto.
+- Mejorar la organización del equipo.
+- Garantizar una cobertura adecuada de las pruebas.
+- Facilitar el seguimiento del avance del proyecto.
+
+:::note
+Una planificación adecuada ayuda a evitar retrasos, reducir costos y mejorar la calidad del producto antes de su liberación.
+:::
+
+
+### Ejemplo de estructura de un Plan de Pruebas
+
+> ## Plan de Pruebas
+>
+> **Introducción**  
+> - Breve descripción del proyecto y los objetivos  
+> - Propósitos de las pruebas  
+>
+> **Alcance de las pruebas**  
+> - Funcionalidades que se van a probar  
+> - Funcionalidades fuera del alcance (ejemplo: pruebas de seguridad)  
+>
+> **Estrategias de pruebas**  
+> - Tipos de pruebas: Unitarias, de integración, de aceptación  
+> - Enfoque: Manual y automáticas  
+> - Herramientas de pruebas que se utilizarán  
+>
+> **Criterios de aceptación**  
+> - Criterios de entrada  
+> - Criterios de salida  
+>
+> **Cronograma**  
+> - Fechas y plazos de las actividades de pruebas  
+>
+> **Recursos necesarios**  
+> - Personas  
+> - Infraestructura  
+>
+> **Gestión de riesgos**  
+> - Riesgos potenciales  
+> - Planes de mitigación  
+>
+> **Criterios de éxito**  
+> - Definición de prueba exitosa  
+>
+> **Plan de comunicación**  
+> - Cuándo y cómo se comparten resultados  
+> - Canales de comunicación  
+
+
+## Pasos para elaborar un Plan de Pruebas
+
+1. Analizar los requisitos del proyecto.
+2. Definir los objetivos de las pruebas.
+3. Determinar el alcance de las pruebas.
+4. Seleccionar la estrategia y los tipos de prueba.
+5. Identificar los recursos necesarios.
+6. Elaborar el cronograma de actividades.
+7. Identificar y evaluar los riesgos.
+8. Documentar el Plan de Pruebas.
+9. Revisar y aprobar el documento antes de iniciar la ejecución.
+
+:::tip
+El Plan de Pruebas debe actualizarse cuando existan cambios importantes en los requisitos, el alcance o la planificación del proyecto.
+:::
