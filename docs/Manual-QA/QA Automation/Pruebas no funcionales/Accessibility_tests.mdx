@@ -1,0 +1,270 @@
+---
+sidebar_position: 1
+title: Pruebas de accesibilidad
+---
+
+# Pruebas de accesibilidad
+
+
+Las **pruebas de accesibilidad** (*Accessibility Testing*) son un tipo de prueba que permite verificar que una aplicación, 
+sitio web o sistema pueda ser utilizado por el mayor número de personas posible, incluyendo usuarios con diferentes tipos de 
+discapacidades.
+
+El objetivo es identificar barreras que puedan dificultar la interacción con el sistema y garantizar que la información 
+y las funcionalidades sean accesibles.
+
+## Principales aspectos que se evalúan
+
+### Compatibilidad con tecnologías asistivas
+
+Se verifica que la aplicación pueda utilizarse correctamente con diferentes **tecnologías asistivas**, como:
+
+- Lectores de pantalla.
+- Magnificadores de pantalla.
+- Software de reconocimiento de voz.
+- Teclados y dispositivos de entrada alternativos.
+
+Estas herramientas permiten a las personas con diferentes necesidades interactuar con aplicaciones y sitios web.
+
+### Navegación mediante teclado
+
+Se debe comprobar que los usuarios puedan navegar e interactuar con la aplicación utilizando únicamente el teclado, 
+sin depender exclusivamente del mouse.
+
+Algunos aspectos que se pueden validar son:
+
+- Navegación mediante `Tab`.
+- Orden lógico del foco.
+- Acceso a botones y enlaces.
+- Indicador visual del elemento enfocado.
+- Uso correcto de la tecla `Enter` y la barra espaciadora.
+- Posibilidad de cerrar elementos como ventanas modales mediante `Esc`.
+
+### Contraste y legibilidad
+
+Se evalúa que el contenido pueda visualizarse y leerse correctamente.
+
+Entre los aspectos que pueden revisarse se encuentran:
+
+- Contraste entre texto y fondo.
+- Tamaño y legibilidad de las fuentes.
+- Uso adecuado de colores.
+- Posibilidad de ampliar el contenido.
+- Evitar utilizar únicamente el color para transmitir información.
+
+### Etiquetado y semántica
+
+Los elementos de la interfaz deben contar con una estructura semántica adecuada para que las tecnologías asistivas 
+puedan interpretar correctamente la información.
+
+Se pueden revisar aspectos como:
+
+- Etiquetas asociadas correctamente a los campos de formularios.
+- Textos alternativos para imágenes.
+- Encabezados organizados jerárquicamente.
+- Uso adecuado de elementos HTML semánticos.
+- Nombres accesibles para botones y enlaces.
+- Uso correcto de atributos ARIA cuando sean necesarios.
+
+### Formularios
+
+Los formularios deben proporcionar información suficiente para que el usuario pueda comprender qué datos debe introducir y 
+cómo corregir posibles errores.
+
+Se pueden validar:
+
+- Etiquetas de los campos.
+- Mensajes de error.
+- Indicaciones para completar los campos.
+- Identificación de campos obligatorios.
+- Asociación entre mensajes de error y campos correspondientes.
+
+### Cumplimiento de estándares
+
+Las pruebas de accesibilidad pueden realizarse tomando como referencia estándares y pautas como las **WCAG 
+(Web Content Accessibility Guidelines)**, desarrolladas por el W3C.
+
+Las WCAG establecen recomendaciones para mejorar la accesibilidad del contenido web y se organizan alrededor 
+de cuatro principios fundamentales:
+
+1. **Perceptible:** la información debe poder ser percibida por los usuarios.
+2. **Operable:** los componentes deben poder utilizarse e interactuarse con ellos.
+3. **Comprensible:** la información y el funcionamiento de la interfaz deben ser comprensibles.
+4. **Robusto:** el contenido debe poder interpretarse correctamente mediante diferentes tecnologías y agentes de usuario.
+
+:::note 
+Las herramientas automáticas pueden ayudar a detectar determinados problemas de accesibilidad, pero **no sustituyen las pruebas 
+manuales**. Una evaluación completa debe combinar herramientas automáticas, revisión manual y, cuando sea posible, pruebas con 
+tecnologías asistivas.
+:::
+
+### Herramientas para pruebas de accesibilidad
+
+Algunas herramientas utilizadas para identificar problemas de accesibilidad son:
+
+| Herramienta | Uso principal |
+|---|---|
+| **axe DevTools** | Detección de problemas de accesibilidad en aplicaciones web |
+| **Lighthouse** | Auditorías de accesibilidad, rendimiento y buenas prácticas |
+| **WAVE** | Evaluación visual y técnica de accesibilidad |
+| **Accessibility Insights** | Identificación y análisis de problemas de accesibilidad |
+| **NVDA** | Lector de pantalla para Windows |
+| **VoiceOver** | Lector de pantalla integrado en dispositivos Apple |
+
+### Importancia de las pruebas de accesibilidad
+
+Las pruebas de accesibilidad permiten detectar barreras que pueden afectar la experiencia de determinados usuarios y contribuyen a 
+construir productos digitales más inclusivos.
+
+Además de favorecer la accesibilidad, muchas de estas mejoras también pueden beneficiar a usuarios que no presentan ninguna 
+discapacidad, ya que una interfaz clara, navegable y comprensible generalmente proporciona una mejor experiencia para todos.
+
+---
+
+## Herramientas
+
+### WAVE
+
+**WAVE (Web Accessibility Evaluation Tool)** es una herramienta de evaluación de accesibilidad web que permite identificar problemas 
+y posibles barreras de accesibilidad en páginas web.
+
+Es útil para desarrolladores, diseñadores y profesionales de QA, ya que proporciona información visual sobre diferentes elementos de 
+la página y facilita la identificación de aspectos que deben revisarse.
+
+#### Principales características
+
+- **Identificación de problemas de accesibilidad:** permite detectar diferentes tipos de problemas relacionados con la accesibilidad, 
+como imágenes sin texto alternativo, problemas de contraste y determinados errores relacionados con la estructura del contenido.
+
+- **Evaluación automática:** analiza una página web y proporciona información sobre posibles problemas de accesibilidad, facilitando 
+su posterior revisión y corrección.
+
+- **Análisis de estructura y semántica:** muestra elementos como encabezados, regiones, enlaces, formularios y otros componentes que 
+ayudan a comprender la estructura de la página.
+
+- **Información visual:** utiliza indicadores y anotaciones directamente sobre la página para mostrar los elementos que requieren 
+atención.
+
+- **Reporte de resultados:** proporciona información organizada sobre los problemas, advertencias y características de accesibilidad 
+encontradas durante el análisis.
+
+#### ¿Cómo utilizar WAVE?
+
+Para realizar una evaluación básica:
+
+1. Acceder a la herramienta WAVE.
+2. Introducir la URL de la página que se desea evaluar.
+3. Ejecutar el análisis.
+4. Revisar los errores y advertencias encontrados.
+5. Analizar cada resultado para determinar si realmente representa un problema.
+6. Corregir los problemas identificados.
+7. Ejecutar nuevamente la evaluación para comprobar los cambios.
+
+:::note 
+WAVE es una herramienta de apoyo para las pruebas de accesibilidad. **Un resultado sin errores en WAVE no significa que una página 
+sea completamente accesible**. Las pruebas automáticas deben complementarse con revisiones manuales, navegación mediante teclado y pruebas con tecnologías asistivas.
+:::
+
+### Axe DevTools
+
+**Axe** es un conjunto de herramientas para realizar pruebas de accesibilidad en aplicaciones web. Está basado en **axe-core**, una librería de código abierto 
+que analiza el contenido de una página y permite identificar diferentes problemas relacionados con la accesibilidad.
+
+Es una herramienta utilizada tanto durante el desarrollo como en procesos de **QA y automatización de pruebas**, ya que puede integrarse en diferentes 
+entornos y frameworks.
+
+#### Principales características
+
+- **Análisis del DOM:** axe analiza la estructura y los elementos de una página web para identificar posibles problemas de accesibilidad.
+
+- **Detección de violaciones:** permite identificar problemas relacionados con aspectos como nombres accesibles, atributos ARIA, 
+formularios, imágenes, contraste y estructura semántica.
+
+- **Información detallada:** los resultados proporcionan información sobre los elementos afectados, la regla de accesibilidad 
+involucrada y la posible solución.
+
+- **Integración con pruebas automatizadas:** `axe-core` puede integrarse con herramientas y frameworks de testing para incorporar 
+verificaciones de accesibilidad dentro de las pruebas automatizadas.
+
+- **Integración continua:** puede utilizarse dentro de procesos de CI/CD para detectar problemas de accesibilidad durante el 
+ciclo de desarrollo.
+
+- **Extensiones para navegadores:** existen herramientas basadas en axe que permiten ejecutar análisis directamente desde el 
+navegador y revisar visualmente los elementos afectados.
+
+#### ¿Cómo utilizar axe DevTools?
+
+Para realizar una evaluación básica de accesibilidad:
+
+1. Abrir la aplicación web que se desea analizar.
+2. Ejecutar la herramienta axe DevTools.
+3. Iniciar el análisis de accesibilidad.
+4. Revisar las violaciones encontradas.
+5. Seleccionar cada problema para identificar el elemento afectado.
+6. Revisar la regla de accesibilidad asociada.
+7. Aplicar la corrección correspondiente.
+8. Ejecutar nuevamente el análisis para verificar los cambios.
+
+:::note 
+axe permite detectar muchos problemas de accesibilidad de forma automática, pero **no sustituye las pruebas manuales**. 
+Una evaluación completa debe combinar herramientas automáticas con navegación mediante teclado, revisión visual y pruebas con tecnologías asistivas.
+:::
+
+### Chrome DevTools
+
+**Chrome DevTools** es un conjunto de herramientas de desarrollo integrado en **Google Chrome** que permite inspeccionar, depurar, analizar y modificar 
+aplicaciones web directamente desde el navegador.
+
+Para QA, resulta especialmente útil para investigar errores, revisar solicitudes de red, validar elementos de la interfaz, analizar rendimiento y realizar 
+diferentes comprobaciones durante las pruebas.
+
+#### Principales características
+
+- **Inspección del DOM:** permite visualizar la estructura HTML de una página e inspeccionar sus elementos en tiempo real.
+
+- **Edición de HTML y CSS:** permite modificar temporalmente elementos HTML y estilos CSS para comprobar diferentes comportamientos y diseños.
+
+- **Depuración de JavaScript:** permite establecer puntos de interrupción (*breakpoints*), revisar variables, analizar errores y seguir el flujo de ejecución del código.
+
+- **Análisis de red:** la pestaña **Network** permite visualizar las solicitudes realizadas por la aplicación, incluyendo peticiones HTTP, APIs, archivos y recursos. 
+También permite revisar códigos de estado, tiempos de respuesta, encabezados y contenido de las respuestas.
+
+- **Análisis de rendimiento:** permite analizar el comportamiento de una página e identificar posibles problemas relacionados con tiempos de carga, consumo de 
+recursos y rendimiento.
+
+- **Pruebas de accesibilidad:** mediante herramientas como **Lighthouse**, permite realizar auditorías automáticas de accesibilidad y detectar determinados 
+problemas que deben ser revisados.
+
+- **Emulación de dispositivos:** permite simular diferentes tamaños de pantalla y dispositivos para comprobar el comportamiento de una aplicación responsive.
+
+- **Emulación de condiciones de red:** permite simular diferentes velocidades de conexión para analizar cómo se comporta la aplicación bajo distintas condiciones.
+
+- **Almacenamiento del navegador:** permite inspeccionar y gestionar elementos como cookies, Local Storage, Session Storage y otros datos almacenados por la aplicación.
+
+#### Uso en QA
+
+Chrome DevTools puede utilizarse durante diferentes tipos de pruebas:
+
+| Área | Uso |
+|---|---|
+| **Pruebas funcionales** | Inspeccionar elementos y analizar errores |
+| **Pruebas de API** | Revisar solicitudes y respuestas HTTP |
+| **Pruebas responsive** | Simular diferentes dispositivos y resoluciones |
+| **Pruebas de rendimiento** | Analizar tiempos de carga y recursos |
+| **Pruebas de accesibilidad** | Realizar auditorías mediante Lighthouse |
+| **Depuración** | Identificar errores de JavaScript y problemas del frontend |
+| **Pruebas de almacenamiento** | Revisar cookies, Local Storage y Session Storage |
+
+#### ¿Cómo acceder a Chrome DevTools?
+
+Existen diferentes formas de abrir DevTools:
+
+1. Presionar `F12`.
+2. Presionar `Ctrl + Shift + I`.
+3. Hacer clic derecho sobre una página y seleccionar **Inspeccionar**.
+4. Abrir el menú de Chrome → **Más herramientas → Herramientas para desarrolladores**.
+
+:::tip 
+Chrome DevTools no reemplaza un framework de automatización como **Cypress, Playwright o Selenium**. Es una herramienta complementaria que permite inspeccionar y 
+analizar la aplicación durante las pruebas y facilita la identificación de errores.
+:::

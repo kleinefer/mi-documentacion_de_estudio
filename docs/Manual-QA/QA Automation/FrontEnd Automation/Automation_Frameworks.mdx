@@ -1,0 +1,287 @@
+---
+sidebar_position: 2
+title: Automatización de Frameworks
+---
+# Automatización de pruebas con frameworks
+
+La automatización de pruebas es un aspecto fundamental del desarrollo moderno de software, especialmente dentro del área de Aseguramiento de la Calidad (QA). 
+Consiste en utilizar herramientas y frameworks especializados para ejecutar pruebas de manera automática, permitiendo validar el comportamiento de una aplicación de
+forma rápida, repetible y confiable.
+
+:::note
+ **Recuerda** que un **framework** es una estructura o conjunto de herramientas, reglas y componentes que facilita el desarrollo de software.
+En lugar de empezar todo desde cero, proporciona una **base ya construida** sobre la cual puedes desarrollar una aplicación o automatizar pruebas.
+:::
+La automatización puede aplicarse tanto en el front-end como en el back-end, dependiendo de las necesidades del proyecto.
+
+## Fundamentos
+
+Antes de comenzar con la automatización, es importante comprender los conceptos básicos de las pruebas de software y diferenciar los tipos de automatización.
+
+- `Automatización Front-end:` se enfoca en validar la interfaz de usuario y las interacciones con la aplicación, como botones, formularios, menús, enlaces y 
+    procesos de navegación.
+- `Automatización Back-end:` permite validar la lógica y los servicios que funcionan detrás de la aplicación, principalmente mediante pruebas de API, 
+    validación de respuestas, códigos de estado y datos.
+
+También es importante conocer conceptos como casos de prueba, escenarios, aserciones, datos de prueba y resultados esperados.
+
+
+## Seleccionar un framework
+
+Existen diferentes frameworks y herramientas para automatizar pruebas. La elección depende del tipo de aplicación, lenguaje de programación, necesidades del 
+proyecto y experiencia del equipo.
+
+Algunas opciones son:
+
+| Framework / Herramienta | Uso principal |
+|--------------------------|---------------|
+| Selenium                 | Automatización de aplicaciones web |
+| Cypress                  | Pruebas funcionales y E2E de aplicaciones web |
+| Playwright               | Automatización web y pruebas E2E en diferentes navegadores |
+| Robot Framework          | Automatización basada en palabras clave y pruebas de diferentes tipos |
+| Appium                   | Automatización de aplicaciones móviles |
+| Postman / Newman         | Pruebas y automatización de APIs |
+
+:::tip
+Es recomendable seleccionar una herramienta y estudiar su documentación oficial antes de comenzar a desarrollar los scripts.
+:::
+
+## Configuración del entorno
+
+Después de seleccionar el framework, se debe preparar el entorno de trabajo.
+
+Esto puede incluir:
+
+- Instalar el lenguaje de programación requerido.
+- Instalar el framework y sus dependencias.
+- Configurar el proyecto.
+- Configurar navegadores o dispositivos cuando sea necesario.
+- Definir variables de entorno.
+- Configurar la estructura de carpetas.
+- Integrar herramientas de control de versiones como Git.
+
+Una correcta configuración facilita el mantenimiento y ejecución de las pruebas.
+
+## Diseñar y escribir casos de prueba
+
+Los casos de prueba automatizados deben partir de escenarios previamente definidos.
+
+Por ejemplo, para un inicio de sesión:
+
+**Escenario:** Usuario inicia sesión con credenciales válidas.
+
+**Pasos:**
+
+ 1. Acceder a la página de inicio de sesión.
+ 2. Ingresar un correo válido.
+ 3. Ingresar una contraseña válida.
+ 4. Seleccionar el botón Iniciar sesión.
+ 5. Verificar que el usuario sea redirigido al dashboard.
+
+**Resultado esperado:** El usuario accede correctamente al sistema.
+
+Posteriormente, estos pasos se convierten en código utilizando la sintaxis y funcionalidades proporcionadas por el framework seleccionado.
+
+## Ejecutar y mantener las pruebas
+
+Las pruebas automatizadas deben ejecutarse periódicamente para verificar que las funcionalidades continúen funcionando correctamente.
+
+Es importante mantener los scripts actualizados cuando existan cambios en:
+
+- La interfaz de usuario.
+- Los selectores o identificadores de elementos.
+- Las reglas de negocio.
+- Los endpoints de las APIs.
+- Los datos de prueba.
+- La estructura de la aplicación.
+
+:::note
+Una prueba automatizada que falla constantemente por cambios menores y no se mantiene termina siendo más carga que ayuda. La automatización también necesita 
+mantenimiento.
+:::
+
+## Integrar la automatización en CI/CD
+
+Una vez que las pruebas automatizadas funcionan correctamente, pueden integrarse dentro de procesos de Integración Continua y Entrega Continua (CI/CD).
+
+Esto permite ejecutar automáticamente las pruebas cuando se realizan cambios en el código, por ejemplo, después de un commit o durante la creación de un pull request.
+
+De esta manera, los errores pueden detectarse antes de que los cambios lleguen a ambientes superiores o producción.
+
+## Iterar y mejorar
+
+La automatización es un proceso continuo. A medida que el proyecto evoluciona, es necesario revisar y mejorar las pruebas existentes.
+
+Algunas buenas prácticas son:
+
+- Evitar pruebas duplicadas.
+- Utilizar nombres descriptivos.
+- Reutilizar funciones y componentes.
+- Mantener los datos de prueba organizados.
+- Utilizar selectores estables.
+- Generar reportes de ejecución.
+- Revisar periódicamente las pruebas inestables (flaky tests).
+- Integrar las pruebas con CI/CD.
+
+:::tip
+El objetivo no es automatizar absolutamente todo, sino automatizar las pruebas que aporten mayor valor al proceso de QA, especialmente aquellas que son repetitivas, 
+críticas o requieren ejecutarse frecuentemente.
+:::
+
+---
+
+## Herramientas y framework de automatización de pruebas
+Existen diferentes herramientas y frameworks que permiten automatizar pruebas de software. 
+Cada uno está orientado a diferentes necesidades, lenguajes, tipos de aplicaciones y niveles de prueba.
+
+A continuación, se presentan algunas de las principales opciones utilizadas en automatización de pruebas.
+
+### 1. Webdriver.io
+
+WebdriverIO es un framework de automatización que se utiliza para realizar pruebas en aplicaciones web y móviles. Se basa en Node.js y permite escribir tests de 
+manera sencilla, facilitando la automatización de pruebas de extremo a extremo (end to end). Una de sus características clave es que proporciona una API intuitiva, 
+lo que ayuda a interactuar con los elementos de la página mediante comandos simples.
+
+Algunas características destacadas de WebdriverIO incluyen:
+
+- **Soporte para diferentes frameworks de pruebas:** puede integrarse con frameworks como Mocha, Jasmine y Cucumber.js.
+- **Automatización mediante WebDriver:** permite interactuar con diferentes navegadores utilizando tecnologías de automatización web.
+- **Extensibilidad:** cuenta con servicios y plugins que permiten ampliar sus funcionalidades.
+- **Integración con CI/CD:** puede incorporarse en pipelines de integración y entrega continua.
+- **Organización del proyecto:** permite estructurar las pruebas y sus componentes para facilitar el mantenimiento.
+
+WebdriverIO cuenta con soporte integrado para frameworks como Mocha, Jasmine y Cucumber.js. 
+Además, puede gestionar las sesiones de automatización sin que el usuario tenga que administrar manualmente cada sesión de Selenium. 
+
+
+
+
+### 2. Playwright 
+
+Playwright es un framework de automatización de pruebas creado por Microsoft que permite la automatización tanto de pruebas en aplicaciones web como en web scraping. 
+Es reconocido por su capacidad para soportar múltiples navegadores, como Chromium, Firefox, WebKit y Microsoft Edge, todo bajo una misma API.
+
+sus principales caracteristicas son:
+
+- **API moderna:** proporciona métodos para interactuar con páginas y elementos de una aplicación.
+- **Ejecución en paralelo:** permite ejecutar múltiples pruebas simultáneamente para reducir el tiempo de ejecución.
+- **Esperas automáticas:** incorpora mecanismos de espera que ayudan a reducir problemas relacionados con la sincronización.
+- **Pruebas multinavegador:** permite ejecutar las mismas pruebas en diferentes motores de navegador.
+- **Codegen:** permite generar código a partir de las interacciones realizadas durante una sesión de navegador.
+- **Herramientas de depuración:** incluye herramientas como Playwright Inspector y Trace Viewer para analizar la ejecución de las pruebas. 
+
+
+### 3. Jasmine
+
+Es un framework de pruebas para JavaScript que permite crear pruebas unitarias de manera sencilla y eficiente. Se enfoca en la especificación de 
+pruebas y es conocido por su sintaxis clara y legible.
+
+
+Entre sus principales características se encuentran:
+
+- **Pruebas en JavaScript:** permite validar código escrito en JavaScript.
+- **Sintaxis clara:** utiliza estructuras como `describe`, `it` y `expect`.
+- **Soporte para Node.js y navegadores:** puede utilizarse para ejecutar pruebas en ambos entornos.
+- **Baja dependencia:** `jasmine-core` tiene pocas dependencias externas.
+- **Integración:** puede utilizarse junto con otras herramientas y frameworks de automatización.
+
+Jasmine puede ejecutarse tanto en Node.js como en navegadores y no depende de otros frameworks de JavaScript. 
+
+
+
+### 4. QA Wolf
+
+Esta es una herramienta híbrida de automatización diseñada para facilitar el proceso de pruebas end-to-end. Proporciona funcionalidades para grabar 
+interacciones con la aplicación y convertirlas en scripts automatizados, ayudando a los equipos de desarrollo a centrarse en nuevas funcionalidades.
+
+Entre sus principales características se encuentran:
+
+- **Automatización E2E:** permite validar flujos completos de usuario.
+- **Generación de pruebas:** puede generar pruebas a partir de descripciones en lenguaje natural.
+- **Código basado en Playwright y Appium:** las pruebas generadas utilizan código estándar.
+- **Ejecución en paralelo:** permite ejecutar múltiples pruebas simultáneamente.
+- **Mantenimiento automatizado:** incorpora mecanismos para detectar y solucionar problemas en las pruebas.
+- **Reportes y evidencias:** proporciona elementos como videos, trazas de Playwright y registros de red.
+
+### 5. Robot Framework
+
+Un framework de automatización de pruebas genérico y de código abierto, que utiliza la sintaxis de tipo palabra clave, lo que lo hace fácil de 
+entender y extender a través de librerías para diferentes tipos de pruebas.
+
+Entre sus principales características se encuentran:
+
+- **Código abierto:** puede utilizarse y extenderse libremente.
+- **Sintaxis basada en palabras clave:** facilita la lectura y escritura de los casos de prueba.
+- **Extensibilidad:** permite utilizar diferentes librerías para interactuar con aplicaciones web, APIs, bases de datos y otros sistemas.
+- **Pruebas de aceptación:** es especialmente útil para validar funcionalidades desde una perspectiva de negocio.
+- **Reutilización:** permite crear keywords reutilizables para diferentes pruebas.
+
+### 6. Selenium
+
+Es uno de los frameworks más populares para la automatización de pruebas en aplicaciones web. Permite la interacción con diferentes navegadores de 
+manera programática y funciona con varios lenguajes de programación.
+
+Entre sus principales características se encuentran:
+
+- **Automatización web:** permite interactuar con aplicaciones web mediante diferentes navegadores.
+- **Compatibilidad con múltiples navegadores:** permite trabajar con navegadores como Chrome, Firefox, Edge y Safari.
+- **Soporte para diferentes lenguajes:** dispone de bindings para diferentes lenguajes de programación.
+- **Selenium Grid:** permite ejecutar pruebas en diferentes máquinas y navegadores.
+- **Selenium IDE:** proporciona una opción de grabación y reproducción de acciones mediante una extensión del navegador.
+
+
+### 7. Cypress
+
+Una herramienta de prueba end-to-end para aplicaciones web que se centra en facilitar la configuración y el uso, permitiendo pruebas rápidas y fiables, 
+especialmente para aplicaciones JavaScript modernas.
+
+Entre sus principales características se encuentran:
+
+- **Pruebas E2E:** permite validar flujos completos de usuario.
+- **Pruebas de componentes:** permite probar componentes de aplicaciones web directamente en un navegador real.
+- **Interfaz de ejecución:** facilita la visualización y depuración de las pruebas.
+- **Ejecución en CI:** puede integrarse en procesos de integración continua.
+- **Depuración:** proporciona herramientas para analizar lo ocurrido durante la ejecución de una prueba.
+- **Pruebas adicionales:** también puede utilizarse para pruebas de API, accesibilidad y otros escenarios mediante sus capacidades y plugins. 
+
+
+### 8. Jest 
+
+Un framework de pruebas para JavaScript creado por Facebook, diseñado para ser fácil de configurar y utilizar, especialmente en proyectos que utilizan React.
+
+Entre sus principales características se encuentran:
+
+- **Pruebas unitarias:** permite validar funciones y componentes de forma aislada.
+- **Matchers:** proporciona diferentes métodos para comprobar los resultados esperados.
+- **Mocks:** permite simular funciones, módulos y dependencias.
+- **Snapshots:** permite comparar el resultado de una estructura con una referencia almacenada.
+- **Configuración flexible:** puede integrarse en diferentes proyectos JavaScript y TypeScript.
+
+### 9. Nightwatch
+
+Un framework de automatización de pruebas de extremo a extremo basado en JavaScript que permite pruebas de aplicaciones web usando un estilo 
+de escritura fácil de entender.
+
+Entre sus principales características se encuentran:
+
+- **Pruebas E2E:** permite validar flujos completos de una aplicación.
+- **Pruebas cross-browser:** permite ejecutar pruebas en diferentes navegadores.
+- **Pruebas de componentes:** permite probar componentes de frameworks como React, Vue y Angular.
+- **Pruebas de APIs:** permite realizar pruebas sobre servicios HTTP.
+- **Pruebas móviles:** permite realizar pruebas en dispositivos Android e iOS. 
+- **Integración con Selenium:** puede utilizar Selenium Server/Grid para escenarios de ejecución distribuida. 
+
+### 10. Puppeteer
+
+Una biblioteca de Node.js que proporciona una API de alto nivel para controlar navegadores headless (sin interfaz gráfica), lo que es útil para tareas de 
+automatización y scraping.
+
+Entre sus principales características se encuentran:
+
+- **Automatización de navegadores:** permite navegar e interactuar con páginas web mediante código.
+- **Pruebas de interfaz:** puede utilizarse para automatizar interacciones y validar comportamientos.
+- **Capturas de pantalla:** permite generar screenshots automáticamente.
+- **Generación de PDF:** permite crear documentos PDF a partir de páginas web.
+- **Automatización de formularios:** permite completar formularios y ejecutar acciones de usuario.
+- **Crawling:** puede utilizarse para recorrer y analizar aplicaciones web.
+- **Análisis de rendimiento:** permite capturar trazas que pueden ayudar a diagnosticar problemas de rendimiento. 

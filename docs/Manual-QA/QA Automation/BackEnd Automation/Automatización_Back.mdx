@@ -1,0 +1,370 @@
+---
+sidebar_position: 1
+title: Automatización del backend
+---
+
+## Automatización de pruebas de Backend
+
+La **automatización de pruebas de backend** consiste en utilizar herramientas y frameworks para verificar automáticamente los 
+componentes que funcionan del lado del servidor de una aplicación.
+
+Mientras las pruebas de frontend se enfocan principalmente en la interfaz y las interacciones del usuario, las pruebas de backend 
+permiten validar la **lógica de negocio, APIs, servicios, bases de datos y procesamiento de información**.
+
+El objetivo es detectar errores de manera temprana y garantizar que los componentes internos de la aplicación funcionen correctamente.
+
+## Principales tipos de automatización
+
+### Pruebas unitarias
+
+Las pruebas unitarias verifican componentes individuales del código de forma aislada, como funciones, métodos o clases.
+
+Permiten comprobar que cada componente produzca el resultado esperado antes de integrarse con otras partes de la aplicación.
+
+Algunas herramientas utilizadas son:
+
+- **JUnit** para aplicaciones Java.
+- **NUnit** para aplicaciones .NET.
+- **xUnit** para diferentes proyectos .NET.
+- **Jest** para aplicaciones JavaScript y TypeScript.
+
+### Automatización de pruebas de API
+
+Las pruebas de API permiten validar la comunicación entre diferentes componentes de una aplicación mediante solicitudes HTTP.
+
+Durante estas pruebas se pueden verificar:
+
+- Métodos HTTP (`GET`, `POST`, `PUT`, `PATCH`, `DELETE`).
+- Códigos de estado HTTP.
+- Encabezados.
+- Parámetros.
+- Cuerpo de las solicitudes.
+- Estructura y contenido de las respuestas.
+- Autenticación y autorización.
+- Tiempos de respuesta.
+
+Algunas herramientas utilizadas son:
+
+- **Postman / Newman**
+- **Rest Assured**
+- **Cypress**
+- **Playwright**
+- **Karate**
+
+### Pruebas de integración
+
+Las pruebas de integración verifican que diferentes componentes del backend funcionen correctamente cuando trabajan juntos.
+
+Por ejemplo:
+
+```text
+API
+ ↓
+Servicio
+ ↓
+Lógica de negocio
+ ↓
+Base de datos
+ ```
+## Herramientas
+
+### Karate Framework
+
+**Karate** es un framework de código abierto orientado principalmente a la **automatización de pruebas de APIs**, especialmente servicios web y APIs REST. 
+Su principal característica es que permite definir pruebas utilizando una sintaxis sencilla basada en **Gherkin**, sin requerir grandes cantidades de código Java.
+
+Es una herramienta útil para validar servicios backend y puede integrarse con procesos de automatización y CI/CD.
+
+#### Principales características
+
+- **Automatización de APIs:** permite enviar solicitudes HTTP a diferentes endpoints y validar las respuestas obtenidas.
+
+- **Sintaxis basada en Gherkin:** utiliza una sintaxis declarativa similar a Gherkin, facilitando la lectura de los escenarios de prueba y la colaboración entre 
+testers y desarrolladores.
+
+- **Validación de respuestas:** permite verificar códigos de estado HTTP, encabezados, contenido y estructuras de respuestas.
+
+- **Soporte para JSON y XML:** facilita la comparación y validación de respuestas en formatos utilizados habitualmente por las APIs.
+
+- **Data-driven testing:** permite ejecutar un mismo escenario utilizando diferentes conjuntos de datos de prueba.
+
+- **Pruebas de autenticación:** permite trabajar con diferentes mecanismos de autenticación utilizados por APIs, como tokens y credenciales.
+
+- **Integración con Java:** puede utilizarse dentro de proyectos Java y ejecutarse mediante herramientas como **Maven** y **Gradle**.
+
+- **Integración con CI/CD:** puede incorporarse a pipelines de integración continua para ejecutar automáticamente las pruebas de API durante el ciclo de desarrollo.
+
+- **Reportes:** proporciona resultados de ejecución que permiten analizar los escenarios exitosos y los que presentan errores.
+
+#### Ejemplo de prueba
+
+Un escenario sencillo para validar un endpoint podría ser:
+
+```gherkin
+Feature: Consultar usuarios
+
+Scenario: Obtener lista de usuarios
+    Given url 'https://api.ejemplo.com'
+    And path 'usuarios'
+    When method get
+    Then status 200
+    And match response.id == 1
+```
+
+### Cypress
+
+**Cypress** es un framework de pruebas para aplicaciones web que permite automatizar diferentes tipos de pruebas, especialmente **pruebas end-to-end (E2E)** y 
+**pruebas de componentes**.
+
+Está diseñado para ejecutarse dentro del navegador y proporciona herramientas que facilitan la escritura, ejecución y depuración de pruebas automatizadas.
+
+#### Principales características
+
+- **Ejecución en tiempo real:** Cypress permite observar la ejecución de las pruebas directamente en el navegador, facilitando la identificación de errores y el 
+análisis del comportamiento de la aplicación.
+
+- **Configuración sencilla:** permite instalar y configurar rápidamente un proyecto de pruebas, proporcionando una estructura inicial para comenzar a desarrollar 
+casos automatizados.
+
+- **Sintaxis intuitiva:** utiliza JavaScript o TypeScript y proporciona una API sencilla para realizar acciones como hacer clic, introducir información, seleccionar 
+elementos y realizar aserciones.
+
+- **Esperas automáticas:** Cypress incorpora mecanismos de espera y reintento automáticos para determinadas acciones y aserciones, reduciendo la necesidad de utilizar 
+esperas manuales.
+
+- **Depuración:** proporciona herramientas para revisar cada paso de una prueba, observar el estado de la aplicación y analizar errores.
+
+- **Capturas y videos:** puede generar capturas de pantalla y videos de las ejecuciones, especialmente útiles para analizar fallos en procesos automatizados.
+
+- **Pruebas de API:** permite realizar solicitudes HTTP mediante comandos como `cy.request()`, por lo que puede utilizarse para validar determinados endpoints y 
+respuestas de APIs.
+
+- **Pruebas de componentes:** permite montar y probar componentes individuales de aplicaciones web, además de las pruebas E2E.
+
+- **Integración con CI/CD:** puede integrarse con pipelines de integración continua para ejecutar automáticamente las pruebas durante el proceso de desarrollo.
+
+- **Ejecución en paralelo:** en determinados entornos y configuraciones, las pruebas pueden distribuirse entre diferentes máquinas para reducir el tiempo total de 
+ejecución.
+
+#### Tipos de pruebas con Cypress
+
+Cypress puede utilizarse principalmente para:
+
+| Tipo de prueba | Descripción |
+|---|---|
+| **E2E** | Valida flujos completos de usuario dentro de una aplicación |
+| **Componentes** | Prueba componentes individuales de la interfaz |
+| **API** | Permite realizar solicitudes HTTP y validar respuestas |
+| **Regresión** | Permite repetir pruebas para comprobar que funcionalidades existentes continúan funcionando |
+
+
+### SoapUI
+
+**SoapUI** es una herramienta de pruebas orientada principalmente a la automatización y validación de **servicios web y APIs**. Permite trabajar con servicios 
+**SOAP y REST** y proporciona una interfaz gráfica que facilita la creación, configuración y ejecución de pruebas.
+
+Es especialmente útil para validar el comportamiento de servicios backend y comprobar que las respuestas obtenidas cumplen con los resultados esperados.
+
+#### Principales características
+
+- **Soporte para SOAP y REST:** permite crear y ejecutar pruebas para diferentes tipos de servicios web y APIs.
+
+- **Interfaz gráfica:** proporciona una interfaz visual para crear proyectos, solicitudes, suites y casos de prueba sin necesidad de escribir grandes 
+cantidades de código.
+
+- **Validación de respuestas:** permite utilizar aserciones para verificar que las respuestas obtenidas cumplen con determinadas condiciones.
+
+- **Validación de datos:** permite comprobar información en respuestas **XML y JSON**, además de códigos de estado y otros elementos de las respuestas HTTP.
+
+- **Organización de pruebas:** permite estructurar las pruebas mediante proyectos, suites y casos de prueba, facilitando su mantenimiento.
+
+- **Automatización:** permite ejecutar conjuntos de pruebas de manera repetitiva y automatizada.
+
+- **Pruebas basadas en datos:** permite utilizar diferentes conjuntos de datos para ejecutar un mismo escenario de prueba.
+
+- **Integración con CI/CD:** puede integrarse en procesos de integración continua para ejecutar pruebas automáticamente como parte del pipeline.
+
+#### Tipos de pruebas
+
+SoapUI puede utilizarse para diferentes validaciones relacionadas con servicios web:
+
+| Tipo de prueba | Uso |
+|---|---|
+| **Pruebas funcionales** | Validar que una API cumpla con el comportamiento esperado |
+| **Pruebas de API** | Validar endpoints, solicitudes y respuestas |
+| **Pruebas de integración** | Comprobar la comunicación entre diferentes servicios |
+| **Pruebas basadas en datos** | Ejecutar escenarios utilizando diferentes datos |
+| **Pruebas de regresión** | Verificar que cambios recientes no afecten funcionalidades existentes |
+
+#### Ejemplo de prueba
+
+Un escenario sencillo podría consistir en consultar un usuario mediante una API REST.
+
+**Solicitud:**
+
+```http
+GET /api/usuarios/1
+
+Resultado esperado:
+
+{
+  "id": 1,
+  "nombre": "Usuario de prueba",
+  "email": "usuario@ejemplo.com"
+}
+
+```
+
+
+### Postman
+
+**Postman** es una plataforma utilizada para desarrollar, probar, documentar y gestionar **APIs**. Permite crear y enviar solicitudes HTTP de forma visual, 
+analizar las respuestas y automatizar validaciones mediante scripts.
+
+Es una herramienta muy utilizada en QA para realizar **pruebas funcionales, pruebas de integración y pruebas de regresión sobre APIs**.
+
+#### Principales características
+
+- **Interfaz gráfica:** permite crear y enviar solicitudes HTTP utilizando métodos como `GET`, `POST`, `PUT`, `PATCH` y `DELETE`.
+
+- **Colecciones:** permite organizar solicitudes en colecciones y carpetas, facilitando la gestión y ejecución de diferentes escenarios de prueba.
+
+- **Variables de entorno:** permite definir variables para reutilizar información como URLs, tokens, credenciales y datos de prueba en diferentes solicitudes.
+
+- **Scripts de prueba:** permite utilizar JavaScript para crear validaciones automáticas después de ejecutar una solicitud.
+
+- **Validación de respuestas:** permite comprobar códigos de estado HTTP, tiempos de respuesta, encabezados y contenido de las respuestas.
+
+- **Pruebas automatizadas:** las colecciones pueden ejecutarse de forma automatizada para validar diferentes endpoints y escenarios.
+
+- **Documentación de APIs:** permite documentar solicitudes, endpoints y ejemplos de respuestas para facilitar el trabajo entre diferentes miembros del equipo.
+
+- **Integración con CI/CD:** las colecciones pueden ejecutarse desde procesos automatizados utilizando herramientas como **Newman**.
+
+#### Validaciones en Postman
+
+Como QA, no basta con comprobar que una solicitud responde. También es necesario validar que la respuesta cumpla con el comportamiento esperado.
+
+Por ejemplo, para una solicitud de creación de usuario:
+
+```http
+POST /api/usuarios
+Content-Type: application/json
+
+respuesta esperada:
+
+{
+  "id": 10,
+  "nombre": "Usuario de prueba",
+  "email": "usuario@ejemplo.com"
+}
+
+```
+
+### Newman
+
+**Newman** es una herramienta de línea de comandos que permite ejecutar automáticamente **colecciones de Postman** sin necesidad de utilizar la interfaz gráfica de Postman.
+
+Es especialmente útil para automatizar pruebas de APIs e integrarlas en procesos de **Integración Continua y Entrega Continua (CI/CD)**.
+
+#### Principales características
+
+- **Ejecución desde la línea de comandos:** permite ejecutar colecciones de Postman directamente desde una terminal.
+
+- **Automatización de pruebas:** permite ejecutar de manera repetitiva las solicitudes y validaciones definidas en una colección.
+
+- **Integración con CI/CD:** puede incorporarse en pipelines para ejecutar pruebas automáticamente después de cambios en el código.
+
+- **Uso de variables:** permite trabajar con variables de entorno y archivos de datos utilizados por las colecciones de Postman.
+
+- **Generación de reportes:** proporciona resultados de ejecución y puede utilizar diferentes reportes para facilitar el análisis de las pruebas.
+
+- **Integración con Node.js:** Newman está basado en Node.js y se instala mediante el administrador de paquetes `npm`.
+
+#### Instalación
+
+Antes de instalar Newman es necesario tener **Node.js** y `npm` configurados en el sistema.
+
+
+Para instalar Newman de forma global:
+```
+npm install -g newman
+```
+
+Después de la instalación, se puede comprobar que Newman esté disponible ejecutando:
+```
+newman --version
+```
+Para ejecutar una colección exportada desde Postman:
+```
+newman run path/to/collection.json
+```
+
+:::tip
+Postman es donde preparas y organizas las pruebas; Newman permite ejecutarlas desde la terminal y llevarlas a procesos de automatización y CI/CD.
+:::
+
+### REST Assured
+
+**REST Assured** es una biblioteca de Java diseñada para facilitar la creación de **pruebas automatizadas de APIs REST**. Permite enviar solicitudes HTTP y validar las respuestas de los servicios de manera programática.
+
+A diferencia de herramientas como Postman, REST Assured se integra directamente con proyectos Java, por lo que resulta especialmente útil cuando las pruebas automatizadas forman parte del código y del proceso de CI/CD.
+
+#### Principales características
+
+- **Pruebas de APIs REST:** permite realizar solicitudes HTTP utilizando métodos como `GET`, `POST`, `PUT`, `PATCH` y `DELETE`.
+
+- **Validación de respuestas:** permite comprobar códigos de estado, encabezados, contenido y estructura de las respuestas.
+
+- **Soporte para JSON y XML:** facilita la validación de datos recibidos en formatos habituales de las APIs.
+
+- **Pruebas automatizadas:** permite convertir escenarios de prueba de API en código ejecutable y repetible.
+
+- **Integración con frameworks de pruebas:** puede utilizarse junto con frameworks como **JUnit** y **TestNG** para organizar y ejecutar las pruebas.
+
+- **Integración con CI/CD:** al formar parte del código del proyecto, puede ejecutarse automáticamente dentro de pipelines de integración continua.
+
+- **Código abierto:** REST Assured es un proyecto de código abierto y cuenta con una comunidad de desarrolladores.
+
+#### Ejemplo de prueba
+
+Un ejemplo sencillo utilizando REST Assured y JUnit sería:
+
+```java
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
+
+import org.junit.jupiter.api.Test;
+
+public class UsuarioTest {
+
+    @Test
+    void consultarUsuario() {
+
+        given()
+            .when()
+                .get("/api/usuarios/1")
+            .then()
+                .statusCode(200)
+                .body("id", equalTo(1));
+    }
+}
+```
+
+Flujo de trabajo:
+
+```
+Definir escenario de prueba
+          ↓
+Crear solicitud HTTP
+          ↓
+Enviar solicitud
+          ↓
+Recibir respuesta
+          ↓
+Validar código de estado
+          ↓
+Validar datos de respuesta
+          ↓
+Resultado de la prueba
+```

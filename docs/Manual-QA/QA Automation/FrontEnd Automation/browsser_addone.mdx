@@ -1,0 +1,199 @@
+---
+sidebar_position: 3
+title: Browsser addons
+---
+
+# Browser Add-ons o extensiones de navegador
+
+Los **Browser Add-ons**, también conocidos como **extensiones de navegador**, son pequeños programas que se instalan en navegadores como 
+**Google Chrome, Mozilla Firefox, Microsoft Edge o Brave** para ampliar o modificar sus funcionalidades.
+
+En el contexto de **QA y desarrollo de software**, las extensiones pueden ser herramientas útiles para inspeccionar aplicaciones, realizar pruebas, 
+analizar errores y facilitar determinadas tareas durante el proceso de desarrollo.
+
+## Principales usos en QA
+
+#### Automatización de tareas
+
+Algunas extensiones permiten automatizar determinadas acciones dentro del navegador, reduciendo tareas repetitivas y facilitando la ejecución de pruebas.
+
+#### Grabación y reproducción de pruebas
+
+Existen extensiones que permiten **grabar las interacciones realizadas por un usuario** y posteriormente reproducirlas como pruebas automatizadas.
+
+Por ejemplo, **Selenium IDE** permite grabar, editar y reproducir pruebas automatizadas directamente desde el navegador.
+
+#### Inspección y detección de errores
+
+Las herramientas de desarrollo y determinadas extensiones permiten inspeccionar elementos HTML, CSS y JavaScript, analizar solicitudes de red 
+y detectar problemas durante la ejecución de una aplicación web.
+
+#### Análisis y depuración
+
+Las extensiones pueden complementar las herramientas de desarrollo del navegador para facilitar tareas como:
+
+- Inspección del DOM.
+- Análisis de estilos CSS.
+- Revisión de solicitudes HTTP.
+- Análisis de almacenamiento local y cookies.
+- Identificación de errores JavaScript.
+- Análisis básico de rendimiento.
+- Pruebas de accesibilidad.
+
+#### Compatibilidad con herramientas de testing
+
+Algunas extensiones funcionan como complemento de herramientas y frameworks utilizados en QA. Sin embargo, es importante diferenciar entre una 
+**extensión del navegador** y un **framework de automatización**.
+
+Por ejemplo:
+
+- **Selenium** → herramienta/ecosistema de automatización web.
+- **Puppeteer** → biblioteca para controlar navegadores.
+- **Selenium IDE** → extensión para grabar y reproducir pruebas.
+- **DevTools** → herramientas integradas en los navegadores para inspección y depuración.
+
+## Extensiones útiles para QA
+
+| Extensión / herramienta | Uso principal |
+|---|---|
+| **Selenium IDE** | Grabación y reproducción de pruebas automatizadas |
+| **Web Developer** | Inspección y modificación de elementos de una página |
+| **Lighthouse** | Análisis de rendimiento, accesibilidad, SEO y buenas prácticas |
+| **WAVE** | Evaluación de accesibilidad de páginas web |
+| **axe DevTools** | Detección de problemas de accesibilidad |
+| **JSON Viewer** | Visualización y análisis de respuestas JSON |
+
+:::tip 
+Recuerda que las extensiones de navegador son **herramientas complementarias** dentro del proceso de QA. No reemplazan un framework de automatización, sino que pueden facilitar 
+tareas de inspección, depuración, accesibilidad y ejecución de determinadas pruebas.
+:::
+
+---
+
+## Selenium IDE
+
+**Selenium IDE** es una extensión para navegadores que forma parte del ecosistema de **Selenium** y permite crear, ejecutar y mantener pruebas automatizadas 
+mediante una interfaz gráfica.
+
+Está especialmente orientado a usuarios que están comenzando en la automatización de pruebas, ya que permite registrar las acciones realizadas sobre una 
+aplicación web y posteriormente reproducirlas sin necesidad de escribir todo el código manualmente.
+
+#### Principales características
+
+- **Grabación y reproducción de acciones:** permite registrar interacciones realizadas en una página web, como clics, navegación y entrada de texto, 
+para posteriormente reproducirlas como pruebas automatizadas.
+
+- **Interfaz visual:** proporciona una interfaz gráfica que facilita la creación, edición y ejecución de pruebas, reduciendo la necesidad de escribir 
+código desde cero.
+
+- **Pruebas de regresión:** puede utilizarse para repetir escenarios previamente registrados y comprobar que funcionalidades existentes continúen funcionando 
+correctamente después de realizar cambios en la aplicación.
+
+- **Facilidad de uso:** es una alternativa accesible para personas que están comenzando a familiarizarse con la automatización de pruebas.
+
+- **Exportación de pruebas:** permite exportar pruebas a código en diferentes lenguajes y frameworks, facilitando su integración con proyectos de automatización 
+más avanzados.
+
+#### Limitaciones
+
+Aunque Selenium IDE resulta útil para comenzar con la automatización y para escenarios relativamente sencillos, puede presentar limitaciones cuando se necesitan 
+pruebas altamente personalizadas o una arquitectura de automatización más compleja.
+
+Para proyectos que requieren mayor control, integración con código, manejo avanzado de datos o estructuras de pruebas más grandes, se pueden utilizar herramientas 
+como **Selenium WebDriver, Cypress o Playwright**.
+
+:::tip 
+**Selenium IDE y Selenium WebDriver no son lo mismo.** Selenium IDE utiliza una interfaz gráfica para facilitar la creación y ejecución de pruebas, mientras que 
+Selenium WebDriver permite controlar los navegadores mediante código y ofrece mayor flexibilidad para desarrollar soluciones de automatización.
+:::
+
+## BugBug
+
+**BugBug** es una herramienta de automatización de pruebas orientada principalmente a aplicaciones web. Permite crear pruebas automatizadas mediante la 
+grabación de las interacciones realizadas por un usuario, reduciendo la necesidad de escribir código manualmente.
+
+Está diseñada para facilitar la creación y ejecución de pruebas **end-to-end (E2E)** y puede ser utilizada tanto por perfiles técnicos como por usuarios con 
+poca experiencia en programación.
+
+#### Principales características
+
+- **Grabación de pruebas:** permite registrar las interacciones realizadas sobre una aplicación web, como clics, navegación y entrada de datos, 
+para convertirlas en pruebas automatizadas.
+
+- **Interfaz visual:** proporciona una interfaz gráfica que facilita la creación, edición y ejecución de pruebas sin necesidad de desarrollar 
+grandes cantidades de código.
+
+- **Pruebas end-to-end:** permite automatizar flujos completos de usuario para validar que diferentes funcionalidades de una aplicación funcionen 
+correctamente de principio a fin.
+
+- **Pruebas en diferentes navegadores:** permite ejecutar las pruebas en distintos navegadores para verificar el comportamiento y compatibilidad de una aplicación web.
+
+- **Integración con CI/CD:** puede integrarse en procesos de integración y entrega continua para ejecutar pruebas automáticamente como parte del ciclo de desarrollo.
+
+- **Mantenimiento de pruebas:** facilita la actualización y gestión de las pruebas automatizadas cuando se producen cambios en la aplicación.
+
+- **Pruebas visuales:** permite realizar validaciones relacionadas con la apariencia de las páginas y detectar determinados cambios visuales durante la 
+ejecución de las pruebas.
+
+#### Ventajas
+
+BugBug resulta especialmente útil para equipos que buscan **automatizar rápidamente pruebas repetitivas** sin tener que desarrollar desde cero una arquitectura 
+compleja de automatización.
+
+Puede utilizarse, por ejemplo, para validar procesos como:
+
+- Inicio de sesión.
+- Registro de usuarios.
+- Navegación entre páginas.
+- Formularios.
+- Procesos de compra.
+- Flujos críticos de negocio.
+- Pruebas de regresión.
+
+:::tip 
+Las herramientas de automatización basadas en grabación, como **BugBug**, pueden facilitar el inicio en la automatización de pruebas. Sin embargo, para 
+proyectos grandes o con necesidades avanzadas de personalización, puede ser conveniente utilizar frameworks basados en código como **Cypress, Playwright o 
+Selenium WebDriver**.
+:::
+
+## Ghost Inspector
+
+**Ghost Inspector** es una herramienta de automatización de pruebas para aplicaciones web que permite crear y ejecutar pruebas mediante la grabación de las 
+interacciones realizadas por un usuario.
+
+Está orientada a simplificar la automatización de pruebas funcionales y de regresión, especialmente para equipos que buscan validar flujos de usuario sin 
+necesidad de desarrollar grandes cantidades de código.
+
+#### Principales características
+
+- **Grabación de escenarios de prueba:** permite registrar las interacciones realizadas en una aplicación web, como clics, navegación y entrada de datos, 
+para convertirlas en pruebas automatizadas.
+
+- **Ejecución en la nube:** las pruebas pueden ejecutarse de forma remota, facilitando su integración en procesos automatizados y evitando depender 
+exclusivamente del entorno local del tester.
+
+- **Validaciones funcionales:** permite comprobar que los elementos y flujos de una aplicación funcionen de acuerdo con el comportamiento esperado.
+
+- **Verificación visual:** permite realizar comparaciones visuales para detectar cambios en la apariencia de las páginas durante la ejecución de las pruebas.
+
+- **Reportes de resultados:** genera información sobre la ejecución de las pruebas, permitiendo identificar escenarios exitosos y aquellos que presentan errores.
+
+- **Integración con CI/CD:** puede incorporarse a procesos de integración continua para ejecutar pruebas automáticamente después de determinados 
+cambios en la aplicación.
+
+#### Ejemplo de uso
+
+Un tester puede grabar un flujo de inicio de sesión:
+
+1. Acceder a la página de inicio de sesión.
+2. Introducir el correo electrónico.
+3. Introducir la contraseña.
+4. Seleccionar **Iniciar sesión**.
+5. Verificar que se muestre el dashboard.
+
+Posteriormente, el escenario puede ejecutarse automáticamente para comprobar que el flujo continúe funcionando después de realizar cambios en la aplicación.
+
+:::tip 
+Ghost Inspector está orientado principalmente a la **automatización de pruebas web mediante escenarios grabados**. Es especialmente útil para pruebas funcionales 
+y de regresión que necesitan ejecutarse de forma frecuente.
+:::

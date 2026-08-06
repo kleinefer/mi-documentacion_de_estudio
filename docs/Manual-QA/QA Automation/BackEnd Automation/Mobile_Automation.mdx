@@ -1,0 +1,295 @@
+---
+sidebar_position: 2
+title: pruebas móviles automatizadas
+---
+# Automatización de pruebas móviles
+
+La **automatización de pruebas móviles** consiste en utilizar herramientas y frameworks especializados para ejecutar pruebas de 
+aplicaciones móviles de forma automática. Permite validar el funcionamiento, la interfaz, el rendimiento y la compatibilidad de 
+una aplicación en diferentes dispositivos y versiones de sistemas operativos.
+
+La automatización puede utilizarse para aplicaciones **Android, iOS y aplicaciones híbridas**, dependiendo de la herramienta 
+seleccionada.
+
+### Herramientas y frameworks
+
+Existen diferentes herramientas para automatizar pruebas móviles:
+
+| Herramienta | Plataforma | Uso principal |
+|---|---|---|
+| **Appium** | Android / iOS | Automatización de aplicaciones nativas, híbridas y web |
+| **Espresso** | Android | Pruebas de interfaz de usuario |
+| **XCUITest** | iOS | Pruebas de interfaz de usuario |
+| **Detox** | Android / iOS | Pruebas E2E de aplicaciones móviles |
+| **Maestro** | Android / iOS | Automatización de flujos de usuario |
+
+### Appium
+
+**Appium** es un framework de automatización utilizado para realizar pruebas en aplicaciones móviles **nativas, híbridas y web**. Permite automatizar aplicaciones en diferentes plataformas, principalmente **Android e iOS**, utilizando distintos lenguajes de programación.
+
+#### Principales características
+
+- **Soporte multiplataforma:** permite realizar pruebas en aplicaciones Android e iOS.
+
+- **Aplicaciones nativas, híbridas y web:** permite automatizar diferentes tipos de aplicaciones móviles.
+
+- **Soporte para diferentes lenguajes:** permite escribir pruebas utilizando lenguajes como **Java, Python, JavaScript y Ruby**.
+
+- **Simulación de interacciones:** permite realizar acciones como hacer clic, introducir texto, desplazarse y realizar diferentes interacciones con la aplicación.
+
+- **Compatibilidad con dispositivos:** permite ejecutar pruebas tanto en **emuladores como en dispositivos físicos**.
+
+- **Soporte para gestos:** permite automatizar acciones táctiles como desplazamientos (*swipe*), pellizcos (*pinch*) y otros gestos.
+
+- **Integración continua:** puede integrarse con suites de pruebas y procesos de **CI/CD** para ejecutar pruebas automáticamente durante el ciclo de desarrollo.
+
+- **Comunidad y documentación:** cuenta con documentación y recursos que facilitan su aprendizaje y utilización.
+
+#### Configuración del entorno
+
+Para comenzar a utilizar Appium es necesario preparar el entorno de automatización. Dependiendo de la plataforma que se vaya a probar, se deben configurar las herramientas y controladores correspondientes.
+
+De forma general, el proceso incluye:
+
+```text
+Instalar Node.js
+      ↓
+Instalar Appium
+      ↓
+Configurar plataforma Android/iOS
+      ↓
+Configurar dispositivo o emulador
+      ↓
+Crear proyecto de pruebas
+      ↓
+Escribir pruebas automatizadas
+      ↓
+Ejecutar pruebas
+```
+
+:::note
+Appium permite automatizar pruebas de aplicaciones móviles Android e iOS, incluyendo aplicaciones nativas, híbridas y web. 
+Puede ejecutarse en dispositivos físicos o emuladores y soporta diferentes lenguajes de programación.
+:::
+
+### Espresso
+
+**Espresso** es un framework de automatización para realizar **pruebas de interfaz de usuario (UI)** en aplicaciones Android. Permite a desarrolladores y testers verificar que los elementos de la interfaz funcionen correctamente y respondan como se espera.
+
+Está integrado con el ecosistema de desarrollo de Android, lo que facilita la creación y ejecución de pruebas desde **Android Studio**.
+
+#### Principales características
+
+- **Pruebas de interfaz de usuario:** permite validar elementos como botones, campos de texto, listas, menús y otros componentes de la aplicación.
+
+- **Integración con Android:** funciona dentro del entorno de desarrollo de Android y permite ejecutar las pruebas utilizando herramientas del ecosistema Android.
+
+- **Interacción con elementos:** permite simular acciones realizadas por el usuario, como hacer clic en botones, introducir texto y desplazarse por diferentes vistas.
+
+- **Sincronización automática:** gestiona la sincronización entre las acciones de la prueba y la interfaz de la aplicación, reduciendo problemas relacionados con tiempos de espera.
+
+- **Aserciones:** permite verificar que los elementos de la interfaz presenten el estado o contenido esperado.
+
+- **Ejecución en dispositivos:** las pruebas pueden ejecutarse tanto en **emuladores como en dispositivos físicos**.
+
+- **Integración con JUnit:** permite utilizar anotaciones como `@Test` para definir y ejecutar casos de prueba.
+
+#### Ejemplo de prueba
+
+Un ejemplo sencillo de una prueba de inicio de sesión podría ser:
+
+Srealizan las siguientes acciones:
+
+1. Se localiza el campo de correo.
+2. Se introduce un correo de prueba.
+3. Se localiza el campo de contraseña.
+4. Se introduce la contraseña.
+5. Se pulsa el botón de inicio de sesión.
+6. Se verifica que el dashboard sea visible.
+
+```java
+@Test
+public void iniciarSesion() {
+
+    onView(withId(R.id.email))
+        .perform(typeText("usuario@ejemplo.com"));
+
+    onView(withId(R.id.password))
+        .perform(typeText("123456"));
+
+    onView(withId(R.id.btnLogin))
+        .perform(click());
+
+    onView(withId(R.id.dashboard))
+        .check(matches(isDisplayed()));
+}
+```
+### Swift y XCTest
+
+**Swift** es un lenguaje de programación desarrollado por Apple y utilizado principalmente para crear aplicaciones para sus plataformas, especialmente **iOS**.
+
+Para realizar pruebas en aplicaciones desarrolladas con Swift, el ecosistema de Apple proporciona **XCTest**, un framework que permite crear pruebas unitarias y pruebas de interfaz de usuario.
+
+#### Principales características
+
+- **XCTest:** framework integrado en el ecosistema de desarrollo de Apple que permite crear y ejecutar pruebas automatizadas.
+
+- **Pruebas unitarias:** permiten verificar de forma independiente que una función o método produzca el resultado esperado.
+
+- **Pruebas de interfaz de usuario:** permiten comprobar que los elementos de la aplicación respondan correctamente a las interacciones del usuario.
+
+- **XCUITest:** permite automatizar interacciones con la interfaz de aplicaciones iOS, como pulsar botones, introducir texto y verificar elementos.
+
+- **Integración con Xcode:** las pruebas pueden escribirse y ejecutarse directamente desde **Xcode**.
+
+- **Aserciones:** permiten comparar el resultado obtenido con el resultado esperado.
+
+- **Reportes:** Xcode proporciona información sobre las pruebas ejecutadas, indicando cuáles fueron exitosas y cuáles presentaron errores.
+
+#### Ejemplo de prueba unitaria
+
+Un ejemplo sencillo utilizando XCTest sería:
+
+1. Se crea una clase de pruebas que hereda de XCTestCase.
+2. Se define el método testSuma().
+3. Se realiza una operación.
+4. XCTAssertEqual comprueba que el resultado obtenido sea igual al esperado.
+
+```swift
+import XCTest
+
+final class CalculadoraTests: XCTestCase {
+
+    func testSuma() {
+
+        let resultado = 2 + 3
+
+        XCTAssertEqual(resultado, 5)
+    }
+}
+```
+
+
+### Detox
+
+**Detox** es un framework de automatización de pruebas **end-to-end (E2E)** diseñado principalmente para aplicaciones móviles 
+desarrolladas con **React Native**. Permite validar que la interfaz y las funcionalidades de la aplicación se comporten correctamente durante un flujo completo de usuario.
+
+#### Principales características
+
+- **Pruebas E2E:** permite validar funcionalidades completas de una aplicación móvil desde la perspectiva del usuario.
+
+- **Integración con React Native:** está especialmente orientado a aplicaciones desarrolladas con React Native.
+
+- **Simulación de interacciones:** permite realizar acciones como hacer clic en botones, introducir texto, desplazarse y 
+verificar elementos de la interfaz.
+
+- **Sincronización automática:** gestiona automáticamente la sincronización entre las pruebas y la aplicación, reduciendo 
+problemas relacionados con tiempos de espera.
+
+- **Ejecución en dispositivos:** permite ejecutar pruebas en **simuladores y dispositivos físicos**.
+
+- **Ejecución en paralelo:** permite ejecutar diferentes pruebas de forma paralela para reducir el tiempo total de ejecución.
+
+- **Resultados de ejecución:** proporciona información sobre las pruebas ejecutadas, facilitando la identificación de errores.
+
+#### Ejemplo de prueba
+
+Un escenario sencillo para validar un inicio de sesión podría ser:
+
+```javascript
+describe('Inicio de sesión', () => {
+
+    beforeAll(async () => {
+        await device.launchApp();
+    });
+
+    it('debe permitir iniciar sesión con credenciales válidas', async () => {
+
+        await element(by.id('email'))
+            .typeText('usuario@ejemplo.com');
+
+        await element(by.id('password'))
+            .typeText('123456');
+
+        await element(by.id('btnLogin'))
+            .tap();
+
+        await expect(
+            element(by.id('dashboard'))
+        ).toBeVisible();
+    });
+});
+```
+
+En este ejemplo se realizan las siguientes acciones:
+
+1. Se inicia la aplicación.
+2. Se localiza el campo de correo.
+3. Se introduce un correo de prueba.
+4. Se introduce la contraseña.
+5. Se pulsa el botón de inicio de sesión.
+6. Se verifica que el dashboard sea visible.
+
+### XCUITest
+
+**XCUITest** es el framework de pruebas de interfaz de usuario proporcionado por Apple para aplicaciones iOS. Se integra con 
+**Xcode** y permite crear pruebas automatizadas para verificar el comportamiento de los elementos de la aplicación.
+
+### Ventajas de la automatización móvil
+
+- **Eficiencia:** permite ejecutar grandes cantidades de pruebas en menos tiempo.
+
+- **Reutilización:** los scripts pueden reutilizarse en diferentes versiones de la aplicación.
+
+- **Consistencia:** las pruebas se ejecutan siguiendo los mismos pasos, reduciendo errores humanos.
+
+- **Compatibilidad:** permite verificar el comportamiento de la aplicación en diferentes dispositivos, tamaños de pantalla y 
+versiones del sistema operativo.
+
+- **Regresión:** facilita comprobar que nuevas modificaciones no afecten funcionalidades existentes.
+
+- **Integración con CI/CD:** las pruebas pueden ejecutarse automáticamente como parte del proceso de desarrollo.
+
+### Compatibilidad de dispositivos
+
+Uno de los principales desafíos de las aplicaciones móviles es la gran cantidad de dispositivos y versiones de sistemas 
+operativos existentes.
+
+Por esta razón, las pruebas pueden realizarse considerando diferentes:
+
+- Modelos de dispositivos.
+- Tamaños y resoluciones de pantalla.
+- Versiones de Android o iOS.
+- Orientaciones de pantalla.
+- Condiciones de red.
+- Capacidades del dispositivo.
+
+Las pruebas pueden ejecutarse en **dispositivos físicos** o mediante **emuladores y simuladores**.
+
+### Tipos de pruebas móviles
+
+La automatización móvil puede utilizarse para diferentes tipos de pruebas:
+
+| Tipo de prueba | Objetivo |
+|---|---|
+| **Pruebas funcionales** | Verificar que las funcionalidades funcionen correctamente |
+| **Pruebas UI** | Validar los elementos y comportamiento de la interfaz |
+| **Pruebas E2E** | Validar un flujo completo desde el inicio hasta el final |
+| **Pruebas de regresión** | Comprobar que los cambios no afecten funcionalidades existentes |
+| **Pruebas de compatibilidad** | Verificar el funcionamiento en diferentes dispositivos y sistemas operativos |
+| **Pruebas de rendimiento** | Evaluar tiempos de respuesta y consumo de recursos |
+| **Pruebas de accesibilidad** | Comprobar que la aplicación pueda ser utilizada por diferentes usuarios |
+
+
+### Integración con CI/CD
+
+Las pruebas móviles automatizadas pueden integrarse en procesos de **Integración Continua y Entrega Continua (CI/CD)**.
+
+Esto permite ejecutar automáticamente las pruebas cuando se genera una nueva versión de la aplicación, ayudando a detectar errores a
+ntes de distribuirla a los usuarios.
+
+:::note 
+La automatización móvil permite ejecutar pruebas de forma **rápida, repetible y consistente**. Sin embargo, no reemplaza completamente 
+las pruebas manuales, especialmente aquellas relacionadas con la experiencia de usuario, exploración y comportamiento en dispositivos físicos.
+:::

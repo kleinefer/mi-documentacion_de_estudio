@@ -12,7 +12,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'Guias',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/guia.svg').default,
     description: (
       <>
         Este es mi proceso de estudio con los cursos que he realizado, con el fin de tener un repositorio de información 
@@ -22,7 +22,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Manual QA',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/Manual-Testing.svg').default,
     description: (
       <>
         Proceso de estudio de QA engineering, desde principiante hasta avanzado.
@@ -31,7 +31,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Programación',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Svg: require('@site/static/img/programacion.svg').default,
     description: (
       <>
         Proceso de estudio de programación y diferentes lenguajes como flutter, python, java, javascript, etc. y tambien de temas como la IA y el aprendizaje automático.
