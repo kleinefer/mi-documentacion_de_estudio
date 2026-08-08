@@ -1,0 +1,171 @@
+---
+sidebar_position: 2
+title: Version Control Systems
+---
+
+## Sistemas de Control de Versiones
+
+Los **sistemas de control de versiones (VCS)** son herramientas que permiten **registrar, organizar y gestionar los cambios
+realizados en el código fuente** a lo largo del tiempo.
+
+Son fundamentales para facilitar la colaboración entre desarrolladores y mantener un historial de las modificaciones del proyecto.
+
+### Características principales
+
+* **Historial de cambios:** permite conocer qué cambios se realizaron y cuándo.
+* **Ramas (Branches):** permite trabajar en diferentes funcionalidades sin modificar directamente la versión principal.
+* **Comparación de versiones:** facilita identificar las diferencias entre distintas versiones del código.
+* **Reversión:** permite recuperar versiones anteriores cuando se introduce un error.
+* **Colaboración:** varios integrantes pueden trabajar en el mismo proyecto de forma controlada.
+* **Auditoría:** mantiene un registro de los cambios realizados.
+
+### Importancia en QA
+
+Los sistemas de control de versiones también son útiles para QA, ya que permiten:
+
+* Identificar cuándo se introdujo un cambio que generó un error.
+* Revisar modificaciones relacionadas con un defecto.
+* Mantener versiones específicas del código para las pruebas.
+* Facilitar la trazabilidad entre cambios, pruebas y defectos.
+* Recuperar versiones estables cuando sea necesario.
+
+---
+
+## Git
+
+**Git** es un sistema de control de versiones **distribuido y de código abierto** utilizado para gestionar proyectos de software.
+
+Cada desarrollador puede disponer de una copia del repositorio y realizar cambios localmente antes de compartirlos con el resto del equipo.
+
+### Características principales
+
+* **Repositorios distribuidos:** permite trabajar con una copia local del proyecto.
+* **Branches:** permite crear ramas para desarrollar funcionalidades o realizar correcciones.
+* **Commits:** registra cambios específicos realizados en el proyecto.
+* **Merge:** permite integrar cambios provenientes de diferentes ramas.
+* **Historial:** mantiene un registro de las modificaciones realizadas.
+* **Revert:** permite deshacer cambios cuando sea necesario.
+
+### Flujo básico
+
+```text id="0y7f2m"
+Crear / clonar repositorio
+          ↓
+     Crear branch
+          ↓
+    Realizar cambios
+          ↓
+       Commit
+          ↓
+        Push
+          ↓
+     Pull Request
+          ↓
+      Code Review
+          ↓
+        Merge
+```
+
+### Comandos básicos
+
+```bash id="w8n3rx"
+git clone <repositorio>
+git status
+git add .
+git commit -m "Descripción del cambio"
+git push
+git pull
+git branch
+git checkout
+```
+
+### Git en QA
+
+Git permite a los equipos de QA mantener control sobre las pruebas automatizadas, scripts y configuraciones utilizadas durante el proceso de calidad.
+
+Por ejemplo, cuando se detecta un defecto después de un cambio, el historial de Git puede ayudar a determinar **qué modificación pudo haber provocado el problema**.
+
+> **En resumen:** un sistema de control de versiones permite gestionar los cambios de un proyecto, mientras que **Git** es una de las herramientas más utilizadas para implementar este control de forma distribuida y colaborativa.
+
+---
+
+## Plataformas de Alojamiento de Repositorios
+
+Las **plataformas de alojamiento de repositorios** permiten almacenar proyectos y repositorios Git de forma remota, facilitando la colaboración entre los integrantes de un equipo.
+
+Además del almacenamiento del código, suelen incluir funcionalidades como **Pull Requests, revisión de código, gestión de incidencias e integración con CI/CD**.
+
+### Principales plataformas
+
+| Plataforma    | Características                                                                          |
+| ------------- | ---------------------------------------------------------------------------------------- |
+| **GitHub**    | Alojamiento de repositorios, Pull Requests, Issues, revisión de código y GitHub Actions. |
+| **GitLab**    | Repositorios Git, gestión de proyectos y herramientas de CI/CD integradas.               |
+| **Bitbucket** | Repositorios Git e integración con herramientas del ecosistema Atlassian.                |
+
+### GitHub
+
+**GitHub** es una de las plataformas más utilizadas para alojar repositorios Git y colaborar en proyectos de software.
+
+Entre sus principales funcionalidades se encuentran:
+
+* **Repositorios:** permite almacenar y gestionar proyectos.
+* **Pull Requests:** facilita la revisión e integración de cambios.
+* **Issues:** permite registrar y hacer seguimiento de tareas y errores.
+* **Code Review:** facilita la revisión del código antes de integrarlo.
+* **GitHub Actions:** permite automatizar procesos de CI/CD.
+* **Colaboración:** permite trabajar con diferentes integrantes en un mismo proyecto.
+
+### GitLab
+
+**GitLab** es una plataforma que combina el alojamiento de repositorios con herramientas para la gestión y automatización del ciclo de desarrollo.
+
+Entre sus características se encuentran:
+
+* Repositorios Git.
+* Merge Requests.
+* Gestión de incidencias.
+* Pipelines de CI/CD.
+* Automatización de pruebas y despliegues.
+* Gestión de proyectos.
+
+### Bitbucket
+
+**Bitbucket** es una plataforma de alojamiento de repositorios Git desarrollada por Atlassian.
+
+Se utiliza especialmente en equipos que trabajan con herramientas como **Jira** y **Confluence**, permitiendo conectar el código con la gestión de tareas y proyectos.
+
+Entre sus características se encuentran:
+
+* Repositorios Git.
+* Pull Requests.
+* Revisión de código.
+* Integración con Jira.
+* Pipelines para CI/CD.
+* Gestión de permisos y equipos.
+
+### Importancia en QA
+
+Estas plataformas son importantes para QA porque permiten integrar las actividades de pruebas dentro del flujo de desarrollo.
+
+Por ejemplo:
+
+```text
+Cambio en el código
+        ↓
+Pull Request
+        ↓
+Pruebas automatizadas
+        ↓
+Code Review
+        ↓
+¿Pruebas exitosas?
+    ↙          ↘
+   Sí           No
+   ↓             ↓
+ Merge       Corrección
+   ↓
+Despliegue
+```
+
+De esta manera, las pruebas pueden ejecutarse automáticamente antes de integrar cambios al código principal.

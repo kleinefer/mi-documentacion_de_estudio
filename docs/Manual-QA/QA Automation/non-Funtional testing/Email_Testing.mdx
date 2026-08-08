@@ -1,0 +1,164 @@
+---
+sidebar_position: 3
+title: Pruebas de Email
+---
+# Pruebas de Correos Electrónicos
+
+Las **pruebas de correos electrónicos** permiten verificar que los mensajes enviados por una aplicación sean correctos, funcionales 
+y se visualicen adecuadamente en diferentes dispositivos y clientes de correo.
+
+### ¿Qué se debe validar?
+
+* **Diseño:** verificar que la estructura, imágenes, colores y estilos se visualicen correctamente.
+* **Contenido:** revisar textos, ortografía, gramática y datos mostrados.
+* **Enlaces:** comprobar que todos los enlaces redirijan al destino correcto.
+* **Botones:** verificar que los botones ejecuten la acción esperada.
+* **Compatibilidad:** probar el correo en diferentes clientes y dispositivos.
+* **Responsive:** comprobar que el contenido se adapte correctamente a dispositivos móviles.
+* **Spam:** verificar que el correo no sea clasificado incorrectamente como spam.
+
+### Ejemplo de pruebas
+
+| Caso de prueba              | Resultado esperado                                |
+| --------------------------- | ------------------------------------------------- |
+| Verificar diseño del correo | Los elementos se muestran correctamente.          |
+| Seleccionar un enlace       | Redirige a la página correspondiente.             |
+| Seleccionar un botón        | Ejecuta la acción esperada.                       |
+| Abrir el correo desde móvil | El contenido se adapta correctamente.             |
+| Revisar el contenido        | No existen errores ortográficos o de información. |
+| Verificar recepción         | El correo llega correctamente al destinatario.    |
+
+### Flujo de prueba
+
+```text
+Envío del correo
+      ↓
+Recepción
+      ↓
+Validación del contenido
+      ↓
+Validación de enlaces y botones
+      ↓
+Prueba en diferentes dispositivos
+      ↓
+Validación de spam
+      ↓
+Resultado de la prueba
+```
+
+> **En resumen:** las pruebas de correos electrónicos permiten garantizar que las comunicaciones sean **correctas, funcionales, 
+compatibles y visualmente adecuadas** antes de llegar a los usuarios.
+
+## Mailinator
+
+**Mailinator** es una herramienta que permite utilizar **bandejas de entrada temporales** para probar funcionalidades relacionadas 
+con correos electrónicos y SMS.
+
+Es especialmente útil para QA al validar procesos como registros, recuperación de contraseñas, códigos de verificación y 
+autenticación de dos factores (2FA).
+
+### Características principales
+
+* **Correos temporales:** permite utilizar direcciones de correo para realizar pruebas sin crear cuentas reales.
+* **Pruebas de registro:** permite verificar correos de confirmación y activación de cuentas.
+* **Pruebas de 2FA:** facilita la recepción de códigos de verificación.
+* **Recuperación de contraseña:** permite validar correos enviados durante el proceso de recuperación.
+* **Automatización:** puede integrarse con herramientas y frameworks de automatización.
+* **Pruebas manuales:** permite revisar directamente los mensajes recibidos.
+
+### ¿Para qué se utiliza?
+
+Mailinator puede utilizarse para probar:
+
+* Registro de usuarios.
+* Confirmación de cuentas.
+* Restablecimiento de contraseñas.
+* Códigos de verificación.
+* Autenticación de dos factores (2FA).
+* Notificaciones enviadas por correo.
+
+### Ejemplo de uso
+
+Para probar un proceso de registro:
+
+```text
+Crear correo temporal
+        ↓
+Registrar usuario
+        ↓
+Recibir correo de verificación
+        ↓
+Abrir enlace
+        ↓
+Confirmar cuenta
+        ↓
+Validar resultado
+```
+
+### Integración con automatización
+
+Mailinator puede utilizarse junto con herramientas de automatización como:
+
+* **Cypress**
+* **Selenium**
+* **Playwright**
+* **Puppeteer**
+
+Esto permite automatizar flujos completos donde la aplicación depende de la recepción y validación de correos electrónicos.
+
+> **En resumen:** Mailinator es una herramienta práctica para QA que permite validar flujos de correo electrónico utilizando bandejas 
+temporales, tanto manualmente como mediante automatización.
+
+## Gmail Tester
+
+**Gmail Tester** es una herramienta que permite comprobar automáticamente la recepción y el contenido de correos electrónicos enviados 
+a una cuenta de Gmail durante las pruebas.
+
+Es útil para validar flujos como **registro de usuarios, verificación de cuentas, recuperación de contraseñas y códigos 2FA**.
+
+### Características principales
+
+* **Verificación de correos:** permite comprobar si un mensaje fue recibido.
+* **Lectura de mensajes:** permite acceder al contenido del correo para realizar validaciones.
+* **Automatización:** puede integrarse con pruebas automatizadas.
+* **Validación de flujos:** permite comprobar procesos que dependen del envío de correos.
+* **Integración con Node.js:** puede utilizarse dentro de proyectos basados en JavaScript.
+
+### ¿Para qué se utiliza?
+
+Gmail Tester puede utilizarse para validar:
+
+* Correos de registro.
+* Confirmación de cuentas.
+* Recuperación de contraseñas.
+* Códigos de autenticación 2FA.
+* Notificaciones automáticas.
+* Enlaces enviados por correo.
+
+### Ejemplo de uso
+
+Un flujo de prueba podría ser:
+
+```text
+Registrar usuario
+       ↓
+Aplicación envía correo
+       ↓
+Gmail recibe el mensaje
+       ↓
+Gmail Tester consulta el correo
+       ↓
+Validar asunto y contenido
+       ↓
+Validar enlace o código
+```
+
+### Ventajas
+
+* Automatiza la validación de correos.
+* Reduce la necesidad de revisar manualmente la bandeja de entrada.
+* Permite validar el contenido de los mensajes.
+* Facilita la integración con pruebas automatizadas.
+
+> **En resumen:** Gmail Tester permite automatizar la verificación de correos enviados durante las pruebas, facilitando la 
+validación de flujos como registros, recuperación de contraseñas y autenticación.

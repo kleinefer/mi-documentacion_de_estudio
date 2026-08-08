@@ -1,0 +1,362 @@
+---
+sidebar_position: 2
+title: Headless Testing
+---
+
+# Headless Testing
+
+Las **pruebas sin interfaz gráfica (Headless Testing)** permiten ejecutar pruebas en un navegador sin mostrar visualmente la ventana del navegador. El navegador funciona en segundo plano, procesando el HTML, CSS y JavaScript de la aplicación.
+
+Este enfoque es especialmente útil para **pruebas automatizadas y pipelines de CI/CD**, donde normalmente no es necesario visualizar el navegador.
+
+### Características principales
+
+- **Sin interfaz gráfica:** el navegador se ejecuta en segundo plano.
+- **Mayor velocidad:** al no renderizar elementos visualmente, las pruebas pueden ejecutarse más rápido.
+- **Automatización:** permite ejecutar pruebas de forma automática.
+- **CI/CD:** es adecuado para pipelines donde no existe una interfaz gráfica disponible.
+- **Ejecución en servidores:** puede utilizarse en entornos de desarrollo, testing y servidores.
+
+### ¿Cómo funciona?
+
+```text
+Aplicación
+    ↓
+Navegador Headless
+    ↓
+Ejecuta HTML + CSS + JavaScript
+    ↓
+Ejecuta pruebas
+    ↓
+Valida resultados
+    ↓
+Reporte
+
+```
+---
+
+## Puppeteer
+
+**Puppeteer** es una biblioteca de **Node.js** que permite controlar navegadores como Chrome y Chromium mediante código. Es utilizada principalmente para automatizar pruebas y tareas relacionadas con aplicaciones web.
+
+#### Características principales
+
+- **Automatización del navegador:** permite abrir páginas, hacer clic, completar formularios y navegar.
+- **Modo Headless:** puede ejecutar el navegador sin mostrar su interfaz gráfica.
+- **Pruebas E2E:** permite validar flujos completos de una aplicación.
+- **Capturas de pantalla:** permite generar screenshots durante las pruebas.
+- **Ejecución de JavaScript:** puede interactuar con aplicaciones web dinámicas.
+- **Integración con Node.js:** facilita su incorporación en proyectos y pipelines de CI/CD.
+
+#### ¿Cómo funciona?
+
+```text
+Script de Puppeteer
+        ↓
+Chrome / Chromium
+        ↓
+Navegación e interacción
+        ↓
+Ejecución de pruebas
+        ↓
+Validación de resultados
+
+```
+
+## Zombie.js
+
+**Zombie.js** es un framework ligero para realizar **pruebas de aplicaciones web sin utilizar un navegador real**. Utiliza un navegador simulado que puede cargar páginas HTML y ejecutar JavaScript, permitiendo automatizar pruebas sin necesidad de renderizar visualmente la interfaz.
+
+#### Características principales
+
+- **Navegador simulado:** ejecuta las páginas sin utilizar Chrome, Firefox u otro navegador real.
+- **Sin interfaz gráfica:** no necesita mostrar visualmente la página.
+- **Ejecución rápida:** evita parte del trabajo asociado al renderizado de una página.
+- **Pruebas automatizadas:** permite comprobar el comportamiento de aplicaciones web.
+- **Compatible con JavaScript:** puede ejecutar el código JavaScript presente en las páginas.
+
+#### ¿Cómo funciona?
+
+```text
+Página web
+    ↓
+Zombie.js
+    ↓
+Navegador simulado
+    ↓
+HTML + JavaScript
+    ↓
+Ejecución de pruebas
+    ↓
+Resultado
+
+```
+
+## Playwright
+
+**Playwright** es una biblioteca de código abierto para la **automatización y pruebas de aplicaciones web**. Fue desarrollada inicialmente por colaboradores de Microsoft y permite controlar diferentes navegadores desde código.
+
+Es especialmente utilizada para realizar **pruebas E2E, funcionales y de regresión**, tanto en entornos locales como en pipelines de CI/CD.
+
+#### Características principales
+
+- **Multinavegador:** permite realizar pruebas en Chromium, Firefox y WebKit.
+- **Multilenguaje:** dispone de soporte para JavaScript/TypeScript, Python, Java y C#.
+- **Modo Headless:** permite ejecutar pruebas sin mostrar la interfaz del navegador.
+- **Pruebas E2E:** permite simular flujos completos de usuario.
+- **Automatización:** permite interactuar con botones, formularios, enlaces y otros elementos.
+- **CI/CD:** puede integrarse en pipelines para ejecutar pruebas automáticamente.
+- **Capturas y evidencias:** permite obtener screenshots y videos durante las pruebas.
+
+#### ¿Cómo funciona?
+
+```text
+Script de prueba
+      ↓
+   Playwright
+      ↓
+Chromium / Firefox / WebKit
+      ↓
+Interacción con la aplicación
+      ↓
+Validaciones
+      ↓
+Resultado de la prueba
+
+```
+
+## Headless Chrome
+
+**Headless Chrome** es una modalidad de ejecución del navegador Google Chrome que opera sin una interfaz gráfica de usuario (GUI). 
+Permite interactuar con páginas web, ejecutar scripts y renderizar contenido de forma automatizada en segundo plano, exactamente en el mismo motor de renderizado 
+(Blink) y motor de JavaScript (V8) que utilizan los usuarios finales.
+
+#### Características principales
+
+- **Fidelidad de entorno real:** A diferencia de entornos simulados (como Jsdom o Node puros), ejecuta el código JavaScript y el CSS dentro del motor real de 
+Chrome, garantizando un comportamiento idéntico al del navegador comercial.
+
+- **Alto rendimiento y bajo consumo:** Al no tener que pintar la interfaz de usuario en pantalla (ventanas, botones del navegador, pestañas), consume menos memoria
+ RAM y recursos de CPU, acelerando la ejecución de pruebas.
+
+- **Integración en CI/CD:** Es ideal para servidores de integración continua, contenedores Docker y entornos Linux donde no existe un servidor de pantalla gráfico 
+(X11/Display).
+
+- **Generación de evidencias y documentos:** Permite capturar imágenes de pantalla (screenshots) completas de la página y convertir páginas HTML directamente a 
+documentos PDF de alta calidad.
+
+- **Soporte nativo con DevTools Protocol (CDP):** Permite inspeccionar el DOM, interceptar y modificar peticiones de red, analizar el rendimiento de memoria y 
+emular diferentes dispositivos móviles o geolocalizaciones.
+
+- **Compatibilidad con frameworks de automatización:** Se integra de forma transparente con librerías modernas como Playwright, Puppeteer y Selenium.
+
+#### ¿Cómo funciona?
+
+```
+Código / Script de Prueba (Playwright, Puppeteer, Selenium)
+                            │
+                            ▼
+              Chrome DevTools Protocol (CDP)
+                            │
+                            ▼
+                     Headless Chrome
+        ┌───────────────────┴───────────────────┐
+        │                                       │
+        ▼                                       ▼
+  Motor Blink                            Motor V8
+  (HTML / CSS / DOM)                     (JavaScript)
+        │                                       │
+        └───────────────────┬───────────────────┘
+                            │
+                            ▼
+           Procesamiento y Ejecución en Red
+                            │
+                            ▼
+           Resultado / Evidencia (PDF, Screenshot, Logs)
+           
+````
+
+#### Aplicación en QA y Automatización
+
+Headless Chrome se utiliza comúnmente para:
+
+1. Pruebas End-to-End (E2E): Simulación de navegación real de usuarios (login, llenado de formularios, pagos).
+
+2. Web Scraping: Extracción de contenido de sitios web dinámicos cargados con JavaScript.
+
+3. Auditorías de Rendimiento y SEO: Medición de tiempos de carga y análisis de accesibilidad sin interferencia visual.
+
+4. Automatización de tareas masivas: Conversión de páginas a PDF o capturas de pantalla automatizadas a escala.
+ 
+
+## Pruebas sin Interfaz Gráfica (Headless Browser Testing)
+
+Las pruebas sin interfaz gráfica (headless browser testing) consisten en ejecutar un navegador web en segundo plano sin mostrar su interfaz visual de usuario (UI/GUI). 
+Este enfoque es fundamental en la automatización moderna de pruebas, ya que permite simular la interacción real de un usuario con el DOM, ejecutar JavaScript y procesar 
+CSS sin incurrir en el gasto de recursos que implica renderizar elementos visuales en pantalla.
+
+#### Características principales
+
+- **Ejecución de alto rendimiento:** Al omitir el dibujo visual de ventanas, imágenes y componentes gráficos, las pruebas se ejecutan considerablemente más rápido y consumen menos memoria RAM y CPU.
+
+- **Compatibilidad con entornos Serverless y CI/CD:** Funciona de forma nativa en servidores de integración continua (como Jenkins, GitHub Actions o GitLab CI) y contenedores Docker donde no existe un servidor de pantalla gráfico (Display/X11).
+
+- **Interpretación real de JavaScript y DOM:** A diferencia de realizar solicitudes HTTP puras o usar entornos de simulación sintéticos (como JSDOM en Node.js), un navegador headless utiliza el motor web real (Blink, Gecko, WebKit) para interpretar la página.
+
+- **Generación de evidencias automatizadas:** Permite capturar imágenes de pantalla (screenshots), registrar trazas de red (HAR files), grabar video de la sesión y generar documentos PDF directamente desde el DOM procesado.
+
+- **Soporte para múltiples navegadores:** Frameworks como Playwright y Puppeteer permiten ejecutar pruebas headless simulando distintos navegadores y motores (Chromium, Firefox, WebKit).
+
+- **Paralelización eficiente:** Es posible ejecutar decenas de instancias en paralelo sobre la misma máquina debido al bajo impacto de procesamiento visual.
+
+#### ¿Cómo funciona?
+
+```
+Código / Script de Prueba (Selenium, Playwright, Cypress)
+                            │
+                            ▼
+                     Controlador / Protocolo
+                 (DevTools Protocol / BiDi / WebDriver)
+                            │
+                            ▼
+                    Headless Browser
+     (Ej: Headless Chrome, Headless Firefox, WebKit)
+                            │
+             ┌──────────────┴──────────────┐
+             ▼                             ▼
+   Motor de Renderizado            Motor de JavaScript
+   (Blink / Gecko / WebKit)            (V8 / SpiderMonkey)
+             │                             │
+             └──────────────┬──────────────┘
+                            │
+                            ▼
+              Evaluación y Redirección en Red
+                            │
+                            ▼
+         Resultado de la Prueba y Generación de Evidencias
+             (Logs, Screenshots, Reportes HTML)
+
+
+```
+#### Aplicación en QA
+
+ **1. Pruebas de Regresión Rápidas:** Validación acelerada de flujos críticos de la aplicación en pipelines de integración continua.
+
+**2. Pruebas E2E (End-to-End):** Simulación de flujos de usuario completos (compras, registros, autenticación) sin distracción de renderizado.
+
+**3. Rendimiento y Auditoría Web:** Medición exacta de métricas de carga (como Core Web Vitals) eliminando la latencia de pintado de interfaz del SO.
+
+**4. Scraping y Automatización de Procesos:** Extracción masiva de datos dinámicos generados por JavaScript en sitios complejos.
+
+
+## Headless Firefox
+
+Headless Firefox es la modalidad de ejecución del navegador Mozilla Firefox que funciona sin una interfaz gráfica de usuario (GUI). Permite ejecutar el motor de 
+renderizado real de Firefox (Gecko) y su motor de JavaScript (SpiderMonkey) en segundo plano para realizar automatización, pruebas de software y procesamiento de 
+páginas web sin necesidad de abrir una ventana visual.
+
+#### Caracteristicas
+
+- **Motor Gecko nativo:** Ejecuta el código HTML, CSS y JavaScript directamente en el motor real de Firefox, garantizando una interpretación fidedigna a la experiencia de los usuarios que utilizan Firefox.
+
+- **Pruebas de compatibilidad entre navegadores (Cross-browser):** Es fundamental para validar que una aplicación web funcione correctamente en motor Gecko, complementando las pruebas realizadas en motores Chromium (Chrome/Edge) o WebKit (Safari).
+
+- **Alto rendimiento y bajo consumo:** Al no renderizar componentes visuales del sistema operativo (ventanas, menús, pestañas), optimiza significativamente el uso de memoria RAM y tiempo de CPU.
+
+- **Integración en CI/CD:** Funciona sin problemas en servidores de integración continua, entornos Linux headless y contenedores Docker sin necesidad de configurar un servidor gráfico (X11/Display) mediante herramientas como Xvfb.
+
+- **Soporte para protocolos modernos:** Es compatible con WebDriver (Marionette) y con el nuevo estándar WebDriver BiDi, lo que permite comunicación bidireccional y control avanzado de la red y eventos en tiempo real.
+
+- **Generación de evidencias:** Permite capturar imágenes de pantalla (screenshots) completas de la página y generar archivos PDF o registros de red (HAR).
+
+- **Soporte multilínea en frameworks populares:** Se integra de forma nativa con Selenium WebDriver, Playwright y Robot Framework.
+
+#### ¿Cómo funciona?
+
+```
+Código / Script de Prueba (Playwright, Selenium, Robot Framework)
+                            │
+                            ▼
+                Protocolo de Control / Driver
+                  (GeckoDriver / WebDriver BiDi)
+                            │
+                            ▼
+                     Headless Firefox
+        ┌───────────────────┴───────────────────┐
+        │                                       │
+        ▼                                       ▼
+   Motor Gecko                            SpiderMonkey
+  (HTML / CSS / DOM)                      (JavaScript)
+        │                                       │
+        └───────────────────┬───────────────────┘
+                            │
+                            ▼
+            Procesamiento y Ejecución en Red
+                            │
+                            ▼
+          Resultado de la Prueba / Evidencias
+             (Logs, Screenshots, PDF, HAR)
+
+```
+
+#### Aplicación en QA
+
+**1. Pruebas de Compatibilidad Multi-Motor:** Garantiza que las funcionalidades complejas de JavaScript o los estilos CSS se comporten exactamente igual en Firefox que en Chrome.
+
+**2. Pruebas de Regresión en Pipelines (CI/CD):** Ejecución masiva de suites de pruebas automáticas en servidores de integración sin entorno gráfico.
+
+**3. Validación de Privacidad y Parámetros de Firefox:** Permite probar cómo reacciona la aplicación ante políticas estrictas de privacidad y rastreo integradas por defecto en Gecko.
+
+**4. Automatización E2E:** Flujos completos de usuario (registros, compras, gestión de formularios) ejecutados de forma rápida y en paralelo.
+
+## HtmlUnit
+
+HtmlUnit es un navegador sin interfaz gráfica (headless browser) de código abierto escrito en Java. Está diseñado específicamente para probar aplicaciones web y simular
+el comportamiento de navegadores reales (como Chrome o Firefox) mediante la interpretación de HTML, ejecución de código JavaScript, gestión de galletas (cookies), envíos 
+de formularios y navegación HTTP.
+
+#### Características principales
+
+- **Arquitectura pura en Java:** No requiere la instalación ni ejecución de binarios de navegadores externos (como Chrome, Firefox o sus drivers), lo que simplifica la 
+configuración y ejecución de pruebas en proyectos Java.
+- **Simulación de navegadores:** Permite configurar el agente de usuario (User-Agent) y ciertos comportamientos para emular diferentes tipos y versiones de navegadores 
+web.
+- **Soporte de JavaScript (vía Rhino/HtmlUnit-Core-JS):** Cuenta con su propio motor para ejecutar scripts dinámicos en el cliente, manipular el DOM y gestionar eventos AJAX.
+- **Integración con Selenium WebDriver:** Puede integrarse directamente mediante el `HtmlUnitDriver`, permitiendo ejecutar scripts de Selenium de forma sumamente 
+rápida y ligera.
+- **Ligero y de alto rendimiento:** Al ser una librería dentro de la JVM que maneja las páginas como un modelo de objetos en memoria en lugar de un navegador completo, 
+consume una cantidad mínima de RAM y CPU.
+- **Manejo completo de sesión HTTP:** Administra inicios de sesión, redirecciones, cabeceras HTTP, certificados SSL/TLS y almacenamiento de cookies de forma automática.
+
+#### ¿Cómo funciona?
+
+```
+Script de Pruebas (JUnit / TestNG / Selenium Java)
+                            │
+                            ▼
+                    HtmlUnit Engine
+                            │
+            ┌───────────────┴───────────────┐
+            ▼                               ▼
+  Procesador HTML/CSS              Motor JavaScript
+  (Modelo DOM en memoria)         (HtmlUnit-Core-JS)
+            │                               │
+            └───────────────┬───────────────┘
+                            │
+                            ▼
+               Cliente HTTP (Apache HttpClient)
+                            │
+                            ▼
+                   Servidor / Aplicación Web
+```
+
+#### Aplicación en QA
+
+**1. Pruebas Unitarias y de Integración Rápidas:** Excelente opción para validar la lógica web en la capa de integración de proyectos Java 
+(Sprint Boot, JSF, Servlets) de forma casi instantánea.
+
+**2. Pruebas de Formularios y Autenticación:** Validación rápida de flujos de login, envío de datos y manejo de sesiones sin overhead visual.
+
+**3. Automatización en Entornos CI/CD Sin GUI:** Ideal para pipelines de integración continua en servidores Linux reduciendo la huella de memoria requerida.
+
+**4. Web Scraping y Rastreo Web:** Extracción de datos de sitios web dinámicos desde servicios backend desarrollados en Java.

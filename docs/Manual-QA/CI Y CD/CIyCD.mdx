@@ -1,0 +1,407 @@
+---
+sidebar_position: 1
+title: Integración y Entrega Continua 
+---
+# Integración y Entrega Continua (CI/CD)
+
+**CI/CD** es un conjunto de prácticas que permite **automatizar la integración, pruebas y entrega del software**. Su objetivo es 
+detectar errores rápidamente y facilitar la publicación de nuevas versiones de manera controlada.
+
+### CI - Integración Continua
+
+La **Integración Continua (CI)** consiste en integrar frecuentemente los cambios realizados por los desarrolladores en un 
+repositorio compartido.
+
+Cada cambio puede activar automáticamente procesos como:
+
+* Compilación del proyecto.
+* Ejecución de pruebas automatizadas.
+* Análisis de código.
+* Validaciones de calidad.
+* Generación de reportes.
+
+### CD - Entrega y Despliegue Continuo
+
+La **Entrega Continua (Continuous Delivery)** permite preparar automáticamente una nueva versión del software para ser desplegada.
+
+El **Despliegue Continuo (Continuous Deployment)** va un paso más allá y permite desplegar automáticamente los cambios que superan 
+todas las validaciones.
+
+```text id="q6m2vz"
+Cambio de código
+       ↓
+     Commit
+       ↓
+  Pipeline CI/CD
+       ↓
+   Compilación
+       ↓
+Pruebas automatizadas
+       ↓
+ ¿Pruebas exitosas?
+    ↙          ↘
+   No           Sí
+   ↓             ↓
+Corrección    Despliegue
+                 ↓
+              Producción
+```
+
+### CI/CD en QA
+
+CI/CD permite integrar las pruebas dentro del flujo de desarrollo para detectar problemas antes de que lleguen a producción.
+
+Por ejemplo:
+
+* **Pruebas unitarias:** validan pequeñas unidades de código.
+* **Pruebas de integración:** verifican la interacción entre componentes.
+* **Pruebas de humo:** comprueban rápidamente los flujos principales.
+* **Pruebas de regresión:** verifican que los cambios no hayan afectado funcionalidades existentes.
+* **Pruebas E2E:** validan flujos completos de usuario.
+
+
+### Ejemplo de pipeline para QA
+
+```text id="r3p8kn"
+Push / Pull Request
+        ↓
+     Build
+        ↓
+Pruebas unitarias
+        ↓
+   Pruebas de humo
+        ↓
+   Pruebas E2E
+        ↓
+  Pruebas de regresión
+        ↓
+      Reportes
+        ↓
+     Despliegue
+```
+
+> **En resumen:** CI/CD permite automatizar la integración, validación y entrega del software. Para QA, facilita la ejecución continua 
+de pruebas y proporciona retroalimentación rápida sobre la calidad de cada cambio.
+
+## Herramientas para CI/CD
+
+Existen diferentes herramientas que permiten implementar procesos de **Integración Continua (CI)** y **Entrega Continua (CD)**. Aunque todas buscan automatizar tareas como compilación, pruebas y despliegue, cada una tiene diferentes características y formas de configuración.
+
+Algunas de las herramientas más utilizadas son:
+
+- Jenkins
+- Drone CI
+- GitLab CI/CD
+- Bamboo
+- CircleCI
+- Travis CI
+- TeamCity
+- Azure DevOps Services
+
+---
+
+## Jenkins
+
+**Jenkins** es un servidor de automatización de código abierto utilizado para construir, probar y desplegar aplicaciones. Su principal característica es su capacidad de extensión mediante plugins.
+
+Jenkins permite crear **Pipelines** que representan las diferentes etapas del proceso de entrega del software. Estas pipelines pueden definirse como código utilizando un archivo `Jenkinsfile`. :contentReference[oaicite:0]{index=0}
+
+#### Características principales
+
+- **Pipelines:** permiten definir flujos completos de CI/CD.
+- **Jenkinsfile:** permite almacenar la configuración del pipeline junto con el código.
+- **Plugins:** amplían las funcionalidades de Jenkins.
+- **Automatización:** permite ejecutar compilaciones, pruebas y despliegues automáticamente.
+- **Integración con Git:** puede trabajar con diferentes sistemas de control de versiones.
+- **Ejecución paralela:** permite ejecutar diferentes tareas simultáneamente.
+
+#### Aplicación en QA
+
+Jenkins puede utilizarse para ejecutar automáticamente diferentes niveles de pruebas:
+
+```text
+Commit
+  ↓
+Build
+  ↓
+Pruebas unitarias
+  ↓
+Pruebas de integración
+  ↓
+Pruebas E2E
+  ↓
+Reporte
+  ↓
+Deploy
+
+```
+
+## Drone CI
+
+**Drone CI** es una plataforma de **Integración Continua y Entrega Continua (CI/CD)** que permite automatizar procesos como la compilación, ejecución de pruebas y despliegue de aplicaciones.
+
+Una de sus características principales es el uso de **contenedores**, lo que permite ejecutar cada etapa del pipeline en un entorno aislado y reproducible.
+
+#### Características principales
+
+- **Pipelines:** permite definir diferentes etapas del proceso de CI/CD.
+- **Configuración como código:** los pipelines se definen mediante archivos YAML dentro del repositorio.
+- **Contenedores:** cada tarea puede ejecutarse dentro de un contenedor específico.
+- **Automatización:** permite ejecutar procesos automáticamente después de cambios en el código.
+- **Integración con repositorios:** puede trabajar con plataformas como GitHub, GitLab y Bitbucket.
+- **Ejecución de pruebas:** permite incorporar pruebas automatizadas dentro del pipeline.
+- **Paralelización:** diferentes tareas pueden ejecutarse simultáneamente para reducir los tiempos de ejecución.
+
+#### ¿Cómo funciona?
+
+Drone utiliza un archivo de configuración, normalmente llamado `.drone.yml`, donde se definen los pasos que debe ejecutar el pipeline.
+
+Un flujo básico puede ser:
+
+```text
+Cambio en el código
+        ↓
+     Pipeline
+        ↓
+      Build
+        ↓
+     Testing
+        ↓
+ ¿Pruebas exitosas?
+     ↙       ↘
+   No         Sí
+   ↓           ↓
+  Fallo      Deploy
+
+```
+
+## GitLab CI/CD
+
+**GitLab CI/CD** es una herramienta integrada en GitLab que permite automatizar procesos de **Integración Continua (CI)** y **Entrega Continua (CD)**. Permite ejecutar tareas como compilación, pruebas, análisis de código y despliegues de forma automática.
+
+#### Características principales
+
+- **Pipelines:** permite definir diferentes etapas del proceso de CI/CD.
+- **Configuración como código:** los pipelines se configuran mediante un archivo `.gitlab-ci.yml`.
+- **Pruebas automatizadas:** permite ejecutar pruebas unitarias, funcionales, API, E2E, entre otras.
+- **Integración con GitLab:** está integrado directamente con repositorios, merge requests y ramas.
+- **Ejecución automática:** los pipelines pueden ejecutarse al realizar un `push`, crear un merge request o generar una nueva versión.
+- **Jobs:** cada tarea del pipeline se define como un *job*, permitiendo organizar y controlar las diferentes actividades.
+- **Paralelización:** permite ejecutar diferentes tareas simultáneamente para reducir el tiempo del pipeline.
+- **Despliegue automático:** puede utilizarse para desplegar aplicaciones en diferentes ambientes.
+
+#### ¿Cómo funciona?
+
+GitLab CI/CD utiliza un archivo `.gitlab-ci.yml` ubicado normalmente en la raíz del repositorio para definir las instrucciones del pipeline.
+
+Un flujo básico sería:
+
+```text
+Cambio en el código
+        ↓
+     Pipeline
+        ↓
+      Build
+        ↓
+      Tests
+        ↓
+  Análisis de código
+        ↓
+ ¿Todo correcto?
+     ↙       ↘
+   No         Sí
+   ↓           ↓
+ Fallo       Deploy
+
+ ```
+
+ ## Bamboo
+
+**Bamboo** es una herramienta de **Integración Continua y Entrega Continua (CI/CD)** desarrollada por Atlassian. Permite automatizar procesos como la compilación, ejecución de pruebas y despliegue de aplicaciones.
+
+Está especialmente orientada a equipos que utilizan otras herramientas del ecosistema de Atlassian, como Jira y Bitbucket.
+
+#### Características principales
+
+- **Planes y proyectos:** permite organizar los procesos de CI/CD mediante planes y proyectos.
+- **Pipelines:** permite definir diferentes etapas para automatizar el flujo de desarrollo.
+- **Integración con Bitbucket:** facilita la ejecución de procesos automáticamente cuando se realizan cambios en los repositorios.
+- **Pruebas automatizadas:** permite ejecutar pruebas unitarias, funcionales y de integración.
+- **Despliegues:** permite automatizar el despliegue hacia diferentes ambientes.
+- **Agentes de ejecución:** utiliza agentes para ejecutar las tareas definidas en los pipelines.
+- **Integración con Jira:** permite relacionar cambios, builds y despliegues con incidencias y tareas de Jira.
+
+#### ¿Cómo funciona?
+
+Bamboo organiza el proceso de CI/CD mediante diferentes etapas:
+
+```text
+Cambio en el código
+        ↓
+      Build
+        ↓
+      Tests
+        ↓
+    Validación
+        ↓
+ ¿Todo correcto?
+     ↙       ↘
+   No         Sí
+   ↓           ↓
+ Fallo       Deploy
+
+```
+
+## CircleCI
+
+**CircleCI** es una plataforma de **Integración Continua y Entrega Continua (CI/CD)** que permite automatizar procesos como la compilación, ejecución de pruebas y despliegue de aplicaciones.
+
+Su funcionamiento se basa en **pipelines configurados como código**, generalmente mediante un archivo `.circleci/config.yml`.
+
+#### Características principales
+
+- **Pipelines:** permite definir diferentes etapas del proceso de CI/CD.
+- **Configuración como código:** utiliza archivos YAML para definir los procesos.
+- **Pruebas automatizadas:** permite ejecutar pruebas unitarias, funcionales, API y E2E.
+- **Integración con Git:** puede trabajar con plataformas como GitHub y Bitbucket.
+- **Paralelización:** permite ejecutar diferentes tareas al mismo tiempo para reducir los tiempos de ejecución.
+- **Caché:** permite reutilizar dependencias y archivos para acelerar los pipelines.
+- **Despliegue automático:** permite automatizar despliegues hacia diferentes ambientes.
+- **Contenedores:** permite ejecutar los procesos utilizando imágenes Docker.
+
+#### ¿Cómo funciona?
+
+CircleCI organiza las tareas mediante **jobs** y **workflows**.
+
+```text
+Cambio en el código
+        ↓
+     Pipeline
+        ↓
+       Build
+        ↓
+      Tests
+        ↓
+   Validaciones
+        ↓
+ ¿Todo correcto?
+     ↙       ↘
+   No         Sí
+   ↓           ↓
+ Fallo       Deploy
+ 
+ ```
+
+## Travis CI
+
+**Travis CI** es una plataforma de **Integración Continua y Entrega Continua (CI/CD)** que permite automatizar procesos como la compilación, ejecución de pruebas y despliegue de aplicaciones.
+
+Su configuración se realiza mediante un archivo `.travis.yml`, donde se definen los pasos que debe ejecutar el pipeline.
+
+#### Características principales
+
+- **Pipelines:** permite automatizar diferentes etapas del proceso de desarrollo.
+- **Configuración como código:** utiliza el archivo `.travis.yml`.
+- **Pruebas automatizadas:** permite ejecutar diferentes tipos de pruebas durante el proceso de integración.
+- **Integración con Git:** puede conectarse con repositorios como GitHub.
+- **Múltiples lenguajes:** permite trabajar con diferentes lenguajes y entornos de desarrollo.
+- **Build automatizado:** ejecuta compilaciones automáticamente después de realizar cambios en el código.
+- **Despliegue:** permite automatizar el envío de aplicaciones hacia diferentes ambientes.
+
+#### ¿Cómo funciona?
+
+Travis CI puede ejecutar automáticamente un pipeline cuando se realiza un cambio en el repositorio:
+
+```text
+Cambio en el código
+        ↓
+     Travis CI
+        ↓
+       Build
+        ↓
+      Tests
+        ↓
+   Validaciones
+        ↓
+ ¿Todo correcto?
+     ↙       ↘
+   No         Sí
+   ↓           ↓
+ Fallo       Deploy
+
+```
+## Azure DevOps
+
+**Azure DevOps**, desarrollado por Microsoft, es un conjunto de servicios para gestionar el ciclo de vida del desarrollo de software. Permite a los equipos **planificar tareas, gestionar código, ejecutar pruebas, automatizar procesos CI/CD y realizar despliegues**.
+
+#### Características principales
+
+- **Azure Repos:** permite almacenar y gestionar repositorios Git.
+- **Azure Boards:** facilita la planificación y seguimiento de tareas, historias de usuario, bugs y sprints.
+- **Azure Pipelines:** permite crear pipelines para automatizar compilaciones, pruebas y despliegues.
+- **Azure Test Plans:** permite gestionar casos de prueba y realizar pruebas manuales.
+- **Integración con Git:** permite trabajar con ramas, pull requests y revisiones de código.
+- **CI/CD:** permite automatizar diferentes etapas del ciclo de desarrollo.
+- **Dashboards:** permite visualizar métricas y el estado de los proyectos.
+
+#### ¿Cómo funciona?
+
+Azure DevOps permite conectar las diferentes etapas del desarrollo en un mismo flujo:
+
+```text
+Planificación
+      ↓
+   Desarrollo
+      ↓
+ Azure Repos
+      ↓
+ Azure Pipelines
+      ↓
+     Build
+      ↓
+    Testing
+      ↓
+ ¿Todo correcto?
+    ↙       ↘
+  No         Sí
+  ↓           ↓
+ Bug       Deploy
+  ↓           ↓
+Boards     Producción
+```
+
+## TeamCity
+
+**TeamCity** es una plataforma de **Integración Continua y Entrega Continua (CI/CD)** desarrollada por JetBrains. Permite automatizar procesos como la compilación, ejecución de pruebas y despliegue de aplicaciones.
+
+#### Características principales
+
+- **Builds automatizados:** permite compilar y validar el código automáticamente.
+- **Pruebas automatizadas:** permite ejecutar diferentes tipos de pruebas dentro del pipeline.
+- **Configuración flexible:** permite definir y administrar los procesos de CI/CD desde la plataforma.
+- **Integración con Git:** funciona con sistemas de control de versiones como Git.
+- **Pipelines:** permite organizar los procesos en diferentes etapas.
+- **Agentes de build:** utiliza agentes para ejecutar las tareas configuradas.
+- **Reportes:** proporciona información sobre los resultados de las compilaciones y pruebas.
+- **Integración con herramientas externas:** puede conectarse con diferentes herramientas utilizadas durante el desarrollo.
+
+#### ¿Cómo funciona?
+
+TeamCity organiza el proceso de CI/CD mediante diferentes configuraciones de build:
+
+```text
+Cambio en el código
+        ↓
+      Build
+        ↓
+      Tests
+        ↓
+    Validación
+        ↓
+ ¿Todo correcto?
+     ↙       ↘
+   No         Sí
+   ↓           ↓
+ Fallo       Deploy
+
+```

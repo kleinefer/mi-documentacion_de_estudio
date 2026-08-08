@@ -1,0 +1,477 @@
+---
+sidebar_position: 2
+title: Pruebas de carga y rendimiento
+---
+
+# Pruebas de carga y rendimiento
+
+Las **pruebas de rendimiento** permiten evaluar cómo se comporta una aplicación bajo diferentes condiciones de carga. Su objetivo es 
+medir aspectos como el tiempo de respuesta, la estabilidad y la capacidad del sistema para atender solicitudes.
+
+Las **pruebas de carga** son un tipo específico de prueba de rendimiento que permite determinar cómo se comporta una aplicación cuando recibe una cantidad 
+determinada de usuarios, solicitudes o transacciones simultáneas.
+
+### Pruebas de rendimiento
+
+Las pruebas de rendimiento evalúan el comportamiento de un sistema bajo diferentes condiciones.
+
+Permiten identificar:
+
+- Tiempos de respuesta.
+- Capacidad de procesamiento.
+- Consumo de recursos.
+- Cuellos de botella.
+- Problemas de estabilidad.
+- Capacidad de escalabilidad.
+
+El objetivo es determinar si el sistema mantiene un comportamiento adecuado cuando aumenta la demanda.
+
+### Pruebas de carga
+
+Las **pruebas de carga** consisten en simular una cantidad determinada de usuarios o transacciones para comprobar cómo responde el sistema ante una carga esperada.
+
+Por ejemplo, una aplicación de streaming podría necesitar soportar miles de usuarios reproduciendo contenido simultáneamente.
+
+La prueba podría simular diferentes cantidades de usuarios:
+
+```text
+100 usuarios
+      ↓
+500 usuarios
+      ↓
+1.000 usuarios
+      ↓
+5.000 usuarios
+      ↓
+10.000 usuarios
+```
+
+## Herramientas 
+
+### Lighthouse
+
+**Lighthouse** es una herramienta de código abierto desarrollada por Google que permite realizar auditorías sobre la calidad de aplicaciones y sitios web.
+
+Evalúa diferentes aspectos de una página y genera un informe con resultados y recomendaciones para identificar posibles áreas de mejora.
+
+#### Principales categorías de evaluación
+
+| Categoría | Qué evalúa |
+|---|---|
+| **Performance** | Evalúa el rendimiento y aspectos relacionados con la carga y respuesta de la página |
+| **Accesibilidad** | Comprueba aspectos que facilitan el uso del sitio por personas con diferentes necesidades |
+| **Mejores prácticas** | Verifica el cumplimiento de buenas prácticas para el desarrollo web |
+| **SEO** | Evalúa aspectos que pueden influir en la optimización para motores de búsqueda |
+| **PWA** | Comprueba características relacionadas con las aplicaciones web progresivas |
+
+#### ¿Cómo utilizar Lighthouse?
+
+Lighthouse puede ejecutarse desde las herramientas de desarrollo de **Google Chrome**.
+
+El flujo básico es:
+
+```text
+Abrir la aplicación web
+        ↓
+Abrir Chrome DevTools
+        ↓
+Seleccionar Lighthouse
+        ↓
+Seleccionar las categorías
+        ↓
+Ejecutar la auditoría
+        ↓
+Analizar el informe
+        ↓
+Aplicar las recomendaciones
+```
+### Locust
+
+**Locust** es una herramienta de código abierto basada en **Python** utilizada para realizar **pruebas de carga y rendimiento**. Permite simular múltiples usuarios realizando acciones sobre una aplicación para analizar cómo responde el sistema bajo diferentes niveles de carga.
+
+#### Principales características
+
+- **Pruebas de carga:** permite simular múltiples usuarios concurrentes para evaluar el comportamiento de una aplicación bajo carga.
+
+- **Programación en Python:** permite definir el comportamiento de los usuarios simulados mediante código Python.
+
+- **Usuarios concurrentes:** permite configurar la cantidad de usuarios que participarán en la prueba y las acciones que realizarán.
+
+- **Interfaz web:** proporciona una interfaz gráfica para iniciar las pruebas y observar métricas en tiempo real.
+
+- **Monitoreo de métricas:** permite analizar información como tiempos de respuesta, cantidad de solicitudes y porcentaje de errores.
+
+- **Pruebas de APIs y aplicaciones web:** puede utilizarse para evaluar APIs, sitios web y otros servicios.
+
+- **Escalabilidad:** permite aumentar la cantidad de usuarios simulados para analizar los límites de capacidad del sistema.
+
+#### Instalación
+
+Locust puede instalarse utilizando `pip`, el administrador de paquetes de Python:
+
+```bash
+pip install locust
+```
+Para comprobar que la instalación se realizó correctamente:
+
+```bash
+locust --version
+```
+
+### WebPageTest
+
+**WebPageTest** es una herramienta utilizada para analizar el **rendimiento de páginas web**. Permite medir la velocidad de carga, identificar problemas de rendimiento y analizar cómo se comporta una página bajo diferentes condiciones de prueba.
+
+#### Principales características
+
+- **Métricas de rendimiento:** proporciona información sobre los tiempos de carga, tiempos de respuesta y comportamiento de los diferentes elementos de una página.
+
+- **Análisis de carga:** permite observar cómo se carga una página y detectar elementos que pueden estar afectando su rendimiento.
+
+- **Visualización de resultados:** presenta gráficos y métricas que facilitan el análisis del comportamiento de la página durante su carga.
+
+- **Diferentes condiciones de prueba:** permite realizar pruebas utilizando diferentes ubicaciones, dispositivos y tipos de conexión para simular condiciones reales.
+
+- **Identificación de cuellos de botella:** ayuda a detectar recursos o procesos que pueden estar ralentizando la carga de la página.
+
+- **Análisis de la experiencia del usuario:** permite evaluar aspectos relacionados con la velocidad y la interactividad de una página web.
+
+#### Ejemplo de uso
+
+Supongamos que queremos analizar el rendimiento de una página:
+
+**URL a evaluar:**
+
+```text
+https://ejemplo.com
+```
+
+En WebPageTest se configura la prueba seleccionando, por ejemplo:
+
+Ubicación: Estados Unidos
+Dispositivo: Desktop
+Conexión: 4G
+Navegador: Chrome
+
+Después de ejecutar la prueba, se pueden analizar métricas como:
+
+```
+Tiempo de carga
+       ↓
+Tiempo de respuesta
+       ↓
+Carga de recursos
+       ↓
+Ejecución de scripts
+       ↓
+Renderizado de la página
+       ↓
+Identificación de cuellos de botella
+       ↓
+Análisis del rendimiento
+```
+### Gatling
+
+Gatling es una herramienta de código abierto utilizada para realizar **pruebas de rendimiento y carga**. Permite simular múltiples usuarios accediendo simultáneamente a una aplicación o API para analizar su comportamiento.
+
+#### Características principales
+
+* **Pruebas mediante código:** permite crear escenarios utilizando scripts.
+* **Usuarios virtuales:** simula múltiples usuarios realizando acciones al mismo tiempo.
+* **Pruebas de carga:** permite evaluar el comportamiento del sistema bajo diferentes niveles de tráfico.
+* **Reportes:** genera informes con métricas como tiempos de respuesta, solicitudes y errores.
+* **Automatización:** puede integrarse con procesos de **CI/CD**.
+* **Escalabilidad:** está diseñado para ejecutar pruebas con una gran cantidad de usuarios.
+
+#### ¿Para qué se utiliza?
+
+Gatling puede utilizarse para realizar:
+
+* Pruebas de carga.
+* Pruebas de estrés.
+* Pruebas de rendimiento.
+* Pruebas de resistencia.
+* Pruebas de APIs.
+
+#### Ventajas
+
+* Permite definir las pruebas mediante código.
+* Facilita el uso de Git para versionar los escenarios.
+* Genera reportes detallados.
+* Es adecuado para pruebas con muchos usuarios concurrentes.
+* Puede integrarse en pipelines de CI/CD.
+
+#### Gatling vs JMeter
+
+| Característica       | Gatling                    | JMeter                             |
+| -------------------- | -------------------------- | ---------------------------------- |
+| Interfaz gráfica     | No es su enfoque principal | Sí                                 |
+| Pruebas              | Basadas en código          | Basadas principalmente en interfaz |
+| Automatización       | Alta                       | Alta                               |
+| Curva de aprendizaje | Mayor                      | Menor inicialmente                 |
+| Reportes             | Visuales                   | Visuales                           |
+
+> **En resumen:** Gatling es una buena opción cuando se busca realizar pruebas de rendimiento mediante código y automatizarlas dentro del ciclo de desarrollo.
+
+#### Ejemplo básico
+
+Un escenario sencillo puede representar el acceso de varios usuarios a una API:
+
+```text
+Usuarios virtuales
+       ↓
+     Login
+       ↓
+Consulta API
+       ↓
+Respuesta
+       ↓
+Análisis de resultados
+```
+
+Las métricas obtenidas permiten determinar si la aplicación mantiene un rendimiento aceptable bajo la carga establecida.
+
+### K6
+
+K6 es una herramienta de código abierto desarrollada por **Grafana Labs**, utilizada para realizar **pruebas de carga y rendimiento** en aplicaciones web y APIs.
+
+Permite simular usuarios virtuales y analizar cómo responde una aplicación cuando aumenta la cantidad de solicitudes.
+
+#### Características principales
+
+* **Simulación de carga:** permite generar múltiples solicitudes de forma concurrente.
+* **Pruebas en JavaScript:** los escenarios se escriben utilizando JavaScript.
+* **Usuarios virtuales:** permite simular diferentes cantidades de usuarios accediendo a la aplicación.
+* **Métricas:** recopila información como tiempos de respuesta, solicitudes y errores.
+* **Escalabilidad:** permite ejecutar pruebas con grandes cantidades de usuarios.
+* **Integración:** puede incorporarse en procesos de CI/CD y herramientas como Jenkins.
+* **Pruebas de APIs:** permite validar el rendimiento de servicios HTTP y APIs.
+
+#### ¿Para qué se utiliza?
+
+K6 puede utilizarse para realizar:
+
+* Pruebas de carga.
+* Pruebas de estrés.
+* Pruebas de rendimiento.
+* Pruebas de resistencia.
+* Pruebas de APIs.
+
+#### Ventajas
+
+* Utiliza JavaScript para crear los escenarios.
+* Es sencillo de integrar en proyectos existentes.
+* Permite automatizar pruebas de rendimiento.
+* Proporciona métricas útiles para analizar el comportamiento del sistema.
+* Puede integrarse con pipelines de CI/CD.
+* Es adecuado para probar aplicaciones web y APIs.
+
+#### Ejemplo básico
+
+Un escenario sencillo en K6 puede simular varios usuarios realizando una petición a una API:
+
+```javascript
+import http from 'k6/http';
+
+export default function () {
+  http.get('https://example.com/api');
+}
+```
+
+La cantidad de usuarios virtuales puede configurarse para analizar cómo cambia el comportamiento de la aplicación a medida que aumenta la carga.
+
+```text
+Usuarios virtuales
+       ↓
+     API
+       ↓
+Solicitudes concurrentes
+       ↓
+Resultados
+       ↓
+Métricas de rendimiento
+```
+
+> **En resumen:** K6 es una alternativa ligera y flexible para realizar pruebas de rendimiento mediante código, especialmente útil para equipos que trabajan con JavaScript y automatización de pruebas.
+
+### Artillery
+
+Artillery es una herramienta utilizada para realizar **pruebas de carga y rendimiento** en aplicaciones web y APIs. Permite simular múltiples usuarios y solicitudes para analizar cómo responde una aplicación bajo diferentes niveles de carga.
+
+#### Características principales
+
+* **Configuración sencilla:** permite definir escenarios mediante archivos YAML.
+* **Usuarios concurrentes:** simula múltiples usuarios realizando solicitudes al mismo tiempo.
+* **Pruebas de APIs:** permite evaluar el rendimiento y estabilidad de servicios HTTP.
+* **Métricas:** proporciona información sobre latencia, solicitudes y errores.
+* **Personalización:** permite crear diferentes escenarios de prueba según el comportamiento esperado de los usuarios.
+* **Integración CI/CD:** puede incorporarse en pipelines de integración y despliegue continuo.
+
+#### ¿Para qué se utiliza?
+
+Artillery puede utilizarse para realizar:
+
+* Pruebas de carga.
+* Pruebas de rendimiento.
+* Pruebas de estrés.
+* Pruebas de APIs.
+* Pruebas de concurrencia.
+
+#### Ventajas
+
+* Fácil de configurar.
+* Permite crear pruebas rápidamente.
+* Utiliza archivos YAML para definir escenarios.
+* Permite simular diferentes niveles de tráfico.
+* Puede automatizarse mediante CI/CD.
+* Es especialmente útil para probar APIs y aplicaciones web.
+
+#### Ejemplo básico
+
+Un escenario sencillo puede definir una prueba contra una API:
+
+```yaml
+config:
+  target: "https://example.com"
+
+scenarios:
+  - flow:
+      - get:
+          url: "/api/usuarios"
+```
+
+En este caso, Artillery utiliza la URL configurada como objetivo y realiza una solicitud `GET` al endpoint indicado.
+
+El flujo general de una prueba sería:
+
+```text
+Usuarios virtuales
+       ↓
+Solicitudes
+       ↓
+Aplicación / API
+       ↓
+Resultados
+       ↓
+Métricas de rendimiento
+```
+
+> **En resumen:** Artillery es una herramienta sencilla y flexible para realizar pruebas de carga y rendimiento, especialmente útil cuando se necesitan 
+crear escenarios rápidamente y automatizarlos dentro de procesos de CI/CD.
+
+#Vegeta
+
+Vegeta es una herramienta de **pruebas de carga y rendimiento** basada en línea de comandos (CLI). Está especialmente orientada a probar 
+**APIs HTTP**, permitiendo generar solicitudes a diferentes niveles de carga y analizar el comportamiento de la aplicación.
+
+#### Características principales
+
+* **Línea de comandos:** permite ejecutar y configurar las pruebas directamente desde la terminal.
+* **Generación de carga:** envía múltiples solicitudes HTTP de manera controlada.
+* **Configuración flexible:** permite definir la tasa de solicitudes y duración de las pruebas.
+* **Métricas:** proporciona información sobre tiempos de respuesta, latencia y errores.
+* **Pruebas de APIs:** está especialmente orientada a evaluar el rendimiento de servicios HTTP.
+* **Automatización:** puede integrarse en procesos de CI/CD.
+
+#### ¿Para qué se utiliza?
+
+Vegeta puede utilizarse para realizar:
+
+* Pruebas de carga.
+* Pruebas de rendimiento.
+* Pruebas de estrés.
+* Pruebas de APIs.
+* Pruebas de concurrencia.
+
+#### Ventajas
+
+* Es ligera y sencilla de utilizar.
+* No requiere una interfaz gráfica.
+* Permite ejecutar pruebas rápidamente desde la terminal.
+* Es adecuada para probar APIs HTTP.
+* Permite controlar la cantidad de solicitudes generadas.
+* Puede incorporarse en pipelines de CI/CD.
+
+#### Ejemplo básico
+
+Una prueba sencilla puede ejecutarse desde la terminal utilizando un endpoint:
+
+```bash
+echo "GET https://example.com/api/usuarios" | vegeta attack -rate=50 -duration=30s | vegeta report
+```
+
+En este ejemplo:
+
+* `GET` define el método HTTP.
+* `-rate=50` genera **50 solicitudes por segundo**.
+* `-duration=30s` ejecuta la prueba durante **30 segundos**.
+* `vegeta report` muestra un resumen de los resultados.
+
+El flujo general es:
+
+```text
+Configuración
+     ↓
+Generación de solicitudes
+     ↓
+API / Aplicación
+     ↓
+Recopilación de métricas
+     ↓
+Análisis de resultados
+```
+
+> **En resumen:** Vegeta es una herramienta ligera y práctica para realizar pruebas de carga sobre APIs HTTP, especialmente cuando se busca trabajar 
+directamente desde la terminal y automatizar las pruebas.
+
+### Apache JMeter
+
+Apache JMeter es una herramienta de **código abierto** utilizada para realizar **pruebas de carga y rendimiento**. Permite simular múltiples usuarios y solicitudes para evaluar el comportamiento de aplicaciones, APIs y diferentes servicios.
+
+#### Características principales
+
+* **Pruebas de carga:** permite simular múltiples usuarios concurrentes.
+* **Interfaz gráfica:** facilita la creación y configuración de pruebas.
+* **Versatilidad:** permite probar aplicaciones web, APIs, bases de datos, FTP y otros servicios.
+* **Múltiples protocolos:** ofrece soporte para diferentes protocolos de comunicación.
+* **Reportes:** genera gráficos y métricas para analizar los resultados.
+* **Escalabilidad:** permite ejecutar pruebas distribuidas utilizando varias máquinas.
+* **Extensible:** cuenta con plugins y diferentes componentes para ampliar sus funcionalidades.
+
+#### ¿Para qué se utiliza?
+
+JMeter puede utilizarse para realizar:
+
+* Pruebas de carga.
+* Pruebas de rendimiento.
+* Pruebas de estrés.
+* Pruebas de APIs REST y SOAP.
+* Pruebas de bases de datos.
+* Pruebas de servicios web.
+
+#### Ventajas
+
+* Interfaz gráfica fácil de utilizar.
+* No requiere conocimientos avanzados de programación para crear pruebas básicas.
+* Permite trabajar con diferentes tipos de servicios.
+* Genera reportes y gráficos de los resultados.
+* Permite realizar pruebas distribuidas.
+* Cuenta con una amplia comunidad y documentación.
+
+#### Ejemplo de flujo de una prueba
+
+```text
+Plan de prueba
+      ↓
+Grupo de usuarios
+      ↓
+Configuración de solicitudes
+      ↓
+Ejecución
+      ↓
+Recopilación de métricas
+      ↓
+Análisis de resultados
+```
+
+> **En resumen:** Apache JMeter es una herramienta versátil para realizar pruebas de rendimiento y carga, especialmente útil cuando se necesita una interfaz gráfica para configurar y analizar las pruebas.

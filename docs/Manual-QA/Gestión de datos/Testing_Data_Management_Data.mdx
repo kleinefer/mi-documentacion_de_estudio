@@ -1,0 +1,330 @@
+---
+sidebar_position: 1
+title: Gestión de datos de prueba
+---
+# Gestión de Datos de Prueba
+
+La **gestión de datos de prueba** consiste en preparar, organizar y proteger los datos necesarios para ejecutar pruebas de software de forma confiable.
+
+Los datos deben ser adecuados para cada escenario y permitir validar el comportamiento de la aplicación sin comprometer información real o sensible.
+
+### Estrategias principales
+
+* **Planificación:** definir qué datos se necesitan y para qué pruebas serán utilizados.
+* **Generación de datos:** crear datos que representen diferentes escenarios de uso.
+* **Subconjuntos de datos:** utilizar únicamente la información necesaria para cada prueba.
+* **Enmascaramiento:** proteger datos sensibles reemplazándolos por información ficticia o modificada.
+* **Virtualización:** utilizar datos simulados para realizar pruebas sin afectar información real.
+* **Control de acceso:** limitar el acceso a los datos según los permisos y responsabilidades del equipo.
+
+#### Ejemplo
+
+Para probar un formulario de registro pueden prepararse diferentes datos:
+
+| Tipo de dato | Ejemplo                             |
+| ------------ | ----------------------------------- |
+| Válido       | `usuario@test.com`                  |
+| Inválido     | `usuario@`                          |
+| Vacío        | Campo sin información               |
+| Duplicado    | Correo ya registrado                |
+| Límite       | Texto con longitud máxima permitida |
+
+#### Buenas prácticas
+
+* Utilizar datos representativos de los escenarios reales.
+* Evitar utilizar información personal real en ambientes de prueba.
+* Mantener los datos organizados y disponibles para el equipo.
+* Crear datos específicos para casos positivos y negativos.
+* Eliminar o actualizar datos de prueba cuando sea necesario.
+
+> **En resumen:** una buena gestión de datos de prueba permite ejecutar escenarios más confiables, proteger información sensible y obtener resultados más precisos durante las pruebas.
+
+
+## Reporte de Pruebas
+
+El **reporte de pruebas** es un documento que permite comunicar los resultados obtenidos durante la ejecución de las pruebas de software. Ayuda al equipo de QA, desarrolladores y demás interesados a conocer el estado de calidad de la aplicación.
+
+#### Elementos principales
+
+Un reporte de pruebas puede incluir:
+
+* **Pruebas ejecutadas:** cantidad y tipos de pruebas realizadas.
+* **Resultados:** pruebas aprobadas, fallidas o bloqueadas.
+* **Defectos:** errores encontrados durante la ejecución.
+* **Cobertura:** funcionalidades o escenarios que fueron probados.
+* **Tendencias:** comparación de resultados entre diferentes ciclos de pruebas.
+* **Resumen:** estado general de la calidad del software.
+
+#### Ejemplo
+
+| Métrica              | Resultado |
+| -------------------- | --------- |
+| Casos ejecutados     | 100       |
+| Aprobados            | 85        |
+| Fallidos             | 10        |
+| Bloqueados           | 5         |
+| Defectos encontrados | 8         |
+| Cobertura            | 90 %      |
+
+#### Herramientas
+
+Algunas herramientas utilizadas para gestionar y generar reportes de pruebas son:
+
+* **TestRail:** gestión de casos de prueba y resultados.
+* **Allure:** generación de reportes visuales para pruebas automatizadas.
+* **JUnit:** framework utilizado principalmente para pruebas en Java y generación de resultados.
+* **Cypress:** permite generar resultados de pruebas automatizadas y puede integrarse con diferentes herramientas de reporting.
+
+### Flujo del reporte
+
+```text
+Ejecución de pruebas
+        ↓
+Recopilación de resultados
+        ↓
+Análisis de fallos
+        ↓
+Registro de defectos
+        ↓
+Generación del reporte
+        ↓
+Comunicación de resultados
+```
+
+> **En resumen:** el reporte de pruebas permite conocer el estado de las pruebas, identificar defectos y proporcionar información para tomar decisiones sobre la 
+calidad y liberación del software.
+
+---
+## Herrmientas útiles
+
+### Delphix
+
+**Delphix** es una plataforma de **gestión y virtualización de datos** que permite proporcionar datos de forma rápida y segura para entornos de desarrollo y pruebas.
+
+#### Características principales
+
+* **Virtualización de datos:** permite crear copias virtuales de bases de datos sin duplicar físicamente toda la información.
+* **Disponibilidad rápida:** facilita la creación y acceso a entornos de datos para pruebas.
+* **Enmascaramiento de datos:** protege información sensible mediante la sustitución o modificación de datos.
+* **Gestión de datos:** permite administrar datos utilizados en diferentes entornos.
+* **Seguridad:** ayuda a reducir la exposición de información sensible en ambientes de desarrollo y pruebas.
+* **Automatización:** puede integrarse en procesos de desarrollo y pruebas para facilitar la preparación de datos.
+
+#### ¿Para qué se utiliza?
+
+Delphix puede utilizarse para:
+
+* Preparar datos para pruebas.
+* Crear entornos de prueba rápidamente.
+* Virtualizar bases de datos.
+* Proteger información sensible.
+* Reducir el almacenamiento necesario para copias de datos.
+* Facilitar la disponibilidad de datos para equipos de QA y desarrollo.
+
+#### Ejemplo
+
+Un equipo de QA necesita una copia de una base de datos de producción para realizar pruebas. En lugar de crear una copia física completa, puede utilizar Delphix para crear un entorno virtual:
+
+```text
+Base de datos origen
+        ↓
+Virtualización
+        ↓
+Entorno de pruebas
+        ↓
+Datos disponibles para QA
+        ↓
+Ejecución de pruebas
+```
+
+Cuando los datos contienen información sensible, se pueden aplicar técnicas de **enmascaramiento** antes de utilizarlos en el entorno de pruebas.
+
+#### Ventajas
+
+* Reduce el tiempo necesario para preparar datos de prueba.
+* Disminuye el consumo de almacenamiento.
+* Facilita la creación de diferentes entornos.
+* Ayuda a proteger información sensible.
+* Permite disponer rápidamente de datos para QA y desarrollo.
+
+> **En resumen:** Delphix facilita la gestión y virtualización de datos para crear entornos de prueba de forma rápida, segura y eficiente.
+
+
+### TestRail
+
+**TestRail** es una herramienta web para la **gestión de pruebas de software**. Permite crear, organizar, ejecutar y dar seguimiento a casos de prueba, facilitando el trabajo de los equipos de QA.
+
+#### Características principales
+
+* **Gestión de casos de prueba:** permite crear, organizar y mantener casos de prueba.
+* **Planificación:** permite crear planes y ejecuciones de pruebas.
+* **Seguimiento:** facilita el control del estado de cada prueba.
+* **Reportes:** proporciona métricas y resultados de las ejecuciones.
+* **Colaboración:** permite compartir información entre QA, desarrollo y otros equipos.
+* **Integraciones:** puede conectarse con herramientas de gestión de proyectos, seguimiento de errores y CI/CD.
+
+#### ¿Para qué se utiliza?
+
+TestRail puede utilizarse para:
+
+* Crear casos y escenarios de prueba.
+* Organizar suites de pruebas.
+* Planificar ciclos de pruebas.
+* Registrar resultados.
+* Dar seguimiento a pruebas fallidas.
+* Generar reportes de QA.
+* Mantener trazabilidad entre requisitos y pruebas.
+
+#### Ejemplo
+
+Un ciclo de pruebas puede organizarse de la siguiente manera:
+
+```text
+Plan de pruebas
+      ↓
+Suite de pruebas
+      ↓
+Casos de prueba
+      ↓
+Ejecución
+      ↓
+Resultados
+      ↓
+Reporte
+```
+
+#### Ventajas
+
+* Centraliza la información de las pruebas.
+* Facilita la organización de casos de prueba.
+* Permite realizar seguimiento de los resultados.
+* Facilita la colaboración entre equipos.
+* Genera reportes para analizar el estado de las pruebas.
+* Puede integrarse con otras herramientas utilizadas en el ciclo de desarrollo.
+
+> **En resumen:** TestRail permite gestionar y organizar todo el proceso de pruebas, desde la creación de casos hasta el seguimiento de resultados y generación de reportes.
+
+
+### Allure
+
+**Allure** es una herramienta de generación de **reportes de pruebas** que permite visualizar de forma clara e interactiva los resultados obtenidos durante la ejecución de pruebas automatizadas.
+
+#### Características principales
+
+* **Reportes visuales:** presenta los resultados mediante gráficos y diferentes métricas.
+* **Multilenguaje:** puede utilizarse con diferentes lenguajes y frameworks de pruebas.
+* **Detalles de ejecución:** muestra información sobre pruebas exitosas, fallidas y tiempos de ejecución.
+* **Análisis de errores:** facilita la identificación de fallos y sus detalles.
+* **Integración:** puede incorporarse en procesos de CI/CD.
+* **Reportes interactivos:** permite navegar por los resultados y consultar información específica de cada prueba.
+
+#### ¿Para qué se utiliza?
+
+Allure puede utilizarse para:
+
+* Generar reportes de pruebas automatizadas.
+* Analizar pruebas aprobadas y fallidas.
+* Identificar errores durante la ejecución.
+* Consultar tiempos de ejecución.
+* Visualizar tendencias y resultados.
+* Compartir información sobre el estado de las pruebas.
+
+#### Ejemplo
+
+El flujo de generación de un reporte puede representarse así:
+
+```text id="y3u6j2"
+Ejecución de pruebas
+        ↓
+Framework de pruebas
+        ↓
+Resultados
+        ↓
+Allure
+        ↓
+Reporte visual
+```
+
+Por ejemplo, al ejecutar pruebas automatizadas con **Cypress**, los resultados pueden integrarse con Allure para generar un reporte con información detallada de cada caso.
+
+#### Ventajas
+
+* Facilita la interpretación de los resultados.
+* Permite identificar rápidamente pruebas fallidas.
+* Automatiza la generación de reportes.
+* Mejora la comunicación entre QA y desarrollo.
+* Puede integrarse en pipelines de CI/CD.
+* Proporciona una vista más clara de los resultados de pruebas automatizadas.
+
+> **En resumen:** Allure permite transformar los resultados de pruebas automatizadas en **reportes visuales e interactivos**, facilitando su análisis y seguimiento.
+
+
+### JUnit
+
+**JUnit** es un framework de **pruebas unitarias para Java** que permite crear y ejecutar pruebas automatizadas para verificar el comportamiento de métodos y componentes individuales.
+
+#### Características principales
+
+* **Anotaciones:** permiten definir y organizar los métodos de prueba.
+* **Aserciones:** permiten comparar los resultados obtenidos con los resultados esperados.
+* **Pruebas parametrizadas:** permiten ejecutar una misma prueba utilizando diferentes datos.
+* **Integración:** puede utilizarse junto con herramientas como Maven, Gradle y sistemas de CI/CD.
+* **Ejecución automatizada:** facilita ejecutar pruebas de forma rápida y repetitiva.
+
+#### ¿Para qué se utiliza?
+
+JUnit puede utilizarse para:
+
+* Validar métodos y clases de forma individual.
+* Detectar errores durante el desarrollo.
+* Ejecutar pruebas de regresión.
+* Validar diferentes escenarios mediante datos parametrizados.
+* Automatizar pruebas dentro de pipelines de CI/CD.
+
+#### Ejemplo básico
+
+```java
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
+class CalculadoraTest {
+
+    @Test
+    void debeSumarDosNumeros() {
+        int resultado = 2 + 3;
+
+        assertEquals(5, resultado);
+    }
+}
+```
+
+En este ejemplo, `assertEquals()` verifica que el resultado obtenido sea igual al valor esperado.
+
+#### Flujo de una prueba
+
+```text id="4f8v3q"
+Escribir prueba
+      ↓
+Ejecutar código
+      ↓
+Obtener resultado
+      ↓
+Comparar con resultado esperado
+      ↓
+      ¿Coincide?
+     ↙        ↘
+   Sí          No
+   ↓            ↓
+Pass          Fail
+```
+
+#### Ventajas
+
+* Facilita la creación de pruebas unitarias.
+* Permite detectar errores de forma temprana.
+* Automatiza la ejecución de pruebas.
+* Facilita las pruebas de regresión.
+* Se integra fácilmente con herramientas de construcción y CI/CD.
+* Las pruebas pueden servir como documentación del comportamiento esperado.
+
+> **En resumen:** JUnit es una herramienta fundamental para realizar **pruebas unitarias en aplicaciones Java**, permitiendo verificar automáticamente que cada componente funcione de acuerdo con lo esperado.

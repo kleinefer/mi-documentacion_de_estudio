@@ -1,0 +1,190 @@
+---
+sidebar_position: 2
+title: Metodología XP
+---
+
+# Extreme Programming (XP)
+
+Extreme Programming (XP) es una metodología ágil de desarrollo de software que busca mejorar la calidad del producto y la capacidad de respuesta ante cambios en los requisitos. Se caracteriza por ciclos de desarrollo cortos, entregas frecuentes, colaboración constante con el cliente y prácticas técnicas orientadas a mantener un código limpio y confiable.
+
+## Valores fundamentales
+
+| Valor                 | Descripción                                                                                                                   |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **Comunicación**      | Promueve la comunicación constante entre desarrolladores, testers, clientes y demás integrantes del equipo.                   |
+| **Simplicidad**       | Busca implementar únicamente lo necesario, evitando complejidad y funcionalidades innecesarias.                               |
+| **Retroalimentación** | Permite obtener información frecuente sobre el producto mediante pruebas, revisiones y entregas continuas.                    |
+| **Coraje**            | Impulsa al equipo a afrontar problemas, modificar decisiones cuando sea necesario y realizar cambios que mejoren el producto. |
+| **Respeto**           | Fomenta la colaboración, confianza y reconocimiento entre los miembros del equipo.                                            |
+
+
+## Prácticas principales
+
+XP combina diferentes prácticas de desarrollo para mantener un ciclo de trabajo rápido y controlado:
+
+- **Programación en pareja (Pair Programming):** dos desarrolladores trabajan juntos sobre el mismo código, alternando los roles de programación y revisión.
+- **Desarrollo guiado por pruebas (TDD):** primero se define una prueba que representa el comportamiento esperado y posteriormente se desarrolla el código necesario para superarla.
+- **Integración continua:** los cambios se integran frecuentemente al repositorio para detectar errores de manera temprana.
+- **Refactorización:** se mejora continuamente la estructura interna del código sin modificar su comportamiento.
+- **Entregas pequeñas:** se liberan incrementos funcionales en períodos cortos, permitiendo obtener retroalimentación rápidamente.
+- **Pruebas continuas:** las pruebas automatizadas se ejecutan de forma frecuente para verificar que los cambios no introduzcan regresiones.
+- **Diseño simple:** se evita implementar soluciones complejas cuando una alternativa más sencilla puede resolver el problema.
+
+## Beneficios
+
+Entre los principales beneficios de XP se encuentran:
+
+- Mejora la calidad del software.
+- Permite detectar errores de forma temprana.
+- Facilita la adaptación a cambios en los requisitos.
+- Favorece la comunicación entre los integrantes del equipo.
+- Permite obtener retroalimentación frecuente del cliente.
+- Reduce el riesgo mediante entregas pequeñas y frecuentes.
+- Promueve la creación de código mantenible mediante TDD y refactorización.
+
+## Desafíos
+
+A pesar de sus ventajas, XP también presenta algunos desafíos:
+
+- Requiere una comunicación constante entre los integrantes del equipo.
+- La programación en pareja puede aumentar el consumo de recursos.
+- Puede resultar más difícil de implementar en equipos muy grandes o distribuidos.
+- Requiere disciplina para mantener prácticas como TDD, integración continua y refactorización.
+- La participación frecuente del cliente puede ser difícil cuando este no está disponible.
+
+## XP desde la perspectiva de QA
+
+Para un profesional de QA, XP es especialmente relevante porque las pruebas forman parte del ciclo de desarrollo y no se dejan únicamente para el final.
+
+Por ejemplo, mediante TDD, pruebas automatizadas, integración continua y regresión frecuente, el equipo puede detectar defectos poco después de introducirlos.
+
+---
+
+# Principio YAGNI
+
+**YAGNI** significa **"You Aren't Gonna Need It"** (No lo vas a necesitar). Es un principio asociado principalmente con **Extreme Programming (XP)** que establece que no se debe implementar una funcionalidad hasta que exista una necesidad real de utilizarla.
+
+La idea central es **desarrollar únicamente lo que se necesita en el presente**, evitando anticiparse a posibles necesidades futuras que podrían nunca llegar a existir.
+
+## Objetivo del Principio YAGNI
+
+El objetivo de YAGNI es mantener el software **simple, mantenible y enfocado en las necesidades actuales del usuario**.
+
+Implementar funcionalidades "por si acaso" puede aumentar innecesariamente:
+
+* La complejidad del código.
+* El tiempo de desarrollo.
+* La cantidad de código que debe mantenerse.
+* La posibilidad de introducir errores.
+* El esfuerzo necesario para realizar cambios posteriormente.
+
+Por esta razón, YAGNI busca reducir el **desperdicio de tiempo y recursos** durante el desarrollo.
+
+## ¿Cómo se aplica?
+
+Cuando un equipo identifica una posible funcionalidad futura, debe preguntarse si existe una necesidad concreta de implementarla ahora.
+
+Por ejemplo, un equipo está desarrollando un sistema de gestión de usuarios y actualmente solo necesita permitir que un usuario tenga **un número telefónico**.
+
+Un desarrollador podría proponer implementar desde el inicio:
+
+* Múltiples números telefónicos.
+* Diferentes tipos de teléfono.
+* Historial de números.
+* Configuración de números predeterminados.
+* Integración con servicios externos.
+
+Si ninguna de estas funcionalidades es necesaria actualmente, aplicar YAGNI significa implementar únicamente lo requerido:
+
+```text
+Usuario
+  └── Número telefónico
+```
+
+Si en una futura iteración el negocio necesita múltiples números telefónicos, esa funcionalidad podrá diseñarse e implementarse cuando exista una necesidad real.
+
+#### Ejemplo en desarrollo de software
+
+Supongamos que se solicita crear un sistema de autenticación que actualmente solo requiere:
+
+```text
+Inicio de sesión
+      ↓
+Usuario + contraseña
+      ↓
+Validación
+      ↓
+Acceso al sistema
+```
+
+No sería necesario implementar desde el principio funcionalidades como:
+
+* Inicio de sesión mediante redes sociales.
+* Autenticación biométrica.
+* Inicio de sesión con múltiples proveedores.
+* Reconocimiento facial.
+* Soporte para decenas de proveedores de identidad.
+
+Si posteriormente alguna de estas funcionalidades se convierte en un requisito real, podrá incorporarse en una nueva iteración.
+
+## Beneficios
+
+Aplicar YAGNI permite:
+
+* **Reducir la complejidad** del software.
+* **Evitar código innecesario**.
+* **Disminuir el tiempo de desarrollo**.
+* **Facilitar el mantenimiento**.
+* **Reducir posibles errores**.
+* **Concentrar los esfuerzos en funcionalidades de valor real**.
+* **Facilitar la adaptación a cambios futuros**.
+
+## YAGNI y QA
+
+Desde la perspectiva de **QA**, YAGNI también puede ayudar a reducir el alcance innecesario de las pruebas.
+
+Si una funcionalidad no forma parte de los requisitos actuales, no es necesario desarrollar ni probar escenarios relacionados con ella. Esto permite que el equipo concentre sus esfuerzos en validar las funcionalidades que realmente forman parte del producto.
+
+Por ejemplo:
+
+```text
+Requisito actual
+      ↓
+Desarrollo
+      ↓
+Pruebas
+      ↓
+Validación
+      ↓
+Entrega
+```
+
+En lugar de:
+
+```text
+Requisito actual
+      ↓
+"Por si acaso..."
+      ↓
+Funcionalidades futuras
+      ↓
+Más código
+      ↓
+Más pruebas
+      ↓
+Más mantenimiento
+```
+
+### Relación con otros principios
+
+YAGNI está estrechamente relacionado con otros conceptos utilizados en el desarrollo ágil:
+
+| Concepto            | Enfoque                                                               |
+| ------------------- | --------------------------------------------------------------------- |
+| **YAGNI**           | No implementar funcionalidades que todavía no se necesitan.           |
+| **KISS**            | Mantener las soluciones lo más simples posible.                       |
+| **DRY**             | Evitar la duplicación innecesaria de código.                          |
+| **TDD**             | Desarrollar a partir de pruebas que representan requisitos concretos. |
+| **Refactorización** | Mejorar la estructura del código sin cambiar su comportamiento.       |
+
+En conclusión, **YAGNI promueve implementar solo aquello que tiene una necesidad actual y justificada**, evitando anticiparse a requisitos hipotéticos. De esta manera, el equipo puede reducir la complejidad y concentrarse en entregar valor real al usuario.

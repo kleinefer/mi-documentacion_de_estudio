@@ -1,0 +1,233 @@
+---
+sidebar_position: 3
+title: Pruebas de seguridad
+---
+
+# Pruebas de Seguridad
+
+Las **pruebas de seguridad** permiten identificar vulnerabilidades y verificar que una aplicación proteja correctamente sus datos, 
+usuarios y recursos frente a accesos no autorizados o posibles ataques.
+
+### Tipos de pruebas de seguridad
+
+* **Escaneo de vulnerabilidades:** identifica vulnerabilidades conocidas mediante herramientas automatizadas.
+* **Pruebas de penetración:** simulan ataques para encontrar posibles puntos de entrada y debilidades en el sistema.
+* **Evaluación de riesgos:** analiza las vulnerabilidades encontradas y las prioriza según su impacto.
+* **Auditoría de seguridad:** revisa el código, configuraciones y políticas de seguridad.
+* **Ethical Hacking:** utiliza técnicas de ataque controladas para detectar vulnerabilidades más complejas.
+
+### Herramientas de pruebas de seguridad
+
+| Herramienta    | Descripción                                                                    |
+| -------------- | ------------------------------------------------------------------------------ |
+| **OWASP ZAP**  | Permite analizar aplicaciones web y detectar vulnerabilidades.                 |
+| **Burp Suite** | Herramienta para analizar y realizar pruebas de seguridad en aplicaciones web. |
+| **Metasploit** | Framework utilizado para realizar pruebas de penetración y simular ataques.    |
+
+## Pruebas de Autenticación
+
+Las pruebas de **autenticación** verifican que el sistema pueda identificar correctamente a los usuarios y controlar sus sesiones.
+
+Se pueden validar escenarios como:
+
+* Inicio de sesión con credenciales válidas.
+* Inicio de sesión con contraseña incorrecta.
+* Usuario inexistente.
+* Campos obligatorios vacíos.
+* Gestión de sesiones.
+* Uso y expiración de tokens.
+* Cierre de sesión.
+* Bloqueo después de múltiples intentos fallidos.
+
+#### Ejemplo
+
+```text
+Usuario
+   ↓
+Ingresa credenciales
+   ↓
+Sistema valida identidad
+   ↓
+¿Credenciales correctas?
+   ├── Sí → Acceso permitido
+   └── No → Acceso rechazado
+```
+
+## Pruebas de Autorización
+
+Las pruebas de **autorización** verifican que un usuario autenticado únicamente pueda acceder a los recursos y funcionalidades 
+que tiene permitidos según su rol o permisos.
+
+Por ejemplo:
+
+| Usuario       | Recurso                        | Resultado esperado |
+| ------------- | ------------------------------ | ------------------ |
+| Administrador | Gestión de usuarios            | Acceso permitido   |
+| Usuario       | Gestión de usuarios            | Acceso denegado    |
+| Usuario       | Consulta de información propia | Acceso permitido   |
+| Usuario       | Información de otro usuario    | Acceso denegado    |
+
+Es importante comprobar que un usuario no pueda acceder directamente a recursos restringidos modificando URLs, parámetros, 
+identificadores o solicitudes HTTP.
+
+## Autenticación vs Autorización
+
+| Concepto          | Pregunta que responde |
+| ----------------- | --------------------- |
+| **Autenticación** | ¿Quién eres?          |
+| **Autorización**  | ¿Qué puedes hacer?    |
+
+Por ejemplo, un usuario puede **autenticarse correctamente**, pero no necesariamente tener autorización para acceder al panel de 
+administración.
+
+## Seguridad en DevSecOps
+
+Las pruebas de seguridad pueden integrarse dentro de los procesos de **CI/CD**, permitiendo detectar vulnerabilidades desde etapas 
+tempranas del desarrollo.
+
+```text
+Desarrollo
+    ↓
+Pruebas
+    ↓
+Análisis de seguridad
+    ↓
+Corrección de vulnerabilidades
+    ↓
+CI/CD
+    ↓
+Despliegue
+```
+
+> **En resumen:** las pruebas de seguridad permiten identificar vulnerabilidades y verificar que la aplicación proteja correctamente 
+sus recursos. La autenticación comprueba la identidad del usuario, mientras que la autorización determina qué recursos y funcionalidades 
+puede utilizar.
+
+### Gestión de Secretos
+
+La **gestión de secretos (Secrets Management)** consiste en proteger información sensible utilizada por las aplicaciones, 
+como contraseñas, claves API, certificados, tokens y claves SSH.
+
+#### Características principales
+
+* **Almacenamiento seguro:** utilizar herramientas especializadas para almacenar credenciales de forma protegida.
+* **Acceso controlado:** aplicar el principio de menor privilegio.
+* **Rotación de credenciales:** cambiar periódicamente los secretos para reducir riesgos.
+* **Cifrado:** proteger los secretos tanto en almacenamiento como durante su transmisión.
+* **Auditoría:** registrar y monitorear los accesos a la información sensible.
+
+#### Herramientas
+
+Algunas herramientas utilizadas para la gestión de secretos son:
+
+* **HashiCorp Vault**
+* **AWS Secrets Manager**
+* **Azure Key Vault**
+* **Google Cloud Secret Manager**
+
+> **Importante:** los secretos no deben almacenarse directamente en el código fuente ni subirse a repositorios Git.
+
+### Escaneo de Vulnerabilidades
+
+El **escaneo de vulnerabilidades** consiste en utilizar herramientas automatizadas para detectar posibles debilidades de seguridad 
+en aplicaciones, dependencias, configuraciones e infraestructura.
+
+#### Características principales
+
+* **Detección automatizada:** identifica vulnerabilidades conocidas.
+* **Análisis de dependencias:** detecta bibliotecas o paquetes con vulnerabilidades conocidas.
+* **Revisión de configuraciones:** identifica configuraciones potencialmente inseguras.
+* **Reportes:** genera resultados que permiten analizar y priorizar los problemas encontrados.
+* **Escaneos periódicos:** permite detectar nuevas vulnerabilidades a medida que evoluciona el sistema.
+* **Integración CI/CD:** puede incorporarse al proceso de desarrollo mediante prácticas de DevSecOps.
+
+#### Herramientas
+
+| Herramienta    | Uso principal                                        |
+| -------------- | ---------------------------------------------------- |
+| **OWASP ZAP**  | Análisis de seguridad de aplicaciones web.           |
+| **Burp Suite** | Pruebas de seguridad y análisis de aplicaciones web. |
+| **Nmap**       | Exploración de redes, puertos y servicios.           |
+
+#### Flujo básico
+
+```text
+Aplicación / Infraestructura
+          ↓
+   Escaneo automático
+          ↓
+Vulnerabilidades encontradas
+          ↓
+     Priorización
+          ↓
+      Corrección
+          ↓
+      Nuevo escaneo
+```
+
+> **En resumen:** la gestión de secretos protege las credenciales sensibles, mientras que el escaneo de vulnerabilidades ayuda a 
+identificar debilidades de seguridad antes de que puedan ser explotadas.
+
+### OWASP Top 10
+
+El **OWASP Top 10** es una lista de referencia creada por **OWASP (Open Worldwide Application Security Project)** que reúne los 
+riesgos de seguridad más importantes para las aplicaciones web.
+
+Se utiliza como guía para identificar vulnerabilidades y definir controles de seguridad durante el desarrollo y las pruebas.
+
+#### Principales riesgos
+
+La versión actual del OWASP Top 10 incluye categorías como:
+
+* **Broken Access Control:** fallas en los controles de acceso que permiten realizar acciones o acceder a recursos no autorizados.
+* **Cryptographic Failures:** problemas relacionados con el uso incorrecto o insuficiente de mecanismos criptográficos.
+* **Injection:** datos maliciosos que son interpretados como comandos o consultas por la aplicación.
+* **Insecure Design:** fallas de seguridad originadas en el diseño de la aplicación.
+* **Security Misconfiguration:** configuraciones incorrectas o inseguras.
+* **Vulnerable and Outdated Components:** uso de componentes con vulnerabilidades conocidas o desactualizados.
+* **Identification and Authentication Failures:** problemas relacionados con la identificación, autenticación y gestión de sesiones.
+* **Software and Data Integrity Failures:** falta de protección de software, actualizaciones o datos frente a modificaciones no 
+confiables.
+* **Security Logging and Monitoring Failures:** registros y monitoreo insuficientes para detectar incidentes.
+* **Server-Side Request Forgery (SSRF):** cuando una aplicación permite realizar solicitudes no autorizadas desde el servidor.
+
+#### ¿Para qué se utiliza?
+
+El OWASP Top 10 puede utilizarse como una **lista de referencia durante las pruebas de seguridad**, ayudando a los equipos de QA 
+y desarrollo a identificar riesgos comunes y verificar que existan medidas de protección.
+
+### Vectores de Ataque
+
+Un **vector de ataque** es el medio o camino que puede utilizar un atacante para aprovechar una vulnerabilidad en un sistema.
+
+El vector de ataque ayuda a determinar qué tan accesible puede ser una vulnerabilidad.
+
+#### Ejemplos
+
+* **Red:** explotación mediante Internet o una red interna.
+* **Aplicación web:** manipulación de formularios, parámetros o solicitudes HTTP.
+* **Autenticación:** aprovechamiento de credenciales o sesiones comprometidas.
+* **Configuración:** explotación de configuraciones inseguras.
+* **Acceso físico:** requiere acceso directo al dispositivo o infraestructura.
+
+#### Importancia
+
+Los vectores de ataque ayudan a **evaluar y priorizar riesgos**, ya que una vulnerabilidad accesible remotamente puede representar 
+una mayor exposición que una que requiere acceso físico.
+
+```text
+Vulnerabilidad
+      ↓
+Vector de ataque
+      ↓
+Probabilidad de explotación
+      ↓
+Evaluación del riesgo
+      ↓
+Priorización
+      ↓
+Mitigación
+```
+
+> **En resumen:** el OWASP Top 10 sirve como referencia para identificar los principales riesgos de seguridad en aplicaciones web, 
+mientras que los vectores de ataque ayudan a comprender cómo podría explotarse una vulnerabilidad.

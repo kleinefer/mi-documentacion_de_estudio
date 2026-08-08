@@ -1,0 +1,468 @@
+---
+sidebar_position: 1
+title: Monitoreo y Logs
+---
+
+## Monitoreo y Logs en DevOps
+
+El **monitoreo en DevOps** consiste en supervisar continuamente las aplicaciones, servicios e infraestructura para conocer su estado, rendimiento y disponibilidad.
+
+Los **logs (registros)** complementan el monitoreo al almacenar información sobre eventos y actividades que ocurren dentro de los sistemas.
+
+### Monitoreo
+
+El monitoreo permite:
+
+* **Supervisar el rendimiento:** controlar tiempos de respuesta, consumo de recursos y disponibilidad.
+* **Detectar incidentes:** identificar errores o comportamientos anormales.
+* **Observar en tiempo real:** visualizar el estado actual de aplicaciones e infraestructura.
+* **Analizar tendencias:** comparar métricas actuales con datos históricos.
+* **Identificar cuellos de botella:** detectar componentes que afectan el rendimiento.
+* **Mejorar la experiencia del usuario:** mantener los servicios disponibles y con tiempos de respuesta adecuados.
+
+### Logs
+
+Los **logs** son registros generados por aplicaciones, servidores y otros componentes del sistema. Contienen información útil para investigar errores y analizar eventos.
+
+Algunos datos que pueden registrarse son:
+
+* Errores y excepciones.
+* Solicitudes realizadas.
+* Accesos de usuarios.
+* Eventos del sistema.
+* Cambios de configuración.
+* Tiempos de respuesta.
+
+### Métricas importantes
+
+Al realizar monitoreo pueden analizarse métricas como:
+
+| Métrica             | Descripción                                                   |
+| ------------------- | ------------------------------------------------------------- |
+| **Disponibilidad**  | Tiempo durante el cual un servicio está funcionando.          |
+| **Latencia**        | Tiempo que tarda una solicitud en recibir respuesta.          |
+| **Tasa de errores** | Porcentaje de solicitudes que generan errores.                |
+| **CPU**             | Uso del procesador.                                           |
+| **Memoria**         | Consumo de memoria del sistema.                               |
+| **Throughput**      | Cantidad de solicitudes procesadas en un período determinado. |
+
+### Flujo de monitoreo
+
+```text id="4qv8z1"
+Aplicación / Infraestructura
+          ↓
+     Generación de datos
+          ↓
+   Métricas y Logs
+          ↓
+       Monitoreo
+          ↓
+   Detección de alerta
+          ↓
+    Análisis del problema
+          ↓
+      Corrección
+```
+
+### Integración con DevOps
+
+El monitoreo puede integrarse en los procesos de **CI/CD** para detectar problemas después de los despliegues y validar que los servicios continúen funcionando correctamente.
+
+También puede complementarse con **pruebas de humo**, pruebas de rendimiento y otras validaciones automatizadas.
+
+> **En resumen:** el monitoreo permite saber **qué está pasando** en un sistema, mientras que los logs ayudan a entender **por qué está pasando**. Ambos son fundamentales para mantener aplicaciones estables y detectar problemas rápidamente.
+
+---
+
+## Plataformas y herramientas útiles
+
+### New Relic
+
+**New Relic** es una plataforma de **observabilidad y monitoreo** que permite analizar el rendimiento y estado de aplicaciones, servicios e infraestructura.
+
+#### Características principales
+
+* **Monitoreo de aplicaciones:** permite analizar el rendimiento y comportamiento de las aplicaciones.
+* **Métricas:** recopila información como tiempos de respuesta, errores y consumo de recursos.
+* **Logs:** permite consultar y analizar registros generados por los sistemas.
+* **Paneles visuales:** presenta la información mediante gráficos y dashboards.
+* **Alertas:** permite detectar comportamientos anormales y generar alertas.
+* **Integraciones:** puede conectarse con diferentes herramientas y servicios utilizados durante el desarrollo y las pruebas.
+
+#### ¿Para qué se utiliza?
+
+New Relic puede utilizarse para:
+
+* Monitorear aplicaciones en producción.
+* Detectar errores y problemas de rendimiento.
+* Analizar tiempos de respuesta.
+* Supervisar servicios e infraestructura.
+* Identificar cuellos de botella.
+* Analizar logs y métricas.
+* Observar el comportamiento de una aplicación durante pruebas de rendimiento.
+
+#### Ejemplo
+
+Durante una prueba de carga con **JMeter**, New Relic puede utilizarse para observar qué ocurre internamente en la aplicación:
+
+```text id="5h4qkp"
+Prueba de carga
+      ↓
+    JMeter
+      ↓
+Aplicación
+      ↓
+  New Relic
+      ↓
+Métricas + Logs
+      ↓
+Análisis de rendimiento
+```
+
+Por ejemplo, si durante la prueba aumenta el tiempo de respuesta, New Relic puede ayudar a identificar si el problema está relacionado con el uso de CPU, memoria, base de datos u otro componente.
+
+#### Ventajas
+
+* Proporciona visibilidad del estado de las aplicaciones.
+* Permite analizar información en tiempo real.
+* Facilita la detección de problemas.
+* Ayuda a identificar cuellos de botella.
+* Permite centralizar métricas, logs y otros datos de observabilidad.
+* Puede utilizarse durante pruebas de rendimiento y en producción.
+
+### Runscope
+
+**Runscope** es una herramienta orientada al **monitoreo y pruebas de APIs**. Permite verificar que los endpoints respondan correctamente y detectar problemas de disponibilidad o rendimiento.
+
+Actualmente, Runscope forma parte del ecosistema de **BlazeMeter**.
+
+#### Características principales
+
+* **Monitoreo de APIs:** permite verificar continuamente el comportamiento de los endpoints.
+* **Pruebas automatizadas:** permite ejecutar pruebas de API de forma programada.
+* **Validación de respuestas:** comprueba que las respuestas cumplan con las condiciones esperadas.
+* **Alertas:** puede notificar cuando una API presenta errores o supera determinados tiempos de respuesta.
+* **Monitoreo continuo:** permite supervisar APIs en diferentes ambientes.
+
+#### ¿Para qué se utiliza?
+
+Runscope puede utilizarse para:
+
+* Validar disponibilidad de APIs.
+* Verificar respuestas HTTP.
+* Detectar cambios inesperados en los endpoints.
+* Supervisar tiempos de respuesta.
+* Ejecutar pruebas después de despliegues.
+* Detectar problemas antes de que afecten a los usuarios.
+
+#### Ejemplo
+
+```text id="n8x2kp"
+Solicitud a la API
+       ↓
+Endpoint
+       ↓
+Validación de respuesta
+       ↓
+¿Respuesta correcta?
+    ↙          ↘
+   Sí           No
+   ↓             ↓
+  Pass         Alerta
+```
+
+:::tip
+ Runscope permite monitorear y probar APIs de forma continua para verificar su disponibilidad, funcionamiento y rendimiento.
+:::
+### Kibana
+
+**Kibana** es una herramienta de visualización y análisis de datos que forma parte del **Elastic Stack**. Se utiliza principalmente para explorar información almacenada en **Elasticsearch** mediante gráficos, búsquedas y dashboards.
+
+#### Características principales
+
+* **Visualización de datos:** permite crear gráficos, tablas y otras representaciones visuales.
+* **Dashboards:** permite crear paneles para monitorear información relevante.
+* **Búsqueda y filtros:** facilita encontrar y analizar información específica.
+* **Análisis de logs:** permite explorar registros generados por aplicaciones e infraestructura.
+* **Integración con Elasticsearch:** utiliza Elasticsearch como fuente principal de datos.
+* **Análisis en tiempo real:** permite visualizar información a medida que se generan nuevos datos.
+
+#### ¿Para qué se utiliza?
+
+Kibana puede utilizarse para:
+
+* Analizar logs.
+* Monitorear aplicaciones.
+* Visualizar métricas.
+* Investigar errores.
+* Detectar problemas de rendimiento.
+* Analizar incidentes.
+* Crear dashboards de monitoreo.
+
+#### Ejemplo
+
+Un equipo de QA puede utilizar Kibana para analizar los logs generados durante una prueba:
+
+```text id="q1w7mr"
+Aplicación
+     ↓
+   Logs
+     ↓
+Elasticsearch
+     ↓
+  Kibana
+     ↓
+Dashboard / Análisis
+```
+
+Por ejemplo, se pueden filtrar los logs para identificar respuestas **500**, errores de autenticación o tiempos de respuesta elevados.
+
+#### Ventajas
+
+* Facilita el análisis visual de grandes cantidades de datos.
+* Permite crear dashboards personalizados.
+* Facilita la búsqueda de errores en logs.
+* Ayuda en la investigación de incidentes.
+* Permite observar tendencias y patrones.
+
+:::tip
+ **En resumen:** Kibana facilita la **visualización y análisis de logs y datos**, ayudando a los equipos de QA y DevOps a detectar problemas y comprender el comportamiento de las aplicaciones.
+:::
+
+### Datadog
+
+**Datadog** es una plataforma de **monitoreo y observabilidad** que permite supervisar aplicaciones, infraestructura, servicios y experiencia de usuario desde un mismo lugar.
+
+#### Características principales
+
+* **Monitoreo de infraestructura:** permite supervisar servidores, bases de datos, contenedores y servicios.
+* **APM:** analiza el rendimiento de las aplicaciones y ayuda a identificar cuellos de botella.
+* **Gestión de logs:** permite recopilar, buscar y analizar registros de diferentes fuentes.
+* **Monitoreo de usuarios:** proporciona información sobre la experiencia y comportamiento de los usuarios.
+* **Dashboards:** permite visualizar métricas y datos mediante paneles personalizados.
+* **Alertas:** permite configurar notificaciones cuando se detectan problemas o comportamientos anormales.
+* **Integraciones:** puede conectarse con diferentes herramientas y servicios del ecosistema tecnológico.
+
+#### ¿Para qué se utiliza?
+
+Datadog puede utilizarse para:
+
+* Monitorear aplicaciones y servicios.
+* Analizar el rendimiento de sistemas.
+* Supervisar infraestructura.
+* Analizar logs.
+* Detectar errores y anomalías.
+* Identificar cuellos de botella.
+* Crear dashboards de monitoreo.
+* Configurar alertas ante incidentes.
+
+#### Ejemplo
+
+Durante una prueba de rendimiento, Datadog puede utilizarse para observar el comportamiento de la aplicación y su infraestructura:
+
+```text id="x8c4mz"
+Prueba de rendimiento
+        ↓
+    Aplicación
+        ↓
+     Datadog
+   ↙    ↓    ↘
+APM   Logs   Infraestructura
+   \    |    /
+      ↓
+   Dashboard
+      ↓
+    Análisis
+```
+
+Por ejemplo, si durante una prueba aumenta el tiempo de respuesta, Datadog puede ayudar a determinar si el problema está relacionado con la aplicación, una base de datos, el consumo de CPU, memoria u otro servicio.
+
+#### Ventajas
+
+* Centraliza información de monitoreo.
+* Permite analizar datos en tiempo real.
+* Facilita la detección de problemas.
+* Ayuda a identificar cuellos de botella.
+* Permite configurar alertas proactivas.
+* Facilita el análisis mediante dashboards.
+* Integra diferentes componentes de la infraestructura.
+
+### PagerDuty
+
+**PagerDuty** es una plataforma de **gestión de incidentes y alertas** que permite recibir, organizar y distribuir notificaciones cuando se detectan problemas en aplicaciones, servicios o infraestructura.
+
+#### Características principales
+
+* **Gestión de alertas:** recibe alertas provenientes de herramientas de monitoreo.
+* **Asignación de incidentes:** dirige las alertas al equipo o persona correspondiente.
+* **Escalación:** si un incidente no es atendido, puede notificar a otros miembros del equipo.
+* **Integraciones:** puede conectarse con herramientas como Datadog, New Relic, Grafana y Slack.
+* **Automatización:** permite generar incidentes automáticamente según determinadas condiciones.
+* **Seguimiento:** permite consultar el estado y evolución de los incidentes.
+
+#### ¿Para qué se utiliza?
+
+PagerDuty puede utilizarse para:
+
+* Recibir alertas de sistemas de monitoreo.
+* Notificar fallos críticos.
+* Gestionar incidentes de producción.
+* Escalar alertas cuando no son atendidas.
+* Coordinar equipos durante incidentes.
+* Analizar incidentes después de su resolución.
+
+#### Ejemplo
+
+Un flujo de gestión de incidentes puede representarse así:
+
+```text id="g7v3qn"
+Sistema de monitoreo
+       ↓
+   Alerta detectada
+       ↓
+     PagerDuty
+       ↓
+Equipo responsable
+       ↓
+¿Incidente atendido?
+    ↙          ↘
+   Sí           No
+   ↓             ↓
+Resolver      Escalación
+               ↓
+          Otro responsable
+```
+
+Por ejemplo, si **Datadog** detecta que una API está presentando una tasa elevada de errores, puede enviar una alerta a PagerDuty para notificar al equipo responsable.
+
+#### Aplicación en QA y DevOps
+
+PagerDuty puede complementar las actividades de QA y DevOps al permitir reaccionar rápidamente ante problemas detectados durante pruebas, despliegues o en producción.
+
+Esto resulta especialmente útil cuando una prueba automatizada o una herramienta de monitoreo detecta un fallo crítico que requiere atención inmediata.
+
+#### Ventajas
+
+* Reduce el tiempo de respuesta ante incidentes.
+* Centraliza las alertas.
+* Automatiza la escalación de incidentes.
+* Facilita la coordinación entre equipos.
+* Permite realizar seguimiento de los incidentes.
+* Ayuda a identificar patrones y oportunidades de mejora.
+
+### Grafana
+
+**Grafana** es una plataforma de **visualización y monitoreo** que permite crear dashboards a partir de métricas provenientes de diferentes fuentes de datos.
+
+Es especialmente útil para analizar el rendimiento de aplicaciones, infraestructura y resultados de pruebas.
+
+#### Características principales
+
+* **Dashboards:** permite crear paneles personalizados para visualizar métricas.
+* **Visualización de datos:** utiliza gráficos, tablas y otros elementos para facilitar el análisis.
+* **Monitoreo en tiempo real:** permite observar métricas mientras se generan.
+* **Alertas:** permite configurar notificaciones cuando una métrica supera un valor determinado.
+* **Integraciones:** puede conectarse con fuentes como Prometheus, InfluxDB, Elasticsearch y otras.
+* **Filtros:** permite seleccionar períodos, servicios y métricas específicas para analizar los datos.
+
+#### ¿Para qué se utiliza?
+
+Grafana puede utilizarse para:
+
+* Monitorear aplicaciones e infraestructura.
+* Visualizar métricas de rendimiento.
+* Analizar resultados de pruebas de carga.
+* Identificar tendencias y anomalías.
+* Crear dashboards para equipos de QA y DevOps.
+* Supervisar métricas durante pruebas en tiempo real.
+
+#### Ejemplo en pruebas de rendimiento
+
+Grafana puede utilizarse junto con una herramienta como **JMeter**, **k6** o **Gatling** para visualizar las métricas generadas durante una prueba:
+
+```text id="6k3pqm"
+Prueba de rendimiento
+        ↓
+     Métricas
+        ↓
+Fuente de datos
+        ↓
+     Grafana
+        ↓
+     Dashboard
+        ↓
+     Análisis
+```
+
+Por ejemplo, un dashboard puede mostrar **tiempo de respuesta, tasa de errores, solicitudes por segundo y uso de recursos** durante una prueba de carga.
+
+#### Ventajas
+
+* Facilita la interpretación de métricas.
+* Permite centralizar información de diferentes fuentes.
+* Ayuda a detectar anomalías rápidamente.
+* Permite visualizar datos en tiempo real.
+* Facilita el seguimiento del rendimiento.
+* Puede integrarse con herramientas utilizadas en QA y DevOps.
+
+
+### Sentry
+
+**Sentry** es una plataforma de **monitoreo de errores y rendimiento** que permite detectar problemas en las aplicaciones y analizar su impacto en los usuarios.
+
+#### Características principales
+
+* **Monitoreo de errores:** captura errores y excepciones generados por las aplicaciones.
+* **Seguimiento de rendimiento:** permite analizar tiempos de respuesta y latencia.
+* **Trazas distribuidas:** permite seguir una solicitud a través de diferentes servicios.
+* **Impacto de errores:** muestra información sobre los usuarios y funcionalidades afectados.
+* **Alertas:** permite notificar a los equipos cuando se detectan errores o problemas de rendimiento.
+* **Análisis detallado:** proporciona información útil para identificar la causa de los problemas.
+
+#### ¿Para qué se utiliza?
+
+Sentry puede utilizarse para:
+
+* Detectar errores en aplicaciones.
+* Analizar excepciones y fallos.
+* Identificar problemas de rendimiento.
+* Revisar tiempos de respuesta.
+* Analizar trazas de solicitudes.
+* Detectar problemas después de un despliegue.
+* Monitorear aplicaciones en diferentes ambientes.
+
+#### Ejemplo
+
+Cuando una aplicación genera un error, Sentry puede recopilar información para facilitar su análisis:
+
+```text id="w5h7cx"
+Usuario
+   ↓
+Aplicación
+   ↓
+Error
+   ↓
+Sentry
+   ↓
+Información del error
+   ↓
+Análisis y corrección
+```
+
+Por ejemplo, Sentry puede mostrar **qué error ocurrió, dónde ocurrió, cuándo ocurrió y qué usuarios fueron afectados**.
+
+#### Aplicación en QA
+
+Sentry puede complementar las pruebas funcionales y de rendimiento proporcionando información adicional sobre lo que ocurre internamente en la aplicación.
+
+Durante una prueba, QA puede utilizar Sentry para identificar errores que no son visibles directamente desde la interfaz.
+
+#### Ventajas
+
+* Detecta errores rápidamente.
+* Facilita el análisis de fallos.
+* Permite conocer el impacto de los errores.
+* Ayuda a identificar problemas de rendimiento.
+* Proporciona información útil para QA y desarrollo.
+* Permite monitorear aplicaciones después de los despliegues.
+
