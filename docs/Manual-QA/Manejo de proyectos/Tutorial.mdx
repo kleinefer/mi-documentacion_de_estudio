@@ -1,0 +1,259 @@
+---
+sidebar_position: 2
+title: Tutorial práctico de Jira
+
+---
+
+
+Este tutorial práctico describe la secuencia de pasos para llevar un *sprint* desde su concepción hasta la entrega del incremento de 
+software y la optimización del proceso.
+
+
+
+## Secuencia de Ejecución
+
+| Paso | Fase | Acción Clave |
+| :--- | :--- | :--- |
+| **1** | **Definición de Objetivos** | El Product Owner y el equipo alinean la visión y seleccionan los elementos prioritarios del *Product Backlog*. |
+| **2** | **Sprint Planning** | Se estiman las tareas (historias de usuario) según la capacidad del equipo y se define el *Sprint Goal*. |
+| **3** | **Creación del Sprint Backlog** | Se mueven las historias seleccionadas al *Sprint Backlog* para bloquear el alcance de la iteración. |
+| **4** | **Ejecución y Daily Scrum** | Se realizan sincronizaciones diarias de 15 minutos enfocadas en el avance, el plan del día y el desbloqueo de tareas. |
+| **5** | **Sprint Review** | Demostración en vivo del incremento de software ante los *stakeholders* para validar entregables y recibir retroalimentación. |
+| **6** | **Sprint Retrospective** | Sesión de análisis del equipo para identificar fallas, aciertos y definir acciones de mejora directa para el siguiente ciclo. |
+
+---
+
+## Flujo de la Reunión Diaria (*Daily Scrum*)
+
+Durante la ejecución (Paso 4), cada miembro responde a tres preguntas clave frente al tablero visual:
+
+1. **¿Qué logré ayer** para acercarnos al objetivo del *sprint*?
+2. **¿En qué trabajaré hoy** para avanzar hacia la meta?
+3. **¿Tengo algún impedimento** que esté bloqueando mi progreso?
+
+:::info 
+Es responsabilidad directa del **Scrum Master** registrar y gestionar activamente cualquier impedimento detectado en el *Daily* para garantizar que el equipo 
+de desarrollo mantenga su ritmo sin interrupciones.
+:::
+
+## Paso a paso
+
+
+![Página de inicio](/img/JIRA/PaginaInicioJira.png)
+
+ ### **Registrarse**
+        1. En la parte superior derecha encontrara un botón azul "obtener gratis"
+        2. Dele clic en el botón
+
+![encabezado](/img/JIRA/header.png)
+
+ ### **Inicio de sesión**
+        1. Al ingresar a la página inicial de **JIRA** encontrara el botón de iniciar sesión en la parte superior derecha.
+        2. Dele clic al botón "Iniciar sesión"
+
+
+
+        3. Visualizara un cuadro en donde debera colocar el correo electronico que va a vincular a la cuenta
+
+![registro](/img/JIRA/registro_correo.png)
+        
+        4. dele clic en el botón "Inscribirse"
+
+![registro](/img/JIRA/registro_correo_2.png)
+
+        5. Al correo que vinculo le llegara un correo, escribe el código que le llego a su correo.
+
+![registro](/img/JIRA/registro_pin_correo.png)
+
+        6. Ahora debera completar los datos solicitados (nombre completo y contraseña).
+        7. Dele clic en el botón "Continuar".
+
+![registro](/img/JIRA/registro_credenciales_2.png)
+
+        8. Ingrese un nombre que identifique al equipo de desarrollo.
+
+![registro](/img/JIRA/registro_nombreusuario.png)
+
+        9. Epere a que carguen los datos
+
+![registro](/img/JIRA/carga_1.png)
+
+        10. Seleccione su area de trabajo para que JIRA pueda sugerir plantiallas acorde al trabajo.
+        (en este caso se selecciona desarrollo de software)
+
+![registro](/img/JIRA/seleccion_entorno.png)
+
+        11. Seleccione que usara en su tablero (en este caso usaremos todas)
+
+![registro](/img/JIRA/creacion_seleccionespacio.png)
+
+        12. Espere a que carguen los datos
+
+![registro](/img/JIRA/carga_2.png)
+
+        13. Ingrese un nombre que represente el proyecto
+
+![registro](/img/JIRA/nombre_espacio.png)
+
+        14. Ingrese o elimine las tarjetas que usara para el proyecto
+
+> si todavia no sabe si usara más tarjetas las puede crear mas adelante en el tablero de JIRA.
+
+![registro](/img/JIRA/identificación_espacios.png)
+
+        15. En este espacio usted podra ingresar los participantes por medio del correoo electronico o enviando el link que este le esta proporcionando 
+
+![registro](/img/JIRA/link_compartir_tablero.png)
+
+### Tablero y Sprints
+
+        16. Despúes de ese proceso, podra visualizar el tablero de sprint, en este creara todas las tareas que se haran.
+
+![sprint](/img/JIRA/creacion_sprint.png)
+        
+        17. Al lado derecho de cada tarea, seleccione el estado de la tarea. 
+
+![sprint](/img/JIRA/ordenar_estados_sprint.png)
+
+        18. Inicie el sprint dando clic en el botón "Iniciar sprint" ubicado en la parte derecha del sprint.
+
+![sprint](/img/JIRA/iniciar_sprint.png)
+
+        19. En este sprint se hacen los ajustes necesarios:
+        - `Nombre del srpint:` Aqui ingresara el nombre se le dara al sprint 
+        - `Duración:` Seleccione las semanas que durara el sprint
+        - `Fecha de Inicio:` Aqui ingresara la fecha y hora en que iniciara el sprint.
+        - `Meta del sprint:` Este espacio es opcional.
+        - `Iniciar:` dele clic a este botón para iniciar el sprint y lo llevara directamente al tablero de tareas.
+
+![sprint](/img/JIRA/configuracion_sprint.png)
+
+        En JIRA econtrara los siguientes botones:
+
+        - `Resumen (Summary):` Muestra un panel de control general con estadísticas del proyecto, estado de los trabajos, actividad reciente, fechas de entrega y gráficos de rendimiento para entender la salud global del equipo.
+
+       - ` Backlog:` Es la lista organizada de todas las tareas, historias de usuario, errores y funciones pendientes por realizar. Desde aquí se priorizan las tareas y se planifican los próximos sprints.
+
+        - `Documentos (Documents):` Espacio donde se centraliza la documentación técnica, guías, requerimientos del proyecto o especificaciones mediante la integración con Confluence u otras herramientas de notas.
+
+        - `</> Desarrollo (Development):` Muestra el estado del código fuente del proyecto al conectar Jira con herramientas como GitHub, GitLab o Bitbucket, permitiendo ver branches, commits, solicitudes de extracción (pull requests) y despliegues ligados a las tareas.
+
+        En el tablero encontrara las **Opciones de control del tablero**.
+
+        - `Filtro:` Permite buscar y mostrar solo las tareas que cumplan criterios específicos, como asignación, tipo de incidencia, prioridad o etiquetas.
+
+        - `Grupo:` Agrupa las tareas en filas (swimlanes) dentro del tablero según el criterio seleccionado, como por persona asignada, epic o sub-tareas.
+
+        - `Completar sprint:` Cierra el sprint activo actual. Envía las tareas terminadas a las estadísticas de cierre y traslada las pendientes al backlog o al siguiente sprint.
+
+![sprint](/img/JIRA/vistaprevia_tablero.png) 
+
+        20. Para pasar una tarea a otra columna, solo debe arrastarla a la siguiente columna.
+
+        **Estados del flujo de trabajo (Columnas)**
+
+        - `Por hacer (To Do):` Tareas planificadas para el sprint que aún no se han comenzado a trabajar.
+
+        - `En curso (In Progress):` Tareas que el equipo está desarrollando activamente en este momento.
+
+        - `En revisión (In Review):` Tareas cuya ejecución ha finalizado pero están pendientes de validación, pruebas de calidad (QA) o revisión de código (code review).
+
+        - `Finalizado (Done):` Tareas que se completaron con éxito y cumplen con la definición de terminado.
+
+        
+
+![sprint](/img/JIRA/movimiento_tareas.png)
+
+        21. Crear tarea / historias
+
+        Estos son los elementos para crear y gestionar incidencias en Jira:
+
+        **Creación y tipos de incidencia**
+
+        - `Crear:` Botón principal (ubicado en la barra superior azul) para desplegar el formulario de creación de incidencias dentro del proyecto.
+
+        - `Historia (User Story):` Tipo de incidencia que representa un requerimiento o funcionalidad desde la perspectiva del usuario final (ej. "Como usuario quiero poder iniciar sesión").
+
+        - `Tarea (Task):` Tipo de incidencia asignada a un trabajo técnico específico que debe realizarse pero que no necesariamente sigue la estructura de una historia de usuario.
+
+        **Campos clave de asignación y tiempo**
+
+        - `Fecha de vencimiento:` Establece el plazo o fecha límite asignada para la entrega de la tarea.
+
+        - `Persona asignada (Assignee):` Indica el miembro del equipo responsable de ejecutar y completar la incidencia.
+
+        **Atajo de teclado**
+
+        - `Enter:` Atajo para guardar y confirmar rápidamente la creación de una tarea o comentario dentro del panel emergente de Jira.
+
+
+![sprint](/img/JIRA/creacion_tarea_2.png)
+
+        22. Detalles de incidencias
+
+        - `Añadir aplicaciones:` Conecta complementos e integraciones externas de Atlassian Marketplace para ampliar las funciones de la tarea (por ejemplo, contadores de tiempo, diagramas o integraciones con Figma).
+
+        - `Añadir o crear trabajo relacionado:` Permite conectar o generar directamente nuevas tareas, historias o requerimientos vinculados para mantener la trazabilidad entre incidencias.
+
+        - `Descripción:` Espacio para detallar el contexto, objetivo, criterios de aceptación o especificaciones de la tarea.
+
+        - `Archivos adjuntos:` Sección donde se suben recursos de apoyo como imágenes, capturas de pantalla, documentos en PDF o maquetas.
+
+        - `Subtareas:` Divide la incidencia principal en pasos más pequeños e independientes que deben completarse para dar por terminada la tarea global.
+
+        - `Actividades vinculadas:` Conecta la incidencia con otras tareas del proyecto estableciendo relaciones lógicas (por ejemplo, "bloquea a", "es duplicada por" o "está relacionada con").
+
+        - `Agentes:` Permite interactuar con asistentes de inteligencia artificial (Atlassian Intelligence) para generar texto, resumir el estado de la tarea o automatizar respuestas y sugerencias.
+
+![sprint](/img/JIRA/detalle_tarea.png)
+
+        23. Detalles dentro de la incidencia.
+
+        - `Persona asignada:` Indica el miembro del equipo responsable de resolver la incidencia (se puede cambiar o presionar "Asignarme a mí").
+
+        - `Principal (Parent):` Vincula la tarea a una estructura superior, como una Epic (épica) o una tarea padre.
+
+        - `Sprint:` Muestra a qué iteración de trabajo o ciclo temporal está asociada la incidencia.
+
+        - `Prioridad:` Define la urgencia o importancia relativa de la tarea (ej. High, Medium, Low).
+
+        - `Etiquetas (Labels):` Palabras clave personalizadas para categorizar, agrupar o filtrar tareas fácilmente.
+
+        - `Fecha de vencimiento:` Establece el límite o plazo final para completar el trabajo.
+
+        - `Team:` Asigna la tarea a un equipo de trabajo específico dentro de la organización.
+
+        - `Fecha de inicio:` Marca cuándo debe comenzar a ejecutarse la tarea.
+
+        - `Story point estimate:` Estimación del esfuerzo o complejidad requerida para completar la historia o tarea (puntos de historia).
+
+        - `Informador (Reporter):` Registra el nombre de la persona que creó o reportó originalmente la incidencia.
+
+![sprint](/img/JIRA/configuracion_tarea.png)
+
+        24. Completar sprint
+
+        Al hacer clic en el botón "Completar sprint" encontrara:
+
+        - `Resumen de trabajo:` Muestra una ventana con el número de incidencias completadas y las que quedaron pendientes.
+
+        - `Destino de tareas incompletas:` Permite mover las tareas no finalizadas (las que estén en Por hacer, En curso o En revisión) hacia el Backlog o hacia el próximo sprint.
+
+        - `Métricas e informes:` Registra los datos del sprint terminado en los informes de velocidad y diagramas de trabajo acumulado (burndown chart) para analizar el rendimiento del equipo.`
+
+![sprint](/img/JIRA/completar_sprint.png)
+![sprint](/img/JIRA/lista_tareas_finalizar.png)
+
+        25. Finalmente encontrara el backlog vacio o con las tareas que quedaron pendientes abiertas en el nuevo sprint.
+
+![sprint](/img/JIRA/sprint_finalizado.png)
+
+
+
+
+
+
+
+
+
+
