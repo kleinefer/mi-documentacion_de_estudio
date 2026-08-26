@@ -1,0 +1,351 @@
+---
+sidebar_position: 3
+title: Fundamentos de python
+---
+
+Los fundamentos de Python son esenciales para cualquier persona que desee aprender a programar en este lenguaje. 
+
+* **Sintaxis Básica:** Entender cómo se estructura un programa en Python, incluyendo el uso correcto de espacios y la eliminación del uso de puntos y comas.
+
+* **Variables y Tipos de Datos:** Aprender a declarar variables y los diferentes tipos de datos disponibles, como números enteros, flotantes, cadenas 
+de texto y booleanos.
+
+* **Operadores:** Familiarizarte con los operadores aritméticos, lógicos, y de comparación que son fundamentales en programación.
+
+* **Estructuras de Control de Flujo:** Uso de condicionales (if, else, elif) y bucles (for, while) para controlar el flujo del programa.
+
+* **Funciones:** Definir y llamar funciones, así como entender el alcance de las variables y el paso de argumentos.
+
+* **Manejo de Errores:** Aprender a utilizar bloques try y except para manejar excepciones y errores en el código.
+
+* **Estructuras de Datos:** Conocer listas, tuplas, diccionarios y conjuntos, que te ayudarán a almacenar y manipular datos de manera efectiva.
+
+Cada uno de estos temas es fundamental para desarrollar aplicaciones en Python y te preparará para avanzar hacia conceptos más avanzados, como la 
+programación orientada a objetos y el trabajo con bibliotecas y frameworks populares.
+
+---
+
+## Sangría
+
+La sangría en Python es un aspecto fundamental que se refiere a los espacios al comienzo de una línea de código. A diferencia de otros lenguajes de programación que
+utilizan llaves para indicar el inicio y el final de un bloque de código, Python utiliza la sangría para definir la estructura lógica de un programa. 
+
+La sangría en Python no solo mejora la legibilidad del código, sino que también es necesaria para que el código funcione correctamente. Si la sangría no es consistente, 
+Python generará errores de indentación.
+
+**Cómo usarla:** Es común usar cuatro espacios o un tabulador para la sangría, aunque debes mantener la misma técnica en todo tu código (es decir, no mezcles espacios 
+y tabuladores).
+
+En un bloque condicional if, la sangría se utiliza para indicar qué instrucciones pertenecen a esa condición. Por ejemplo:
+
+![sangria](/img/python/sangria.png)
+
+En este caso, `print("Diez es mayor que dos")` debe estar indentado para indicarle a Python que está dentro del bloque if. Si no lo está, recibirás un error de 
+indentación cuando intentes ejecutar tu código.
+
+---
+
+## Comentarios
+
+Los comentarios en Python son una de las buenas practicas que se hacen a la hora de programar, algunas ventajas de estos son:
+
+- son una excelente manera de mejorar la claridad y legibilidad de tu código.
+
+- Los comentarios se utilizan para explicar partes del código que pueden no ser claras. Esto es útil, especialmente en programas largos.
+
+- Facilitan la entendimiento del código para otros programadores o para ti mismo en el futuro.
+
+- Puedes comentar líneas que no deseas ejecutar temporalmente.
+
+**Sintaxis**
+
+- Para comentar una sola línea, puedes usar el símbolo #. Todo lo que esté a la derecha de este símbolo en la misma línea será ignorado por Python.
+
+```
+# Este es un comentario
+print("Hola, Mundo!")  # Este print se ejecutará
+```
+
+- Para comentar múltiples líneas, puedes usar tres comillas (simples o dobles):
+
+```
+"""
+Este es un comentario
+que abarca múltiples líneas.
+"""
+print("Código ejecutado")
+
+```
+
+:::tip
+Utilizar comentarios apropiadamente no solo hace que tu código sea más accesible, sino que también te ayudará a recordar la lógica detrás de ciertas decisiones o 
+implementaciones cuando revises el código más adelante.
+:::
+
+---
+
+## Variables
+
+Una variable es un espacio en la memoria donde se puede almacenar un valor. En Python, puedes crear una variable simplemente asignándole un valor usando el operador 
+de asignación `=`
+
+### Tipos de variables
+
+ - **Variables Escalares:** Almacenan un solo valor, como un número, una cadena de texto, un booleano, etc. Por ejemplo:
+
+```
+nombre = "Juan"
+edad = 30
+```
+
+- **Listas:** Permiten almacenar colecciones de valores. Puedes definir una lista utilizando corchetes []:
+
+```
+colores = ["rojo", "verde", "azul"]
+```
+- **Diccionarios:** Almacenan pares clave-valor y se definen usando llaves {}:
+
+```
+usuario = {"nombre": "Juan", "edad": 30}
+```
+- **Asignación de Valores:** Puedes asignar un valor a múltiples variables en una sola línea:
+
+```
+a, b, c = "Hola", "Mundo", "!"
+```
+
+- **Operador de Asignación:** El operador `=` se utiliza para asignar valores a las variables y es fundamental comprenderlo, ya que es la manera en que defines 
+qué datos almacenará cada variable.
+
+- **Reutilización:** Gracias a las variables, puedes codificar de manera más flexible y reutilizar el mismo valor en diferentes partes del programa, lo que facilita 
+el mantenimiento y actualización del código.
+
+
+### Nombres de variables
+
+Los nombres de las variables en Python deben seguir ciertas convenciones para asegurar que sean claros y comprensibles.
+
+**Caracteres Permitidos:** Los nombres de las variables pueden contener letras (mayúsculas y minúsculas), números (0-9) y guiones bajos (_), pero no deben comenzar 
+con un número.
+
+```
+variable1 = 5
+_variable2 = 10
+```
+**Sensibilidad a Mayúsculas y Minúsculas:** Python distingue entre mayúsculas y minúsculas. Esto significa que variable, Variable y VARIABLE son considerados nombres 
+diferentes.
+
+**Nombres Descriptivos:** Es recomendable que los nombres de las variables sean descriptivos y concisos. Evita abreviaturas ambiguas para facilitar la comprensión 
+del código.
+
+```
+edad = 25  # es más claro que simplemente usar 'e'
+```
+
+**Variedad de Palabras:** Si el nombre de la variable consta de varias palabras, puedes utilizar guiones bajos para separar las palabras o la convención CamelCase.
+
+```
+numero_de_estudiantes = 30
+NumeroDeEstudiantes = 30  # CamelCase
+```
+**Evitar Palabras Reservadas:** No se pueden usar nombres de variables que son palabras reservadas en Python, tales como `if`, `else`, `for`, etc
+
+### Valores a múltiples variables
+
+En Python, puedes asignar valores a múltiples variables en una sola línea de código.
+
+- **Asignación Múltiple de un Solo Valor:** Puedes asignar el mismo valor a varias variables usando una sola línea:
+
+En este caso, las variables a, b y c tendrán el valor "Hola".
+
+```
+a = b = c = "Hola"
+```
+
+- **Asignación Múltiple de Diferentes Valores:** También puedes asignar diferentes valores a múltiples variables al mismo tiempo:
+
+Aquí, x contendrá 1, y contendrá 2 y z contendrá 3. 
+```
+x, y, z = 1, 2, 3
+```
+- **Usando Colecciones:** Si tienes una colección, como una lista o una tupla, puedes descomponer los valores en variables:
+
+Estas técnicas te permiten trabajar de manera más eficiente y concisa al manipular múltiples valores en Python.
+
+```
+paises = ["Panama", "Brasil", "Alemania"]
+x, y, z = paises  # x será "Panama", y será "Brasil", z será "Alemania"
+```
+
+---
+
+## Tipos de datos númericos
+
+- **Enteros (int):** Representan números enteros, positivos o negativos, sin decimales. 
+
+```
+numero_entero = 10
+```
+
+- **Flotantes (float):** Almacenan números con decimales. Ejemplo:
+
+```
+numero_flotante = 10.5
+```
+
+- **Números complejos (complex):** Compuestos por una parte real y una parte imaginaria. Se indican utilizando la letra j o J para la parte imaginaria. Ejemplo:
+
+```
+numero_complexo = 2 + 3j
+```
+
+- **Decimal (decimal.Decimal):** Este tipo se utiliza para representar números decimales con mayor precisión, especialmente útil en situaciones financieras. 
+Requiere importar el módulo decimal:
+```
+from decimal import Decimal
+precio = Decimal('10.99')
+```
+
+- **BigInt (int en Python 3):** Python 3 no tiene un tipo separado para grandes enteros, ya que el tipo int puede manejar números de tamaño arbitrario.
+
+---
+
+## Operadores
+
+En Python, los operadores se utilizan para realizar diversas operaciones en variables y valores.
+
+**Operadores Aritméticos:** Utilizados para realizar operaciones matemáticas básicas.
+
+- ` +` (suma): Suma dos números.
+- `-` (resta): Resta el segundo número del primero.
+- `*` (multiplicación): Multiplica dos números.
+- `/` (división): Divide el primer número entre el segundo. Ten en cuenta que el resultado es un número de punto flotante (float).
+- `%` (módulo): Devuelve el resto de una división.
+
+
+```
+suma = 5 + 3  # Resultado: 8
+resta = 5 - 3  # Resultado: 2
+
+x = 10
+y = 5
+multiplicacion = x * y  # Resultado: 50
+
+x = 10
+y = 5
+division = x / y  # Resultado: 2.0
+
+x = 10
+y = 3
+modulo = x % y  # Resultado: 1
+```
+
+**Operadores de Comparación:** Comparan dos valores y devuelven un resultado booleano (True o False).
+
+- `==` (igual a): Comprueba si dos valores son iguales.
+- `!=` (no igual a): Comprueba si dos valores son diferentes.
+- `>` (mayor que): Comprueba si el valor de la izquierda es mayor que el de la derecha.
+- `<` (menor que): Comprueba si el valor de la izquierda es menor que el de la derecha.
+- `>=` (mayor o igual que): Comprueba si el valor de la izquierda es mayor o igual al de la derecha.
+- `<=` (menor o igual que): Comprueba si el valor de la izquierda es menor o igual al de la derecha.
+
+
+```
+a = 5
+b = 5
+resultado = (a == b)  # Resultado: True
+
+a = 5
+b = 3
+resultado = (a != b)  # Resultado: True
+
+a = 5
+b = 3
+resultado = (a > b)  # Resultado: True
+
+a = 3
+b = 5
+resultado = (a < b)  # Resultado: True
+
+a = 5
+b = 5
+resultado = (a >= b)  # Resultado: True
+
+a = 3
+b = 5
+resultado = (a <= b)  # Resultado: True
+```
+
+**Operadores de Asignación:** Se utilizan para asignar un valor a una variable.
+
+- `=` (asignación simple): Asigna el valor de la derecha a la variable de la izquierda.
+- `+=` (asignación y suma): Suma el valor a la variable y luego asigna el resultado a la misma variable. Equivale a x = x + valor. 
+- `-=` (asignación y resta): Resta el valor de la variable y luego asigna el resultado.
+- `*=` (asignación y multiplicación): Multiplica la variable por el valor y luego asigna el resultado a la misma variable.
+- `/=` (asignación y división): Divide la variable por el valor y luego asigna el resultado.
+
+```
+x = 5  # Asigna 5 a la variable x
+
+x = 5
+x += 2  # x ahora es 7
+
+x = 5
+x -= 2  # x ahora es 3
+
+x = 5
+x *= 2  # x ahora es 10
+
+x = 10
+x /= 2  # x ahora es 5.0
+```
+
+**Operadores Lógicos:** Se utilizan para realizar operaciones lógicas entre valores booleanos.
+
+- `and:` Este operador devuelve True si ambas condiciones son verdaderas. Si alguna de las condiciones es falsa, devolverá False.
+- `or:` Este operador devuelve True si al menos una de las condiciones es verdadera. Solo devolverá False si ambas condiciones son falsas.
+- `not:` Este operador invierte el valor de una condición. Si la condición es verdadera, not la convertirá en falsa, y viceversa.
+
+```
+a = True
+b = False
+resultado = a and b  # Resultado: False
+
+
+a = True
+b = False
+resultado = a or b  # Resultado: True
+
+
+a = True
+resultado = not a  # Resultado: False
+```
+
+**operadores de membresia** 
+Estos operadores se utilizan para comprobar si un valor está presente en una secuencia (como listas, tuplas, o cadenas). Los operadores de membresía son:
+
+- `in:` Retorna True si el valor está presente en la secuencia.
+- `not in:` Retorna True si el valor no está presente en la secuencia.
+
+```
+frutas = ['manzana', 'banana', 'naranja']
+print('manzana' in frutas)  # Resultado: True
+print('pera' not in frutas)  # Resultado: True
+```
+**operadores de identidad**
+
+Estos operadores se utilizan para comparar la identidad de dos objetos, es decir, si ambos hacen referencia al mismo objeto en la memoria. Los operadores de identidad son:
+
+- `is:` Retorna True si ambas variables apuntan al mismo objeto.
+- `is not:` Retorna True si ambas variables no apuntan al mismo objeto.
+
+```
+a = [1, 2, 3]
+b = a
+c = list(a)
+
+print(a is b)      # Resultado: True (b es una referencia al mismo objeto que a)
+print(a is c)      # Resultado: False (c es un nuevo objeto en memoria)
+print(a == c)      # Resultado: True (los valores son iguales)
+```
+
