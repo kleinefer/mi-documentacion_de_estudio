@@ -349,3 +349,436 @@ print(a is c)      # Resultado: False (c es un nuevo objeto en memoria)
 print(a == c)      # Resultado: True (los valores son iguales)
 ```
 
+---
+
+## Condicionales
+
+En Python, las estructuras condicionales son fundamentales para controlar el flujo de tu programa y tomar decisiones basadas en condiciones.
+
+### if else
+  se utilizan para ejecutar bloques de código basados en la evaluación de una condición.
+
+```
+hora = 14
+if hora < 12:
+    print("Buenos días.")
+else:
+    print("Buenas tardes.")
+```
+Este código imprimirá "Buenas tardes." porque la condición hora < 12 es falsa.
+
+### if
+ Se utiliza para evaluar una condición. Si la condición es verdadera, se ejecuta el bloque de código correspondiente.
+
+```
+edad = 18
+if edad >= 18:
+    print("Eres mayor de 18 años.")
+```
+Si la condición es verdadera, se ejecuta el bloque que muestra el mensaje "Eres mayor de 18 años."
+
+
+### else
+ Se emplea para ejecutar un bloque de código si la condición del if es falsa.
+
+```
+if edad >= 18:
+    print("Eres mayor de 18 años.")
+else:
+    print("No eres mayor de 18 años.")
+```
+
+Si la condición es falsa, se ejecuta el bloque que muestra el mensaje "No eres mayor de 18 años." 
+
+### elif (else if) 
+Permite agregar múltiples condiciones. Se evalúa solo si las anteriores son falsas.
+
+```
+hora = 10
+if hora < 12:
+    print("Buenos días.")
+elif hora < 18:
+    print("Buenas tardes.")
+else:
+    print("Buenas noches.")
+```
+Si la condición hora `< 12` es verdadera, ejecuta el bloque que imprime "Buenos días." e ignora el resto del código.
+
+###  ciclo while 
+Se utiliza para ejecutar repetidamente un bloque de código mientras una condición específica sea verdadera. 
+
+```
+contador = 0
+while contador < 5:
+    print("El contador es:", contador)
+    contador += 1  # Incrementa el contador
+```
+La respuesta esperada seria: Después de imprimir hasta 4, el bucle se detendrá cuando contador llegue a 5, haciendo que la condición contador `< 5` sea falsa.
+
+```
+El contador es: 0
+El contador es: 1
+El contador es: 2
+El contador es: 3
+El contador es: 4
+
+```
+
+### ciclo for
+Utilizada para iterar sobre una secuencia (como una lista, tupla, diccionario, conjunto o cadena) o un rango de números. 
+
+```
+frutas = ["manzana", "banana". "pera"]
+for fruta in frutas:
+    print(fruta)
+```
+Este imprimira: 
+
+```
+manzana
+banana
+pera
+```
+--- 
+
+## Funciones
+
+Las funciones en programación son bloques de código reutilizables que realizan tareas específicas.
+
+**Características de las funciones**
+
+* **Reutilizables:** Una vez que defines una función, puedes llamarla tantas veces como necesites, lo que evita la repetición de código.
+* **Parámetros:** Pueden aceptar datos de entrada, conocidos como parámetros, que les permiten trabajar con diferentes valores.
+* **Retorno de valores:** Pueden devolver un resultado luego de ejecutar su tarea, lo que permite utilizar el resultado en otras partes del código.
+
+**Sintaxis**
+
+```
+def nombreFuncion():
+    print("Hola mundo")
+```
+Ejemplo:
+
+Esta es una función que indica si el auto esta encendido o apagado
+
+```
+def encender(estado): 
+    if estado == 1:
+        print("El auto ya esta encendido")
+    else:
+        print("Auto encendido")
+
+
+def apagar(estado):
+    if estado == 1:
+        print("Auto apagado")
+    else:
+        print("No se puede apagar, porque ya esta apagado")
+
+encender(1)
+
+```
+Este código imprimirá:
+
+```
+El auto ya esta encendido
+```
+
+**explicación:**
+
+1. Al llamar a encender(1), la variable estado toma el valor 1.
+
+2. Se evalúa la condición `if estado == 1: ` (¿1 == 1?). Como es verdadera (True), ejecuta print("El auto ya esta encendido").
+
+3. El bloque else se ignora por completo.
+
+### Tipos de funciones
+
+* **Funciones nombradas:** Estas son funciones que tienen un nombre específico y se pueden invocar por este nombre. Su uso facilita la comprensión del código. Por ejemplo:
+
+```
+def suma(a, b):
+    return a + b
+```
+* **Funciones anónimas:** También conocidas como "lambda functions", no tienen un nombre y a menudo se utilizan para tareas sencillas. Por ejemplo, en Python, podemos definir una función anónima que suma dos números así:
+
+```
+suma = lambda a, b: a + b
+```
+* **Métodos:** En programación orientada a objetos, las funciones a menudo se definen dentro de una clase y se denominan métodos.
+
+```
+class Calculadora:
+    def sumar(self, a, b):
+        return a + b
+```
+* **Funciones de orden superior:** Son funciones que pueden recibir otras funciones como argumentos o devolver funciones como resultado. Esto permite crear funciones más dinámicas y versátiles.
+
+* **Funciones recursivas:** Son aquellas que se llaman a sí mismas dentro de su definición. Se utilizan para problemas que se pueden dividir en subproblemas más pequeños, como el cálculo de factoriales.
+
+* **Funciones estáticas y de instancia:** En el contexto de la programación orientada a objetos, las funciones pueden ser estáticas, lo que significa que no requieren 
+una instancia de la clase para ser llamadas, o funciones de instancia, que operan sobre instancias específicas de la clase.
+
+---
+
+## Módulos
+
+En Python, los módulos son archivos que contienen definiciones y declaraciones de Python. Permiten organizar el código y reutilizar funciones y clases en diferentes programas.
+
+```
+import nombre_del_modulo
+
+```
+* **Creación de Módulos:**  Un módulo puede ser creado simplemente guardando un archivo con la extensión .py. El archivo puede contener funciones, clases y variables 
+    que pueden ser utilizadas en otros archivos.
+
+* **Uso de Funciones y Clases:** Tras importar un módulo, puedes acceder a sus funciones y clases usando la sintaxis `nombre_del_modulo.nombre_de_la_funcion()`.
+    Módulos Built-in: Python incluye muchos módulos incorporados, como math para funciones matemáticas, os para interactuar con el sistema operativo, y datetime para manejar fechas y horas.
+
+* **Módulos Built-in:** Python incluye muchos módulos incorporados, como math para funciones matemáticas, os para interactuar con el sistema operativo, y datetime para manejar fechas y horas.
+
+* **Módulos de Terceros:** Puedes instalar y usar módulos que no son parte de la biblioteca estándar mediante herramientas como pip. 
+    Por ejemplo, el módulo requests es muy utilizado para realizar solicitudes HTTP.
+
+
+
+```
+# operaciones archivo 1
+
+def sumar(a,b):
+    return a+b 
+
+def multiplicar(a,b,c):
+    return a*b*c
+
+
+# modulos archivo 2
+
+import operaciones
+
+res_sum = operaciones.sumar(10,30)
+    print(res_sum)
+
+res_mult = operaciones.multiplicar(10,20,30)
+    print(res_mult)
+```
+
+:::info
+Es importante que al impotar el módulo, este módulo este dentro de la misma carpeta, de lo contrario debemos colocar la ruta de la carpeta donde este el módulo.
+:::
+
+## Listas
+
+Las listas en Python son estructuras de datos que permiten almacenar múltiples elementos, que pueden ser de tipos variados (números, cadenas, etc.).
+
+
+```
+mi_Lista = ["hola", "como", "estas"]
+
+print(mi_Lista[2])
+```
+### Funciones
+
+* **Creación de Listas:** Se pueden crear utilizando corchetes `[]`
+
+    Por ejemplo: `mi_lista = [1, 2, 3, 4]`
+    
+* **Agregar Elementos:**
+        - Al Final: `Usa append()` Esto agrega un elemento al final de la lista.
+    
+    por ejemplo: `mi_lista.append(5)`
+        - Al Inicio: Usa `insert()`, pasando el índice donde deseas insertar el elemento.
+    
+    por ejemplo: `mi_lista.insert(0, 0)  # Agrega 0 al inicio`
+
+* **Eliminar Elementos:** 
+
+        - Puedes utilizar `remove()` para eliminar un elemento específico.
+
+    por ejemplo: `mi_lista.remove(2)  # Elimina el primer elemento con valor 2`
+
+        - Puedes utilizar `pop()` para eliminar el elemento que este en la posición indicada.
+
+    por ejemplo: `elemento_invalido = mi_lista.pop(3)  # Esto generará un IndexError si la lista no tiene un cuarto elemento.`
+
+* **Ordenar y Revertir:** Puedes ordenar la lista usando `sort()` para ordenarla y `reverse()` para invertir el orden de los elementos.
+
+    por ejemplo: 
+
+    ```
+    mi_lista.sort()  # Ordena la lista
+    mi_lista.reverse()  # Invierte el orden     
+    ```
+
+* **Obtener el Tamaño:** Usa `len()` para obtener la cantidad de elementos en la lista.
+
+    por ejemplo: `tamaño = len(mi_lista)`
+
+* **Acceso a Elementos:** Puedes acceder a un elemento específico utilizando su índice.
+
+    por ejemplo: `primer_elemento = mi_lista[0]`
+
+:::info
+Las listas se cuentan desde cero, es decir que si tengo ["hola", "como", "estas"] cuenta :  0 (hola), 1(como), 2(estas) 
+:::
+
+---
+
+## Tuplas 
+
+Una tupla en Python es una colección ordenada e inmutable de elementos, lo que significa que una vez que se crea, no se puede modificar (no puedes agregar, eliminar o cambiar elementos). 
+
+### Conceptos claves
+
+* **Creación de Tuplas:** Se crean utilizando paréntesis (). 
+
+    por ejemplo: `mi_tupla = (1, 2, 3, 'hola')`
+
+* **Acceso de Elementos:** Puedes acceder a los elementos utilizando índices, similar a las listas
+
+    Por ejemplo: `primer_elemento = mi_tupla[0]  # Devuelve 1`
+
+* **Desempaquetado:** Puedes asignar los elementos de una tupla a variables individuales.
+
+    Por ejemplo: `(nombre, edad, lenguaje) = ('Juan', 25, 'Python')`
+
+* **Longitud de tuplas:** Puedes obtener la longitud de una tupla usando la función `len()`.
+
+    Por ejemplo: `tamaño = len(mi_tupla)  # Devuelve el número de elementos en la tupla`
+
+* **Combinación de tuplas:** Es posible combinar dos o más tuplas creando una nueva.
+
+    Por ejemplo: 
+
+    ```
+    tupla1 = (1, 2, 3)
+    tupla2 = (4, 5, 6)
+    tupla_combinada = tupla1 + tupla2  # Devuelve (1, 2, 3, 4, 5, 6)
+    ```
+
+* **Iteración:** Puedes iterar sobre los elementos de una tupla utilizando un bucle `for`.
+
+    Por ejemplo: `for elemento in mi_tupla: print(elemento)`
+
+* **Comprobación de existencia:** Puedes verificar si un elemento está presente en la tupla utilizando la palabra clave `in`.
+
+    Por ejemplo: `existe = 2 in mi_tupla  # Devuelve True o False`
+
+* **Retornar valores como tuplas:** Retornar valores como tuplas en Python es una técnica útil cuando deseas devolver múltiples resultados desde una función
+
+    Por ejemplo:
+    ```
+    # definir la función
+
+    def coordenadas():
+    x = 10
+    y = 20
+    return x, y  # Retornamos x e y como una tupla
+
+    # llamar la función
+
+    resultado = coordenadas()  # resultado ahora es (10, 20)
+
+    # desempaquetar los valores
+
+    x, y = resultado
+
+    # Mostrar los resultados
+
+    print(f"X: {x}, Y: {y}")  # Muestra X: 10, Y: 20
+
+    ```
+
+:::info
+Las tuplas son útiles cuando necesitas un grupo de elementos que no deben cambiar durante la ejecución de tu programa.
+:::
+
+---
+
+## Diccionarios
+
+
+Un diccionario en Python es una colección desordenada de pares clave-valor.
+
+### Conceptos principales
+
+* **Creación de diccionarios:** Puedes crear un diccionario utilizando llaves `{}` y definiendo las claves y valores.
+
+    Por ejemplo:
+
+```
+mi_diccionario = {
+    'nombre': 'Juan',
+    'edad': 45,
+    'ciudad': 'Madrid'
+}
+```
+
+* **Acceso a valores:** Puedes acceder a los valores utilizando su clave.
+
+    Por ejemplo:
+
+    `print(mi_diccionario['nombre'])  # Muestra 'Juan'``
+
+* **Agregar o modificar elemento:** Puedes agregar nuevos pares clave-valor o modificar un valor existente.
+
+    Por ejemplo:
+    ```
+    mi_diccionario['pais'] = 'España'  # Agrega un nuevo elemento
+    mi_diccionario['edad'] = 50       # Modifica el valor de edad
+    ```
+* **Eliminar elementos:** Para eliminar un par clave-valor, puedes usar el método `pop()`.
+
+    Por ejemplo: `edad_eliminada = mi_diccionario.pop('edad')  # Elimina y devuelve el valor de 'edad'`
+
+* **Verificación de existencia:**  Puedes comprobar si una clave existe en el diccionario con la palabra clave `in`.
+
+    Por ejemplo: `existe = 'nombre' in mi_diccionario  # Devuelve True`
+
+* **Recorrer direcciones:** Utiliza un bucle for para recorrer todos los elementos del diccionario. Puedes obtener tanto la clave como el valor usando el método `items()`.
+
+    Por ejemplo: 
+    
+
+    ```
+    for clave, valor in mi_diccionario.items():
+    print(f'{clave}: {valor}')
+    ```
+
+* **Funciones ùtiles:** Muchos métodos están disponibles para diccionarios, como `keys()` que devuelve todas las claves y `values()` que devuelve todos los valores.
+
+    Ejemplo:
+
+        ```
+        # Creación de diccionario
+
+        persona = {
+            'nombre': 'Juan',
+            'edad': 30,
+            'ciudad': 'Madrid'
+        }
+
+        # obtener claves
+
+        claves = persona.keys()  # Devuelve: dict_keys(['nombre', 'edad', 'ciudad'])
+        print(claves)
+
+        # obtener valores
+
+        valores = persona.values()  # Devuelve: dict_values(['Juan', 30, 'Madrid'])
+        print(valores)
+
+        # imprime tanto las claves como los valores.
+
+        for clave in persona.keys():
+        print(f'Clave: {clave}, Valor: {persona[clave]}')
+
+
+        ```
+
+        Resultado:
+        ```
+        Clave: nombre, Valor: Juan
+        Clave: edad, Valor: 30
+        Clave: ciudad, Valor: Madrid
+        ```
