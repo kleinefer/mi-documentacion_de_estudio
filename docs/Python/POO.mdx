@@ -1,0 +1,197 @@
+---
+sidebar_position: 4
+title: Programación orientada a objetos (POO)
+---
+
+# Programación orientada a objetos
+
+ La programación orientada a objetos (POO) es un paradigma de programación que utiliza "objetos" para representar entidades del mundo real. Python soporta este 
+ enfoque permitiendo el uso de clases y objetos.
+
+ ### Conceptos claves de POO
+
+* **Clase:** Es un plano o plantilla que define las propiedades (atributos) y el comportamiento (métodos) de los objetos. Por ejemplo, si estás programando un 
+sistema para una veterinaria, podrías tener una clase `Mascota` con atributos como nombre, edad, y métodos como `saltar()` o `comer()`.
+
+* **Objeto:** Es una instancia de una clase. Por ejemplo, puedes tener un objeto `mi_perro` que es una instancia de la clase Mascota.
+
+* **Atributos y Métodos:**
+
+    - **Atributos:** Son las características del objeto. Por ejemplo, en la clase Mascota, nombre y edad son atributos.
+    - **Métodos:** Son las acciones que puede realizar un objeto. Por ejemplo, `comer()` podría ser un método que describe la acción de la mascota al alimentarse.
+
+Ejemplo:
+
+Este código define una clase `Mascota`, crea un `objeto mi_perro`, y llama al método `saludar()`, que devuelve un saludo con el nombre y edad de la mascota.
+
+```
+class Mascota:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+    
+    def saludar(self):
+        return f"Hola, soy {self.nombre} y tengo {self.edad} años."
+
+# Crear un objeto de la clase Mascota
+mi_perro = Mascota("Rex", 5)
+
+# Usar un método del objeto
+print(mi_perro.saludar())
+```
+
+:::note
+La programación orientada a objetos facilita la organización y reutilización del código, permitiendo crear programas más estructurados y mantenibles.
+:::
+
+---
+
+## Herencia
+
+La herencia en programación orientada a objetos (POO) es un concepto fundamental que permite que una clase herede atributos y métodos de otra clase. Esto ayuda a 
+establecer relaciones jerárquicas entre clases, facilitando la reutilización de código y la creación de estructuras más organizadas.
+
+### Conceptos claves
+
+* **Clase Padre o SuperClase:** es la clase de la cual se heredan los atributos y métodos. Por ejemplo, puedes tener una clase `vehiculo` que define características
+comunes como `marca` y `modelo`.
+
+* **Clase hija o Subclase:** Es la clase que hereda de la clase padre. puede acceder a todos los atributos y métodos de la clase padre y también puede tener sus propios atributos.
+Por ejemplo, puede tener una clase `Automovil` que hereda de `vehiculo`.
+
+
+### Sintaxis
+
+Para crear una clase hija que herede de una clase padre, la sintaxis es la siguiente:
+
+```
+class ClasePadre:
+    # Constructor y métodos
+
+class ClaseHija(ClasePadre):
+    # Constructor y métodos específicos
+
+```
+
+**Ejemplo Práctico:**
+
+```
+class Vehiculo:
+    def __init__(self, marca, modelo):
+        self.marca = marca
+        self.modelo = modelo
+
+    def conducir(self):
+        print("El vehículo está en movimiento.")
+
+class Automovil(Vehiculo):  # Hereda de Vehiculo
+    def __init__(self, marca, modelo, tipo):
+        super().__init__(marca, modelo)  # Llama al constructor de Vehiculo
+        self.tipo = tipo
+
+    def mostrar_info(self):
+        print(f"Marca: {self.marca}, Modelo: {self.modelo}, Tipo: {self.tipo}")
+
+# Crear un objeto de la clase Automovil
+mi_auto = Automovil("Toyota", "Corolla", "Sedán")
+mi_auto.mostrar_info()  # Muestra la información del automóvil
+mi_auto.conducir()      # Llama al método de la clase padre
+
+```
+
+En este ejemplo, la clase `Automovil` hereda de `Vehiculo`, lo que le permite usar los métodos y atributos de `Vehiculo`. Así, puedes crear jerarquías que 
+reflejen mejor la relación entre las diferentes entidades en la aplicación.
+
+---
+
+## Polimorfismo
+
+El polimorfismo es un concepto fundamental en la programación orientada a objetos que permite a los objetos de diferentes clases ser tratados como objetos de una 
+clase común. Gracias a esto, se puede utilizar el mismo método en diferentes clases y cada uno puede responder de manera diferente según su implementación.
+
+### Conceptos claves
+
+* **Multiples formas:**  El término "polimorfismo" significa que un objeto puede comportarse de múltiples maneras. Por ejemplo, un método `sonido()` puede ser 
+implementado de distinta forma en distintas clases que heredan de una superclase `Animal`.
+
+* **Métodos polimorficos:** Utilizan el mismo nombre de método en diferentes clases, pero cada clase puede tener una implementación diferente. Esto se logra 
+normalmente mediante la herencia y la sobrescritura de métodos.
+
+**Ejemplo:**
+
+En este ejemplo, el método `sonido()` se implementa de manera diferente en las clases `Perro` y `Gato`. Cuando se llama a `hacer_sonido()` con diferentes objetos, se `
+invoca el método `sonido()` correspondiente de cada objeto.
+
+```
+# método 
+class Animal:
+    def hablar(self, sonido):
+       def hablar(self, sonido):
+       print (sonido)
+
+class Perro(Animal):
+    pass
+
+class Gato(Animal):
+    pass
+
+class vaca(Animal):
+    pass
+
+# Crear instancias de las clases
+firulais = perro()
+firulais.hablar("guau") # salida guau
+
+misifu = gato()
+misifu.hablar("Miau")   # salida Miau
+
+vaquita = vaca()
+vaquita.hablar("muu")   # salida muu
+
+```
+
+El polimorfismo promueve la flexibilidad y la extensibilidad en los programas, permitiendo que se agreguen nuevas clases sin necesidad de modificar el 
+código que ya está escrito. 
+
+---
+
+## Encapsulación 
+
+La encapsulación es uno de los principios fundamentales de la programación orientada a objetos (POO) que se refiere a la ocultación de los detalles internos de una 
+clase y la protección de sus atributos. Este concepto asegura que el acceso a los datos de una clase se controle mediante métodos específicos, ayudando a mantener 
+la integridad de los datos y facilitando el mantenimiento del código.
+
+### Conceptos claves
+
+* **Modificadores de acceso:** Utilizamos modificadores como _public, private y protected_ para definir el nivel de acceso a los atributos y métodos de una clase
+
+    - **public:** Los atributos o métodos son accesibles desde cualquier lugar.
+
+    - **private:** Solo son accesibles dentro de la propia clase. Esto es útil para ocultar información crítica.
+
+    - **protected:** Son accesibles solo en la clase misma y en sus subclases.
+
+* **Método Getters y Setters:** Para acceder a atributos privados, se utilizan métodos públicos. Los Getters permiten obtener el valor de un atributo y los Setters permiten modificarlos.
+
+**Ejemplo:**
+En este ejemplo, el atributo __nombre es privado, lo que significa que no puede ser accedido directamente desde fuera de la clase. Los métodos `get_nombre` y `set_nombre` 
+permiten interactuar con este atributo de manera controlada.
+
+```
+class Persona:
+    def __init__(self):
+        self.__nombre = ""  # Atributo privado
+
+    def get_nombre(self):
+        return self.__nombre
+
+    def set_nombre(self, nombre):
+        self.__nombre = nombre
+
+# Crear una instancia de Persona
+persona = Persona()
+persona.set_nombre("Juan")  # Usar el setter para establecer el nombre
+print(persona.get_nombre())  # Usar el getter para obtener el nombre
+```
+
+La encapsulación favorece la protección de los datos de una clase y ayuda a evitar que se modifiquen de forma inesperada, promoviendo así un diseño más robusto y mantenible del software.

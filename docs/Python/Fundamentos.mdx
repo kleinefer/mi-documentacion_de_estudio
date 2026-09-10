@@ -782,3 +782,212 @@ mi_diccionario = {
         Clave: edad, Valor: 30
         Clave: ciudad, Valor: Madrid
         ```
+
+--- 
+
+## conjuntos
+
+En Python, un conjunto es una colección desordenada de elementos únicos. Esto significa que no pueden existir elementos duplicados en un conjunto. Los conjuntos son 
+útiles para realizar operaciones matemáticas, como uniones, intersecciones y diferencias.
+
+### Aspectos claves para la creación de conjuntos
+
+* **Creación de conjunto:** Los conjuntos se crean utilizando llaves `{}` o la función `set()`. 
+   
+    Por ejemplo:
+
+    ```
+    conjunto_vacio = set()  # Conjunto vacío
+    conjunto_con_elementos = {1, 2, 3, 4, 5}  # Conjunto con elementos
+    ```
+
+* **Agregar elementos:** Para agregar un elemento a un conjunto, se utiliza el método `add()`.
+   
+    Por ejemplo: 
+
+    ```
+    conjunto = {1, 2, 3}
+    conjunto.add(4)  # Ahora conjunto es {1, 2, 3, 4}
+    ```
+
+* **Eliminar elementos:** Se puede elimanar un elemento usando el método `remove()`. si el elemento que se intenta eliminar no exista este generara un error.
+
+    Por ejemplo: `conjunto.remove(3)  # Ahora conjunto es {1, 2, 4}`
+
+* **Comprobar elementos:** Para verificar si un elemento esta presente en el conjunto, se usar la declaración `if`
+
+    Por ejemplo:
+
+    ```
+    if 2 in conjunto:
+        print("El 2 está en el conjunto.")
+    else:
+        print("El 2 no esta en el conjunto.")
+    ```
+
+* **Operaciones entre conjuntos:** Los conjuntos permiten hacer varias operaciones entre ellos, para esto se debe:
+
+     :::note
+     Estas operaciones son muy útiles para manipular y analizar colecciones de datos en diversas aplicaciones. 
+     :::
+
+    - **Unión de conjuntos:** La unión se realiza combinando todos los elementos de ambos conjuntos. No se permiten duplicados. Se utiliza el símbolo `|` 
+    o el método `union()`.
+
+    ```
+    conjunto1 = {1, 2, 3}
+    conjunto2 = {3, 4, 5}
+    union = conjunto1 | conjunto2  # o conjunto1.union(conjunto2)
+    # Resultado: {1, 2, 3, 4, 5}
+    ``` 
+    - **Intersección de Conjuntos:** Esta operación devuelve un nuevo conjunto que contiene solamente los elementos que están en ambos conjuntos.Se usa el simbolo `&`
+    o el método `inserction()`.
+
+    ```
+    interseccion = conjunto1 & conjunto2  # o conjunto1.intersection(conjunto2)
+    # Resultado: {3}
+    ```
+
+    - **Diferencia de conjuntos:** La diferencia devuelve un conjunto que contiene los elementos que están en el primer conjunto pero no en el segundo. Utilizas el 
+    símbolo `-` o el método `difference()`.
+
+    ```
+    diferencia = conjunto1 - conjunto2  # o conjunto1.difference(conjunto2)
+    # Resultado: {1, 2}
+    ```
+
+    - **Diferencia simétrica:** Esta operación devuelve el conjunto que contiene los elementos que están en uno de los conjuntos, pero no en ambos. Utiliza el símbolo `^`
+    o el método `symmetric_difference()`.
+
+    ```
+    diferencia_simetrica = conjunto1 ^ conjunto2  # o conjunto1.symmetric_difference(conjunto2)
+    # Resultado: {1, 2, 4, 5}
+    ```
+   
+:::info
+Los conjuntos son desordenados, lo que significa que no hay garantía de que el orden de los elementos se mantenga. Además, no permiten duplicados.
+:::
+---
+
+## Archivos
+
+En Python, puedes trabajar con archivos de diferentes maneras utilizando funciones y métodos incorporados.
+
+### tipos de archivos y sus modos de operación
+
+* **Abrir Archivos:** Utilizas la función `open()` para acceder a un archivo. Puedes especificar el modo de acceso:
+
+    - **'r':** Modo lectura (abre un archivo existente para leer su contenido). Si el archivo no existe, genera un error.
+    - **'w':** Modo escritura (crea un archivo nuevo o trunca uno existente).
+    - **'a':** Modo append (agrega contenido a un archivo existente, y si no existe, lo crea).
+    - **'r+':** Modo lectura y escritura (abre un archivo para leer y escribir).
+    - **'b':** Modo binario (utilizado para archivos no textuales).
+
+    Ejemplo: 
+
+    ```
+    archivo = open("mi_archivo.txt", "r")
+    contenido = archivo.read()
+    archivo.close()
+    ```
+* **Usar la sentencia with:** Es recomendable usar la sentencia `with` para abrir archivos, ya que se asegura de que el archivo se cierre automáticamente después 
+de que se complete la operación. Esto evita tener que usar `close()` manualmente.
+
+    Ejemplo: 
+
+    ```
+    with open("mi_archivo.txt", "r") as archivo:
+        contenido = archivo.read()
+        print(contenido)
+    ```
+
+* **Manejo de Archivos CSV y JSON:** Al igual que los archivos de texto, puedes trabajar con archivos CSV y JSON en Python. Para archivos CSV puedes usar el módulo 
+`csv` y para JSON, el módulo `json`.
+
+    ejemplo: 
+    ```
+    import csv
+
+    with open('usuarios.csv', mode='r') as archivo_csv:
+    lector_csv = csv.reader(archivo_csv)
+    
+    # Saltar el encabezado
+    next(lector_csv)
+
+    for fila in lector_csv:
+        nombre, edad = fila
+        print(f'Nombre: {nombre}, Edad: {edad}')
+    ```
+
+    ```
+    import json
+
+    with open('data.json', 'r') as archivo_json:
+    datos = json.load(archivo_json)
+
+    for usuario in datos['usuarios']:
+        nombre = usuario['nombre']
+        edad = usuario['edad']
+        print(f'Nombre: {nombre}, Edad: {edad}')
+    ```
+
+* **Lectura y Escritura de Archivos:** Puedes leer todo el contenido del archivo mediante `read()` o línea por línea usando `readline()` o `readlines()`. 
+Para escribir, se usa `write()` o `writelines()`.
+
+    Ejemplo: Supongamos que se quiere crear un archivo de texto llamado ejemplo.txt y escribir en él:
+
+    ```
+    # Escribir en un archivo
+    with open('ejemplo.txt', 'w') as archivo:
+        archivo.write("Hola, este es un texto escrito desde Python.
+    ")
+        archivo.write("Esta es una segunda línea de texto.
+    ")
+    ```
+    Después de escribir en el archivo, puedes leer el contenido de esta manera:
+
+    ```
+    # Leer el archivo
+    with open('ejemplo.txt', 'r') as archivo:
+    contenido = archivo.read()
+    print(contenido)
+    ```
+
+    - Si deseas agregar más texto sin eliminar el contenido existente, puedes usar el modo append 'a':
+
+    ```
+    # Adjuntar texto al archivo
+    with open('ejemplo.txt', 'a') as archivo:
+        archivo.write("Esta es una nueva línea de texto adicional.
+    ")
+    ```
+
+ La ejecución completa de este codigo seria este: 
+
+ ```
+ # Escribir en un archivo
+with open('ejemplo.txt', 'w') as archivo:
+    archivo.write("Hola, este es un texto escrito desde Python.
+")
+    archivo.write("Esta es una segunda línea de texto.
+")
+
+# Leer el archivo
+with open('ejemplo.txt', 'r') as archivo:
+    contenido = archivo.read()
+    print("Contenido inicial del archivo:")
+    print(contenido)
+
+# Adjuntar texto al archivo
+with open('ejemplo.txt', 'a') as archivo:
+    archivo.write("Esta es una nueva línea de texto adicional.
+")
+
+# Leer el archivo nuevamente para ver los cambios
+with open('ejemplo.txt', 'r') as archivo:
+    contenido_actualizado = archivo.read()
+    print("Contenido actualizado del archivo:")
+    print(contenido_actualizado)
+ ```
+
+ 
